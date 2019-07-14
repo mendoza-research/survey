@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import NavButton from "./../common/NavButton";
 
 class Task1Instructions extends Component {
   render() {
@@ -51,9 +51,7 @@ class Task1Instructions extends Component {
           </li>
         </ol>
 
-        <NavLink className="btn-nav" to="/task1/select-procedures">
-          Next
-        </NavLink>
+        <NavButton to="/task1/select-procedures" />
       </div>
     );
   }

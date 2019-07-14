@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import NavButton from "../common/NavButton";
 
 class Intro extends Component {
   render() {
@@ -12,9 +12,7 @@ class Intro extends Component {
 
         <p>Please click next to begin Task 1.</p>
 
-        <NavLink className="btn-nav" to="/task1/instructions">
-          Next
-        </NavLink>
+        <NavButton to="/task1/instructions" />
       </div>
     );
   }

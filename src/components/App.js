@@ -10,20 +10,22 @@ class App extends Component {
     return (
       <Router>
         <Header />
-        <div className="content">
-          <Switch>
-            <Route component={Intro} exact path="/" />
-            <Route
-              component={Task1Instructions}
-              exact
-              path="/task1/instructions"
-            />
-            <Route
-              component={Task1SelectProcedures}
-              exact
-              path="/task1/select-procedures"
-            />
-          </Switch>
+        <div id="content-wrapper">
+          <div id="content">
+            <Switch>
+              <Route component={Intro} exact path="/" />
+              <Route
+                component={Task1Instructions}
+                exact
+                path="/task1/instructions"
+              />
+              <Route
+                component={Task1SelectProcedures}
+                exact
+                path="/task1/select-procedures"
+              />
+            </Switch>
+          </div>
         </div>
       </Router>
     );

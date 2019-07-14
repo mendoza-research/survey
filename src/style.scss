@@ -8,9 +8,20 @@ html {
   }
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   line-height: 1.8;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -24,8 +35,15 @@ a {
   border-bottom: 1px solid #eee;
 }
 
-.content {
+#content-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+#content {
   width: 1000px;
+  padding: 30px 0 80px 0;
   margin: 0 auto;
 }
 
@@ -45,6 +63,8 @@ a {
 
 .option-box {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
 /* Base for label styling */
@@ -74,6 +94,7 @@ a {
   border-radius: 4px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
@@ -83,9 +104,8 @@ a {
   left: 0.22em;
   font-size: 1.3em;
   line-height: 0.8;
-  color: #1abc9c;
+  color: #5dade2;
   transition: all 0.2s;
-  font-family: "Lucida Sans Unicode", "Arial Unicode MS", Arial;
 }
 /* checked mark aspect changes */
 [type="checkbox"]:not(:checked) + label:after {
@@ -98,16 +118,14 @@ a {
 }
 
 [type="checkbox"]:checked + label {
-  color: #1abc9c;
+  color: #5dade2;
 }
 
-/* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-  // border: 2px solid #a3e4d7;
+[type="checkbox"]:checked + label:before {
+  border: 2px solid #aed6f1;
 }
 
 /* hover style just for information */
 label:hover:before {
-  border: 2px solid #a3e4d7 !important;
+  border: 2px solid #aed6f1 !important;
 }

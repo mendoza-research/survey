@@ -1,7 +1,32 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import NavButton from "./../common/NavButton";
+import Checkbox from "../common/Checkbox";
 
 class Task1SelectProcedures extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      "read-textbook": false,
+      "take-notes": false,
+      "participate-every-class": false,
+      "study-for-exams": false
+    };
+
+    this.onCheckboxChange = this.onCheckboxChange.bind(this);
+  }
+
+  onCheckboxChange(event) {
+    this.setState(
+      {
+        [event.target.id]: !this.state[event.target.id]
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  }
+
   render() {
     return (
       <div>
@@ -17,22 +42,29 @@ class Task1SelectProcedures extends Component {
         </p>
 
         <div className="checklist">
-          <div className="option-box">
-            <input type="checkbox" id="option-read-textbook" />
-            <label for="option-read-textbook">
-              Read the textbook chapters before they are covered in class.
-            </label>
-          </div>
-
-          <div className="option-box">
-            <input type="checkbox" id="option-take-notes" />
-            <label for="option-take-notes">Take notes during class</label>
-          </div>
+          <Checkbox
+            id="read-textbook"
+            text="Read the textbook chapters before they are covered in class"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="take-notes"
+            text="Take notes during class"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="participate-every-class"
+            text="Participate in every class"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="study-for-exams"
+            text="Study for the midterm and final exam"
+            onChange={this.onCheckboxChange}
+          />
         </div>
 
-        <NavLink className="btn-nav" to="/task1/select-procedures">
-          Next
-        </NavLink>
+        <NavButton to="/task1/select-procedures" />
       </div>
     );
   }
