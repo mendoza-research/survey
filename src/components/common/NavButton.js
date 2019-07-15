@@ -1,15 +1,30 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class NavButton extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  async onClick() {
+    const { history, beforeNavigate, to } = this.props;
+
+    if (beforeNavigate) {
+      await beforeNavigate();
+    }
+
+    history.push(to);
+  }
+
   render() {
-    const { to } = this.props;
     return (
-      <NavLink className="btn-nav" to={to}>
+      <div className="btn-nav" onClick={this.onClick}>
         Next
-      </NavLink>
+      </div>
     );
   }
 }
 
-export default NavButton;
+export default withRouter(NavButton);
