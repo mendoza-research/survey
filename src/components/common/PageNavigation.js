@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-class NavButton extends Component {
+class PageNavigation extends Component {
   constructor(props) {
     super(props);
 
@@ -20,11 +20,13 @@ class NavButton extends Component {
 
   render() {
     return (
-      <div className="btn-nav" onClick={this.onClick}>
-        Next
+      <div className="page-navigation">
+        <div id="btn-next" className="btn-nav" onClick={this.onClick}>
+          Next
+        </div>
       </div>
     );
   }
 }
 
-export default withRouter(NavButton);
+export default withRouter(PageNavigation);

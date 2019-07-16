@@ -8,6 +8,8 @@ html {
   }
 }
 
+@import "./common.scss";
+
 html,
 body,
 #root {
@@ -47,13 +49,19 @@ a {
   margin: 0 auto;
 }
 
+.page-navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .btn-nav {
   font-size: 1rem;
-  display: inline-block;
+  display: block;
   background-color: #ebf5fb;
-  color: #2e86c1;
+  color: $primary-color;
+  margin-top: 20px;
   border: 1px solid #d6eaf8;
-  padding: 12px 25px;
+  padding: 20px 40px;
   border-radius: 3px;
 
   &:hover {
@@ -61,10 +69,21 @@ a {
   }
 }
 
+.checklist {
+  padding: 30px 0 20px 0;
+  border: 1px solid #eee;
+  border-left: none;
+  border-right: none;
+}
+
 .option-box {
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+
+  label {
+    color: #444;
+  }
 }
 
 /* Base for label styling */

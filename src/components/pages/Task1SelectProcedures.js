@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NavButton from "./../common/NavButton";
+import PageNavigation from "./../common/PageNavigation";
 import Checkbox from "../common/Checkbox";
-import firebase from "../../firebase/firebase";
+import SurveyContext from "../../context/SurveyContext";
 
 class Task1SelectProcedures extends Component {
   constructor(props) {
@@ -11,11 +11,24 @@ class Task1SelectProcedures extends Component {
       "read-textbook": false,
       "take-notes": false,
       "participate-every-class": false,
-      "study-for-exams": false
+      "study-for-exams": false,
+      "do-homework": false,
+      "follow-news": false,
+      "try-textbook-problems": false,
+      "hire-tutor": false,
+      "print-slides-to-class": false,
+      "review-lecture-slides": false,
+      "do-practice-exams": false,
+      "visit-office-hours": false,
+      "attend-every-class": false
     };
 
     this.onCheckboxChange = this.onCheckboxChange.bind(this);
     this.saveResults = this.saveResults.bind(this);
+  }
+
+  componentDidMount() {
+    this.context.setPageTitle("Task 1 - Select Procedures");
   }
 
   onCheckboxChange(event) {
@@ -25,7 +38,9 @@ class Task1SelectProcedures extends Component {
   }
 
   async saveResults() {
-    await firebase.db.collection("responses").add(this.state);
+    await this.context.docRef.update({
+      task1procedures: this.state
+    });
   }
 
   render() {
@@ -63,15 +78,62 @@ class Task1SelectProcedures extends Component {
             text="Study for the midterm and final exam"
             onChange={this.onCheckboxChange}
           />
+          <Checkbox
+            id="do-homework"
+            text="Do the homework for all chapters"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="follow-news"
+            text="Follow news articles online regarding current topics covered in class"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="try-textbook-problems"
+            text="Try all the problems at the back of the textbook"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="hire-tutor"
+            text="Hire a tutor"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="print-slides-to-class"
+            text="Print the instructor’s slides and bring to class"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="review-lecture-slides"
+            text="Review lecture slides after class"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="do-practice-exams"
+            text="Do the practice exams without referencing the answer key"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="visit-office-hours"
+            text="Visit the instructor’s office hours each week to work through questions"
+            onChange={this.onCheckboxChange}
+          />
+          <Checkbox
+            id="attend-every-class"
+            text="Attend every class"
+            onChange={this.onCheckboxChange}
+          />
         </div>
 
-        <NavButton
+        <PageNavigation
           beforeNavigate={this.saveResults}
-          to="/task1/select-procedures"
+          to="/task1/questions-part1"
         />
       </div>
     );
   }
 }
+
+Task1SelectProcedures.contextType = SurveyContext;
 
 export default Task1SelectProcedures;

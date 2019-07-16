@@ -6,7 +6,6 @@ class Header extends Component {
     return (
       <SurveyContext.Consumer>
         {values => {
-          console.log(values);
           return (
             <div id="header">
               <div>{values.pageTitle}</div>

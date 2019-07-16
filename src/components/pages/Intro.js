@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import NavButton from "../common/NavButton";
+import PageNavigation from "../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
 
 class Intro extends Component {
+  componentDidMount() {
+    this.context.setPageTitle("Introduction");
+  }
+
   render() {
     return (
       <SurveyContext.Consumer>
@@ -16,7 +20,7 @@ class Intro extends Component {
 
               <p>Please click next to begin Task 1.</p>
 
-              <NavButton to="/task1/instructions" />
+              <PageNavigation to="/task1/instructions" />
             </div>
           );
         }}
@@ -24,5 +28,7 @@ class Intro extends Component {
     );
   }
 }
+
+Intro.contextType = SurveyContext;
 
 export default Intro;
