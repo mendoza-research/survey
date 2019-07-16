@@ -1,11 +1,19 @@
 import React, { Component } from "react";
+import SurveyContext from "../context/SurveyContext";
 
 class Header extends Component {
   render() {
     return (
-      <div id="header">
-        <div>Header Component</div>
-      </div>
+      <SurveyContext.Consumer>
+        {values => {
+          console.log(values);
+          return (
+            <div id="header">
+              <div>{values.pageTitle}</div>
+            </div>
+          );
+        }}
+      </SurveyContext.Consumer>
     );
   }
 }

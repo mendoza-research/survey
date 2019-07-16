@@ -4,15 +4,23 @@ import Header from "./Header";
 import Intro from "./pages/Intro";
 import Task1Instructions from "./pages/Task1Instructions";
 import Task1SelectProcedures from "./pages/Task1SelectProcedures";
-import firebase, { FirebaseContext } from "./../firebase";
-
-const SurveyContext = React.createContext(null);
+import SurveyContext from "./../context/SurveyContext";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pageTitle: "Page Title 333",
+      userId: "abcdef"
+    };
+  }
+
   render() {
     return (
       <Router>
-        <FirebaseContext.Provider value={{ firebase }}>
+        <SurveyContext.Provider
+          value={{ userId: "TEST_USER", pageTitle: "Page Title" }}
+        >
           <Header />
           <div id="content-wrapper">
             <div id="content">
@@ -31,7 +39,7 @@ class App extends Component {
               </Switch>
             </div>
           </div>
-        </FirebaseContext.Provider>
+        </SurveyContext.Provider>
       </Router>
     );
   }

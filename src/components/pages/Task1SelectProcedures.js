@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import NavButton from "./../common/NavButton";
 import Checkbox from "../common/Checkbox";
-import { FirebaseContext } from "../../firebase";
+import firebase from "../../firebase/firebase";
 
 class Task1SelectProcedures extends Component {
-  static contextType = FirebaseContext;
-
   constructor(props) {
     super(props);
 
@@ -17,23 +15,17 @@ class Task1SelectProcedures extends Component {
     };
 
     this.onCheckboxChange = this.onCheckboxChange.bind(this);
-  }
-
-  componentDidMount() {
-    this.firebase = this.context;
-
-    console.log(this.firebase.firebase.db);
+    this.saveResults = this.saveResults.bind(this);
   }
 
   onCheckboxChange(event) {
-    this.setState(
-      {
-        [event.target.id]: !this.state[event.target.id]
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      [event.target.id]: !this.state[event.target.id]
+    });
+  }
+
+  async saveResults() {
+    await firebase.db.collection("responses").add(this.state);
   }
 
   render() {
@@ -74,13 +66,7 @@ class Task1SelectProcedures extends Component {
         </div>
 
         <NavButton
-          beforeNavigate={async () => {
-            console.log(this);
-            console.log(this.firebase);
-            await this.firebase.firebase.db
-              .collection("responses")
-              .add(this.state);
-          }}
+          beforeNavigate={this.saveResults}
           to="/task1/select-procedures"
         />
       </div>
