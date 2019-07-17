@@ -7,12 +7,16 @@ import Task1SelectProcedures from "./pages/Task1SelectProcedures";
 import SurveyContext from "./../context/SurveyContext";
 import firebase from "./../firebase/firebase";
 import Task1QuestionsPart1 from "./pages/Task1QuestionsPart1";
+import Task1QuestionsPart2 from "./pages/Task1QuestionsPart2";
+import Task1QuestionsPart3 from "./pages/Task1QuestionsPart3";
+import Task1QuestionsPart4 from "./pages/Task1QuestionsPart4";
+import Task1Outro from "./pages/Task1Outro";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageTitle: "Page Title 333",
+      pageTitle: "",
       userId: "TEST_USER",
       docRef: null
     };
@@ -56,18 +60,34 @@ class App extends Component {
                 <Route
                   component={Task1Instructions}
                   exact
-                  path="/task1/instructions"
+                  path="/task/1/instructions"
                 />
                 <Route
                   component={Task1SelectProcedures}
                   exact
-                  path="/task1/select-procedures"
+                  path="/task/1/select-procedures"
                 />
                 <Route
                   component={Task1QuestionsPart1}
                   exact
-                  path="/task1/questions-part1"
+                  path="/task/1/questions/1"
                 />
+                <Route
+                  component={Task1QuestionsPart2}
+                  exact
+                  path="/task/1/questions/2"
+                />
+                <Route
+                  component={Task1QuestionsPart3}
+                  exact
+                  path="/task/1/questions/3"
+                />
+                <Route
+                  component={Task1QuestionsPart4}
+                  exact
+                  path="/task/1/questions/4"
+                />
+                <Route component={Task1Outro} exact path="/task/1/outro" />
               </Switch>
             </div>
           </div>

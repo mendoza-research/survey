@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import ReactTooltip from "react-tooltip";
+const classNames = require("classnames");
 
 class PageNavigation extends Component {
   constructor(props) {
@@ -9,7 +11,9 @@ class PageNavigation extends Component {
   }
 
   async onClick() {
-    const { history, beforeNavigate, to } = this.props;
+    const { history, disabled, beforeNavigate, to } = this.props;
+
+    if (disabled) return;
 
     if (beforeNavigate) {
       await beforeNavigate();
@@ -19,12 +23,27 @@ class PageNavigation extends Component {
   }
 
   render() {
+    const { disabled, disabledMsg } = this.props;
+
+    const btnClassStr = classNames({
+      "btn-nav": true,
+      disabled: disabled
+    });
+
     return (
-      <div className="page-navigation">
-        <div id="btn-next" className="btn-nav" onClick={this.onClick}>
-          Next
+      <React.Fragment>
+        <div className="page-navigation">
+          <div
+            id="btn-next"
+            className={btnClassStr}
+            data-tip={disabled ? disabledMsg : null}
+            onClick={this.onClick}
+          >
+            Next
+          </div>
         </div>
-      </div>
+        <ReactTooltip />
+      </React.Fragment>
     );
   }
 }

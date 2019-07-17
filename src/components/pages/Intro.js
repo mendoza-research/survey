@@ -20,7 +20,7 @@ class Intro extends Component {
 
               <p>Please click next to begin Task 1.</p>
 
-              <PageNavigation to="/task1/instructions" />
+              <PageNavigation to="/task/1/instructions" />
             </div>
           );
         }}

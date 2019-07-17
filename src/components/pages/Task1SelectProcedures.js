@@ -39,7 +39,7 @@ class Task1SelectProcedures extends Component {
 
   async saveResults() {
     await this.context.docRef.update({
-      task1procedures: this.state
+      "task1.procedures": this.state
     });
   }
 
@@ -127,7 +127,7 @@ class Task1SelectProcedures extends Component {
 
         <PageNavigation
           beforeNavigate={this.saveResults}
-          to="/task1/questions-part1"
+          to="/task/1/questions/1"
         />
       </div>
     );

@@ -56,7 +56,7 @@ class Task1Instructions extends Component {
           </li>
         </ol>
 
-        <PageNavigation to="/task1/select-procedures" />
+        <PageNavigation to="/task/1/select-procedures" />
       </div>
     );
   }
