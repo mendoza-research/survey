@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SurveyContext from "../../context/SurveyContext";
-import RangeBar from "../common/RangeBar";
+import RangeSlider from "../common/RangeSlider";
 import PageNavigation from "../common/PageNavigation";
 
 class Task1QuestionsPart4 extends Component {
@@ -8,15 +8,14 @@ class Task1QuestionsPart4 extends Component {
     super(props);
 
     this.state = {
-      "be-in-automobile-accident": null,
-      "becoming-divorced": null,
-      "becoming-depressed": null,
-      "develop-drinking-problem": null,
-      "being-mugged": null
+      "be-in-automobile-accident": 0,
+      "becoming-divorced": 0,
+      "becoming-depressed": 0,
+      "develop-drinking-problem": 0,
+      "being-mugged": 0
     };
 
     this.onChange = this.onChange.bind(this);
-    this.canSubmit = this.canSubmit.bind(this);
     this.saveResults = this.saveResults.bind(this);
   }
 
@@ -24,10 +23,6 @@ class Task1QuestionsPart4 extends Component {
     this.setState({
       [id]: value
     });
-  }
-
-  canSubmit() {
-    return Object.values(this.state).every(v => v !== null);
   }
 
   async saveResults() {
@@ -45,67 +40,57 @@ class Task1QuestionsPart4 extends Component {
           experience each of the following events:
         </p>
 
-        <RangeBar
+        <RangeSlider
           id="be-in-automobile-accident"
           text="Being in an automobile accident"
           min={-50}
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="becoming-divorced"
           text="Becoming divorced"
           min={-50}
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="becoming-depressed"
           text="Becoming depressed"
           min={-50}
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="develop-drinking-problem"
           text="Developing a drinking problem"
           min={-50}
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="being-mugged"
           text="Being mugged"
           min={-50}
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
-          step={10}
           onChange={this.onChange}
         />
 
-        <PageNavigation
-          disabled={!this.canSubmit()}
-          disabledMsg="Please fill out all required fields"
-          beforeNavigate={this.saveResults}
-          to="/task/1/outro"
-        />
+        <PageNavigation beforeNavigate={this.saveResults} to="/task/1/outro" />
       </div>
     );
   }

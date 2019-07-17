@@ -26,36 +26,6 @@ class Task1Instructions extends Component {
           possible options.
         </p>
 
-        <p>
-          On the class’s syllabus, the class professor mentions several
-          procedures that a student could (should) perform in order to earn a
-          grade of a B or higher. The syllabus states:
-        </p>
-
-        <p>
-          To reach the goal of obtaining a B in my course, students could
-          (should) perform the following procedures, for example:
-        </p>
-
-        <ol>
-          <li>
-            The student could (should) read the textbook chapters before they
-            are covered in class,
-          </li>
-          <li>The student could (should) take notes during class,</li>
-          <li>The student could (should) participate in every class, </li>
-          <li>
-            The student could (should) study for the midterm and final exam,
-          </li>
-          <li>
-            The student could (should) do the homework for all chapters, and
-          </li>
-          <li>
-            The student could (should) follow news articles online regarding
-            current topics covered in class.
-          </li>
-        </ol>
-
         <PageNavigation to="/task/1/select-procedures" />
       </div>
     );

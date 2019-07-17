@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 const _ = require("lodash");
-const classNames = require("classnames");
 
-class RangeBar extends Component {
+class RangeSlider extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       value: null
     };
+
+    this.setValue = this.setValue.bind(this);
   }
 
   setValue(value) {
@@ -20,30 +23,27 @@ class RangeBar extends Component {
   }
 
   render() {
-    const { min, minLabel, max, maxLabel, step, text, marks } = this.props;
+    const { min, minLabel, max, maxLabel, text, customMarks } = this.props;
 
-    const generatedMarks = marks ? marks : _.range(min, max + 0.001, step);
+    const markPoints = _.range(min, max + 0.001, 10);
+
+    // Generate marks
+    const marks = customMarks
+      ? customMarks
+      : _.zipObject(markPoints, markPoints);
 
     return (
       <div className="range-bar-wrapper">
         <p className="text">{text}</p>
         <div className="range-bar">
-          {generatedMarks.map(v => {
-            const classStr = classNames({
-              "box-checkmark": true,
-              "is-checked": this.state.value === v
-            });
-
-            return (
-              <div
-                key={v}
-                className={classStr}
-                onClick={() => this.setValue(v)}
-              >
-                {v}
-              </div>
-            );
-          })}
+          <Slider
+            min={min}
+            max={max}
+            step={1}
+            marks={marks}
+            onChange={this.setValue}
+            defaultValue={0}
+          />
         </div>
         <div className="range-labels">
           <div className="label-min">{minLabel ? `← ${minLabel}` : " "}</div>
@@ -55,4 +55,4 @@ class RangeBar extends Component {
   }
 }
 
-export default RangeBar;
+export default RangeSlider;

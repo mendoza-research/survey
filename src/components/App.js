@@ -11,6 +11,8 @@ import Task1QuestionsPart2 from "./pages/Task1QuestionsPart2";
 import Task1QuestionsPart3 from "./pages/Task1QuestionsPart3";
 import Task1QuestionsPart4 from "./pages/Task1QuestionsPart4";
 import Task1Outro from "./pages/Task1Outro";
+import ScrollToTop from "./common/ScrollToTop";
+import Task2Instructions from "./pages/Task2Instructions";
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +34,6 @@ class App extends Component {
         userId: this.state.userId
       })
       .then(docRef => {
-        console.log(docRef);
         this.setState({ docRef });
       })
       .catch(error =>
@@ -49,49 +50,56 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <SurveyContext.Provider
-          value={{ ...this.state, setPageTitle: this.setPageTitle }}
-        >
-          <Header />
-          <div id="content-wrapper">
-            <div id="content">
-              <Switch>
-                <Route component={Intro} exact path="/" />
-                <Route
-                  component={Task1Instructions}
-                  exact
-                  path="/task/1/instructions"
-                />
-                <Route
-                  component={Task1SelectProcedures}
-                  exact
-                  path="/task/1/select-procedures"
-                />
-                <Route
-                  component={Task1QuestionsPart1}
-                  exact
-                  path="/task/1/questions/1"
-                />
-                <Route
-                  component={Task1QuestionsPart2}
-                  exact
-                  path="/task/1/questions/2"
-                />
-                <Route
-                  component={Task1QuestionsPart3}
-                  exact
-                  path="/task/1/questions/3"
-                />
-                <Route
-                  component={Task1QuestionsPart4}
-                  exact
-                  path="/task/1/questions/4"
-                />
-                <Route component={Task1Outro} exact path="/task/1/outro" />
-              </Switch>
+        <ScrollToTop>
+          <SurveyContext.Provider
+            value={{ ...this.state, setPageTitle: this.setPageTitle }}
+          >
+            <Header />
+            <div id="content-wrapper">
+              <div id="content">
+                <Switch>
+                  <Route component={Intro} exact path="/" />
+                  <Route
+                    component={Task1Instructions}
+                    exact
+                    path="/task/1/instructions"
+                  />
+                  <Route
+                    component={Task1SelectProcedures}
+                    exact
+                    path="/task/1/select-procedures"
+                  />
+                  <Route
+                    component={Task1QuestionsPart1}
+                    exact
+                    path="/task/1/questions/1"
+                  />
+                  <Route
+                    component={Task1QuestionsPart2}
+                    exact
+                    path="/task/1/questions/2"
+                  />
+                  <Route
+                    component={Task1QuestionsPart3}
+                    exact
+                    path="/task/1/questions/3"
+                  />
+                  <Route
+                    component={Task1QuestionsPart4}
+                    exact
+                    path="/task/1/questions/4"
+                  />
+                  <Route component={Task1Outro} exact path="/task/1/outro" />
+                  <Route
+                    component={Task2Instructions}
+                    exact
+                    path="/task/2/instructions"
+                  />
+                </Switch>
+              </div>
             </div>
-          </div>
-        </SurveyContext.Provider>
+          </SurveyContext.Provider>
+        </ScrollToTop>
       </Router>
     );
   }

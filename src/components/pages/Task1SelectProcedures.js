@@ -37,6 +37,10 @@ class Task1SelectProcedures extends Component {
     });
   }
 
+  canSubmit() {
+    return Object.values(this.state).some(v => v === true);
+  }
+
   async saveResults() {
     await this.context.docRef.update({
       "task1.procedures": this.state
@@ -46,6 +50,36 @@ class Task1SelectProcedures extends Component {
   render() {
     return (
       <div>
+        <p>
+          On the class’s syllabus, the class professor mentions several
+          procedures that a student could (should) perform in order to earn a
+          grade of a B or higher. The syllabus states:
+        </p>
+
+        <p>
+          To reach the goal of obtaining a B in my course, students could
+          (should) perform the following procedures, for example:
+        </p>
+
+        <ol>
+          <li>
+            The student could (should) read the textbook chapters before they
+            are covered in class,
+          </li>
+          <li>The student could (should) take notes during class,</li>
+          <li>The student could (should) participate in every class, </li>
+          <li>
+            The student could (should) study for the midterm and final exam,
+          </li>
+          <li>
+            The student could (should) do the homework for all chapters, and
+          </li>
+          <li>
+            The student could (should) follow news articles online regarding
+            current topics covered in class.
+          </li>
+        </ol>
+
         <p>
           You will now select the procedures, from the options listed below,
           that you would perform while enrolled in the class.
@@ -126,6 +160,8 @@ class Task1SelectProcedures extends Component {
         </div>
 
         <PageNavigation
+          disabled={!this.canSubmit()}
+          disabledMsg="Please select at least one procedure"
           beforeNavigate={this.saveResults}
           to="/task/1/questions/1"
         />

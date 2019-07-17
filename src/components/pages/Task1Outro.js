@@ -15,7 +15,7 @@ class Task1Outro extends Component {
           next to begin Task 2.
         </p>
 
-        <PageNavigation to="/task/1/outro" />
+        <PageNavigation to="/task/2/instructions" />
       </div>
     );
   }

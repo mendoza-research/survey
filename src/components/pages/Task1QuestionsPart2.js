@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SurveyContext from "../../context/SurveyContext";
-import RangeBar from "../common/RangeBar";
+import RangeSlider from "../common/RangeSlider";
 import PageNavigation from "../common/PageNavigation";
 
 class Task1QuestionsPart2 extends Component {
@@ -8,15 +8,14 @@ class Task1QuestionsPart2 extends Component {
     super(props);
 
     this.state = {
-      "complete-schoolwork-promptly": null,
-      "attend-all-classes": null,
-      "spend-more-time-at-the-library": null,
-      "be-prepared-for-tests": null,
-      "increase-motivation": null
+      "complete-schoolwork-promptly": 0,
+      "attend-all-classes": 0,
+      "spend-more-time-at-the-library": 0,
+      "be-prepared-for-tests": 0,
+      "increase-motivation": 0
     };
 
     this.onChange = this.onChange.bind(this);
-    this.canSubmit = this.canSubmit.bind(this);
     this.saveResults = this.saveResults.bind(this);
   }
 
@@ -24,10 +23,6 @@ class Task1QuestionsPart2 extends Component {
     this.setState({
       [id]: value
     });
-  }
-
-  canSubmit() {
-    return Object.values(this.state).every(v => v !== null);
   }
 
   async saveResults() {
@@ -46,64 +41,57 @@ class Task1QuestionsPart2 extends Component {
           Please indicate how enjoyable each strategy would be to carry out.
         </p>
 
-        <RangeBar
+        <RangeSlider
           id="complete-schoolwork-promptly"
           text="Complete schoolwork promptly"
           min={-50}
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="attend-all-classes"
           text="Attend all classes"
           min={-50}
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="spend-more-time-at-the-library"
           text="Spend more time at the library"
           min={-50}
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="be-prepared-for-tests"
           text="Be prepared for tests"
           min={-50}
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
-          step={10}
           onChange={this.onChange}
         />
 
-        <RangeBar
+        <RangeSlider
           id="increase-motivation"
           text="Increase motivation to earn high GPA"
           min={-50}
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
-          step={10}
           onChange={this.onChange}
         />
 
         <PageNavigation
-          disabled={!this.canSubmit()}
-          disabledMsg="Please fill out all required fields"
           beforeNavigate={this.saveResults}
           to="/task/1/questions/3"
         />
