@@ -43,6 +43,12 @@ class Task2Instructions extends Component {
           your task will be to count the following:
         </p>
 
+        <StringBlock
+          string={exampleStrs[1].string}
+          top={exampleStrs[1].top}
+          bottom={exampleStrs[1].bottom}
+        />
+
         <p>
           Work as quickly and as accurately as you can. Type in your response
           using the keys labeled 4 through 7 on the keyboard.
@@ -50,7 +56,7 @@ class Task2Instructions extends Component {
 
         <p>If you are ready to begin, click next.</p>
 
-        <PageNavigation to="/task/1/select-procedures" />
+        <PageNavigation to="/task/2/instructions" />
       </div>
     );
   }

@@ -30,6 +30,10 @@ a {
   text-decoration: none;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 #header {
   font-size: 0.9rem;
   text-align: center;
@@ -159,16 +163,16 @@ label:hover:before {
 }
 
 /*
-  Range bar
+  Range slider
 */
-.range-bar-wrapper {
+.range-slider-wrapper {
   padding: 25px 0;
 
   .text {
     margin-bottom: 20px;
   }
 
-  .range-bar {
+  .range-slider {
     padding-bottom: 20px;
   }
 
@@ -176,5 +180,17 @@ label:hover:before {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+  }
+}
+
+.string-block {
+  display: flex;
+  font-size: 16px;
+
+  .character-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 20px;
   }
 }

@@ -33,9 +33,9 @@ class RangeSlider extends Component {
       : _.zipObject(markPoints, markPoints);
 
     return (
-      <div className="range-bar-wrapper">
+      <div className="range-slider-wrapper">
         <p className="text">{text}</p>
-        <div className="range-bar">
+        <div className="range-slider">
           <Slider
             min={min}
             max={max}
