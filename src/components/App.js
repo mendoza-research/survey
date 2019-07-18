@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./Header";
 import Intro from "./pages/Intro";
 import Task1Instructions from "./pages/Task1Instructions";
 import Task1SelectProcedures from "./pages/Task1SelectProcedures";
@@ -22,8 +21,6 @@ class App extends Component {
       userId: "TEST_USER",
       docRef: null
     };
-
-    this.setPageTitle = this.setPageTitle.bind(this);
   }
 
   // Create a new document in database for the current user
@@ -41,12 +38,6 @@ class App extends Component {
       );
   }
 
-  setPageTitle(pageTitle) {
-    this.setState({
-      pageTitle
-    });
-  }
-
   render() {
     return (
       <Router>
@@ -54,7 +45,6 @@ class App extends Component {
           <SurveyContext.Provider
             value={{ ...this.state, setPageTitle: this.setPageTitle }}
           >
-            <Header />
             <div id="content-wrapper">
               <div id="content">
                 <Switch>

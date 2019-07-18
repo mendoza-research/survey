@@ -3,10 +3,6 @@ import PageNavigation from "../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
 
 class Intro extends Component {
-  componentDidMount() {
-    this.context.setPageTitle("Introduction");
-  }
-
   render() {
     return (
       <SurveyContext.Consumer>

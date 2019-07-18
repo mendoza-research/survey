@@ -17,10 +17,6 @@ const exampleStrs = [
 ];
 
 class Task2Instructions extends Component {
-  componentDidMount() {
-    this.context.setPageTitle("Task 2 - Instructions");
-  }
-
   render() {
     return (
       <div>

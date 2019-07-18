@@ -3,10 +3,6 @@ import PageNavigation from "../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
 
 class Task1Instructions extends Component {
-  componentDidMount() {
-    this.context.setPageTitle("Task 1 - Instructions");
-  }
-
   render() {
     return (
       <div>

@@ -27,10 +27,6 @@ class Task1SelectProcedures extends Component {
     this.saveResults = this.saveResults.bind(this);
   }
 
-  componentDidMount() {
-    this.context.setPageTitle("Task 1 - Select Procedures");
-  }
-
   onCheckboxChange(event) {
     this.setState({
       [event.target.id]: !this.state[event.target.id]

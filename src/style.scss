@@ -10,20 +10,9 @@ html {
 
 @import "./common.scss";
 
-html,
-body,
-#root {
-  height: 100%;
-}
-
 body {
   font-size: 1rem;
   line-height: 1.8;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
 }
 
 a {
@@ -34,22 +23,9 @@ a {
   visibility: hidden;
 }
 
-#header {
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 12px;
-  border-bottom: 1px solid #eee;
-}
-
-#content-wrapper {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-}
-
 #content {
-  width: 1000px;
-  padding: 30px 0 80px 0;
+  width: 900px;
+  padding: 50px 0 80px 0;
   margin: 0 auto;
 }
 
@@ -186,6 +162,7 @@ label:hover:before {
 .string-block {
   display: flex;
   font-size: 16px;
+  font-weight: 500;
 
   .character-box {
     display: flex;

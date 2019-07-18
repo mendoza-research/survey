@@ -20,10 +20,6 @@ class Task1QuestionsPart1 extends Component {
     this.saveResults = this.saveResults.bind(this);
   }
 
-  componentDidMount() {
-    this.context.setPageTitle("Task 1 - Questions");
-  }
-
   onChange(id, value) {
     this.setState({
       [id]: value
