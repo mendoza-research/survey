@@ -8,12 +8,17 @@ class Task1QuestionsPart1 extends Component {
     super(props);
 
     this.state = {
-      "how-well": 0,
-      "how-likely-to-pass": 0,
-      "what-grade": 0,
-      "how-difficult-earn-b-or-higher": 0,
-      "how-useful-professor-advice": 0,
-      "how-much-discretion": 0
+      startTime: null,
+      endTime: null,
+      duration: null,
+      data: {
+        "how-well": 0,
+        "how-likely-to-pass": 0,
+        "what-grade": 0,
+        "how-difficult-earn-b-or-higher": 0,
+        "how-useful-professor-advice": 0,
+        "how-much-discretion": 0
+      }
     };
 
     this.onChange = this.onChange.bind(this);
@@ -27,9 +32,7 @@ class Task1QuestionsPart1 extends Component {
   }
 
   async saveResults() {
-    await this.context.docRef.update({
-      "task1.questions1": this.state
-    });
+    await this.context.addUserResponse("task1.questions1", this.state);
   }
 
   render() {

@@ -29,7 +29,11 @@ class StringBlock extends Component {
       );
     }
 
-    return <div className="string-block">{charBoxes}</div>;
+    return (
+      <div className="string-block-wrapper">
+        <div className="string-block">{charBoxes}</div>
+      </div>
+    );
   }
 }
 

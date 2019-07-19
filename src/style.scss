@@ -43,6 +43,7 @@ a {
   border: 1px solid #d6eaf8;
   padding: 20px 40px;
   border-radius: 3px;
+  cursor: pointer;
 
   &:hover {
     background-color: #d6eaf8;
@@ -50,7 +51,9 @@ a {
 
   &.disabled,
   &.disabled:hover {
-    opacity: 0.6;
+    color: #aaa;
+    background-color: #ddd;
+    border-color: #ccc;
     cursor: not-allowed;
   }
 }
@@ -159,15 +162,29 @@ label:hover:before {
   }
 }
 
-.string-block {
+.string-block-wrapper {
   display: flex;
-  font-size: 16px;
-  font-weight: 500;
+  justify-content: center;
 
-  .character-box {
+  .string-block {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 700;
+
+    .character-box {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding: 10px 20px;
+
+      .top {
+        margin-bottom: -4px;
+      }
+
+      .bottom {
+        margin-top: 2px;
+      }
+    }
   }
 }

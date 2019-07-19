@@ -19,12 +19,32 @@ class App extends Component {
     this.state = {
       pageTitle: "",
       userId: "TEST_USER",
-      docRef: null
+      docRef: null,
+      response: {}
     };
+
+    this.addUserResponse = this.addUserResponse.bind(this);
+    this.submitUserResponse = this.submitUserResponse.bind(this);
   }
 
   // Create a new document in database for the current user
-  async componentDidMount() {
+  async componentDidMount() {}
+
+  addUserResponse(partName, data) {
+    this.setState(
+      {
+        response: {
+          ...this.state.response,
+          [partName]: data
+        }
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  }
+
+  async submitUserResponse() {
     await firebase.db
       .collection("responses")
       .add({
@@ -43,7 +63,12 @@ class App extends Component {
       <Router>
         <ScrollToTop>
           <SurveyContext.Provider
-            value={{ ...this.state, setPageTitle: this.setPageTitle }}
+            value={{
+              ...this.state,
+              setPageTitle: this.setPageTitle,
+              addUserResponse: this.addUserResponse,
+              submitUserResponse: this.submitUserResponse
+            }}
           >
             <div id="content-wrapper">
               <div id="content">

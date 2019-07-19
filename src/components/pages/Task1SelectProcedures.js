@@ -8,19 +8,24 @@ class Task1SelectProcedures extends Component {
     super(props);
 
     this.state = {
-      "read-textbook": false,
-      "take-notes": false,
-      "participate-every-class": false,
-      "study-for-exams": false,
-      "do-homework": false,
-      "follow-news": false,
-      "try-textbook-problems": false,
-      "hire-tutor": false,
-      "print-slides-to-class": false,
-      "review-lecture-slides": false,
-      "do-practice-exams": false,
-      "visit-office-hours": false,
-      "attend-every-class": false
+      startTime: null,
+      endTime: null,
+      duration: null,
+      data: {
+        "read-textbook": false,
+        "take-notes": false,
+        "participate-every-class": false,
+        "study-for-exams": false,
+        "do-homework": false,
+        "follow-news": false,
+        "try-textbook-problems": false,
+        "hire-tutor": false,
+        "print-slides-to-class": false,
+        "review-lecture-slides": false,
+        "do-practice-exams": false,
+        "visit-office-hours": false,
+        "attend-every-class": false
+      }
     };
 
     this.onCheckboxChange = this.onCheckboxChange.bind(this);
@@ -38,9 +43,7 @@ class Task1SelectProcedures extends Component {
   }
 
   async saveResults() {
-    await this.context.docRef.update({
-      "task1.procedures": this.state
-    });
+    await this.context.addUserResponse("task1.procedures", this.state);
   }
 
   render() {

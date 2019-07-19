@@ -3,10 +3,6 @@ import PageNavigation from "../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
 
 class Task1Outro extends Component {
-  componentDidMount() {
-    this.context.setPageTitle("Task 1");
-  }
-
   render() {
     return (
       <div>
