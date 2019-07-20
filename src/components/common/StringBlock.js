@@ -9,7 +9,7 @@ class StringBlock extends Component {
 
     for (let i = 0; i < string.length; i++) {
       charBoxes.push(
-        <div className="character-box">
+        <div key={i} className="character-box">
           <div className="top">
             {top[i] > 0 ? (
               _.times(top[i], () => "'")

@@ -3,6 +3,40 @@ import PageNavigation from "../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
 
 class Task1Instructions extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      startTime: null,
+      endTime: null,
+      duration: null
+    };
+
+    this.saveResults = this.saveResults.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      startTime: new Date()
+    });
+  }
+
+  async saveResults() {
+    const endTime = new Date();
+    const duration = (endTime - this.state.startTime) / 1000;
+
+    this.setState(
+      {
+        startTime: this.state.startTime.toISOString(),
+        endTime: endTime.toISOString(),
+        duration
+      },
+      async () => {
+        await this.context.addUserResponse("task1.instructions", this.state);
+      }
+    );
+  }
+
   render() {
     return (
       <div>
@@ -22,7 +56,10 @@ class Task1Instructions extends Component {
           possible options.
         </p>
 
-        <PageNavigation to="/task/1/select-procedures" />
+        <PageNavigation
+          beforeNavigate={this.saveResults}
+          to="/task/1/select-procedures"
+        />
       </div>
     );
   }

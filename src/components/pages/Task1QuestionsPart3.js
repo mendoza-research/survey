@@ -8,27 +8,51 @@ class Task1QuestionsPart3 extends Component {
     super(props);
 
     this.state = {
-      "be-in-automobile-accident": 0,
-      "becoming-divorced": 0,
-      "becoming-depressed": 0,
-      "develop-drinking-problem": 0,
-      "being-mugged": 0
+      startTime: null,
+      endTime: null,
+      duration: null,
+      data: {
+        "be-in-automobile-accident": 0,
+        "becoming-divorced": 0,
+        "becoming-depressed": 0,
+        "develop-drinking-problem": 0,
+        "being-mugged": 0
+      }
     };
 
     this.onChange = this.onChange.bind(this);
     this.saveResults = this.saveResults.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      startTime: new Date()
+    });
+  }
+
   onChange(id, value) {
     this.setState({
-      [id]: value
+      data: {
+        ...this.state.data,
+        [id]: value
+      }
     });
   }
 
   async saveResults() {
-    await this.context.docRef.update({
-      "task1.questions3": this.state
-    });
+    const endTime = new Date();
+    const duration = (endTime - this.state.startTime) / 1000;
+
+    this.setState(
+      {
+        startTime: this.state.startTime.toISOString(),
+        endTime: endTime.toISOString(),
+        duration
+      },
+      async () => {
+        await this.context.addUserResponse("task1.questions3", this.state);
+      }
+    );
   }
 
   render() {

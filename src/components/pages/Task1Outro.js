@@ -3,6 +3,40 @@ import PageNavigation from "../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
 
 class Task1Outro extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      startTime: null,
+      endTime: null,
+      duration: null
+    };
+
+    this.saveResults = this.saveResults.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      startTime: new Date()
+    });
+  }
+
+  async saveResults() {
+    const endTime = new Date();
+    const duration = (endTime - this.state.startTime) / 1000;
+
+    this.setState(
+      {
+        startTime: this.state.startTime.toISOString(),
+        endTime: endTime.toISOString(),
+        duration
+      },
+      async () => {
+        await this.context.addUserResponse("task1.outro", this.state);
+      }
+    );
+  }
+
   render() {
     return (
       <div>
@@ -11,7 +45,10 @@ class Task1Outro extends Component {
           next to begin Task 2.
         </p>
 
-        <PageNavigation to="/task/2/instructions" />
+        <PageNavigation
+          beforeNavigate={this.saveResults}
+          to="/task/2/instructions"
+        />
       </div>
     );
   }

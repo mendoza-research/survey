@@ -17,6 +17,40 @@ const exampleStrs = [
 ];
 
 class Task2Instructions extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      startTime: null,
+      endTime: null,
+      duration: null
+    };
+
+    this.saveResults = this.saveResults.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      startTime: new Date()
+    });
+  }
+
+  async saveResults() {
+    const endTime = new Date();
+    const duration = (endTime - this.state.startTime) / 1000;
+
+    this.setState(
+      {
+        startTime: this.state.startTime.toISOString(),
+        endTime: endTime.toISOString(),
+        duration
+      },
+      async () => {
+        await this.context.addUserResponse("task2.instructions", this.state);
+      }
+    );
+  }
+
   render() {
     return (
       <div>
@@ -52,7 +86,10 @@ class Task2Instructions extends Component {
 
         <p>If you are ready to begin, click next.</p>
 
-        <PageNavigation to="/task/2/instructions" />
+        <PageNavigation
+          beforeNavigate={this.saveResults}
+          to="/task/2/instructions"
+        />
       </div>
     );
   }

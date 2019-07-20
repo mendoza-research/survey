@@ -25,14 +25,35 @@ class Task1QuestionsPart1 extends Component {
     this.saveResults = this.saveResults.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      startTime: new Date()
+    });
+  }
+
   onChange(id, value) {
     this.setState({
-      [id]: value
+      data: {
+        ...this.state.data,
+        [id]: value
+      }
     });
   }
 
   async saveResults() {
-    await this.context.addUserResponse("task1.questions1", this.state);
+    const endTime = new Date();
+    const duration = (endTime - this.state.startTime) / 1000;
+
+    this.setState(
+      {
+        startTime: this.state.startTime.toISOString(),
+        endTime: endTime.toISOString(),
+        duration
+      },
+      async () => {
+        await this.context.addUserResponse("task1.questions1", this.state);
+      }
+    );
   }
 
   render() {

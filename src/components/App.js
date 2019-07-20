@@ -17,9 +17,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageTitle: "",
-      userId: "TEST_USER",
-      docRef: null,
       response: {}
     };
 
@@ -65,7 +62,6 @@ class App extends Component {
           <SurveyContext.Provider
             value={{
               ...this.state,
-              setPageTitle: this.setPageTitle,
               addUserResponse: this.addUserResponse,
               submitUserResponse: this.submitUserResponse
             }}
