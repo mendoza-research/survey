@@ -86,10 +86,7 @@ class Task2Instructions extends Component {
 
         <p>If you are ready to begin, click next.</p>
 
-        <PageNavigation
-          beforeNavigate={this.saveResults}
-          to="/task/2/instructions"
-        />
+        <PageNavigation beforeNavigate={this.saveResults} to="/task/2/quiz" />
       </div>
     );
   }
