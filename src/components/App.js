@@ -13,6 +13,8 @@ import Task1Outro from "./pages/Task1Outro";
 import ScrollToTop from "./common/ScrollToTop";
 import Task2Instructions from "./pages/Task2Instructions";
 import Task2Quiz from "./pages/Task2Quiz";
+import Task2WordsPurpose from "./pages/Task2WordsPurpose";
+import Task2WordRecallQuestions from "./pages/Task2WordRecallQuestions";
 
 class App extends Component {
   constructor(props) {
@@ -108,6 +110,16 @@ class App extends Component {
                     path="/task/2/instructions"
                   />
                   <Route component={Task2Quiz} exact path="/task/2/quiz" />
+                  <Route
+                    component={Task2WordsPurpose}
+                    exact
+                    path="/task/2/words-purpose"
+                  />
+                  <Route
+                    component={Task2WordRecallQuestions}
+                    exact
+                    path="/task/2/word-recall-questions"
+                  />
                 </Switch>
               </div>
             </div>

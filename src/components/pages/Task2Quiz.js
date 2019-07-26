@@ -13,6 +13,7 @@ function sleep(ms) {
 const SHOW_STRING = "SHOW_STRING";
 const SHOW_BLANK_SCREEN = "SHOW_BLANK_SCREEN";
 const SHOW_WORD = "SHOW_WORD";
+const answerKeys = ["4", "5", "6", "7"];
 
 class Task2Quiz extends Component {
   constructor(props) {
@@ -44,6 +45,10 @@ class Task2Quiz extends Component {
     this.bindKeys();
   }
 
+  componentWillUnmount() {
+    this.unbindKeys();
+  }
+
   async saveResults() {
     const endTime = new Date();
     const duration = (endTime - this.state.startTime) / 1000;
@@ -66,9 +71,7 @@ class Task2Quiz extends Component {
   }
 
   bindKeys() {
-    const keys = ["4", "5", "6", "7"];
-
-    keys.forEach(key => {
+    answerKeys.forEach(key => {
       Mousetrap.bind(key, e => {
         e.preventDefault();
 
@@ -78,6 +81,12 @@ class Task2Quiz extends Component {
 
         this.handleKeypress(key);
       });
+    });
+  }
+
+  unbindKeys() {
+    answerKeys.forEach(key => {
+      Mousetrap.unbind(key);
     });
   }
 
@@ -127,7 +136,7 @@ class Task2Quiz extends Component {
         // If the last index, save results and move to next page
         else {
           await this.saveResults();
-          this.props.history.push("/task/2/instructions");
+          this.props.history.push("/task/2/words-purpose");
         }
 
         console.log(this.state.data);
