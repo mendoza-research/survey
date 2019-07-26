@@ -3,6 +3,9 @@ import PageNavigation from "./../common/PageNavigation";
 import Checkbox from "../common/Checkbox";
 import SurveyContext from "../../context/SurveyContext";
 
+const CONDITION_COULD = "could";
+const CONDITION_SHOULD = "should";
+
 class Task1SelectProcedures extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +14,7 @@ class Task1SelectProcedures extends Component {
       startTime: null,
       endTime: null,
       duration: null,
+      experimentCondition: null,
       data: {
         "read-textbook": false,
         "take-notes": false,
@@ -34,7 +38,9 @@ class Task1SelectProcedures extends Component {
 
   componentDidMount() {
     this.setState({
-      startTime: new Date()
+      startTime: new Date(),
+      experimentCondition:
+        Math.random() < 0.5 ? CONDITION_COULD : CONDITION_SHOULD
     });
   }
 
@@ -68,12 +74,14 @@ class Task1SelectProcedures extends Component {
   }
 
   render() {
+    const { experimentCondition } = this.state;
+
     return (
       <div>
         <p>
           On the class’s syllabus, the class professor mentions several
-          procedures that a student could (should) perform in order to earn a
-          grade of a B or higher. The syllabus states:
+          procedures that a student {experimentCondition} perform in order to
+          earn a grade of a B or higher. The syllabus states:
         </p>
 
         <p>
@@ -83,20 +91,24 @@ class Task1SelectProcedures extends Component {
 
         <ol>
           <li>
-            The student could (should) read the textbook chapters before they
-            are covered in class,
+            The student {experimentCondition} read the textbook chapters before
+            they are covered in class,
           </li>
-          <li>The student could (should) take notes during class,</li>
-          <li>The student could (should) participate in every class, </li>
+          <li>The student {experimentCondition} take notes during class,</li>
           <li>
-            The student could (should) study for the midterm and final exam,
-          </li>
-          <li>
-            The student could (should) do the homework for all chapters, and
+            The student {experimentCondition} participate in every class,{" "}
           </li>
           <li>
-            The student could (should) follow news articles online regarding
-            current topics covered in class.
+            The student {experimentCondition} study for the midterm and final
+            exam,
+          </li>
+          <li>
+            The student {experimentCondition} do the homework for all chapters,
+            and
+          </li>
+          <li>
+            The student {experimentCondition} follow news articles online
+            regarding current topics covered in class.
           </li>
         </ol>
 

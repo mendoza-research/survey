@@ -75,7 +75,7 @@ class Task2Quiz extends Component {
       Mousetrap.bind(key, e => {
         e.preventDefault();
 
-        if (this.isKeyPressed) {
+        if (this.isKeyPressed || this.state.displayMode !== SHOW_STRING) {
           return;
         }
 

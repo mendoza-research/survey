@@ -15,6 +15,7 @@ import Task2Instructions from "./pages/Task2Instructions";
 import Task2Quiz from "./pages/Task2Quiz";
 import Task2WordsPurpose from "./pages/Task2WordsPurpose";
 import Task2WordRecallQuestions from "./pages/Task2WordRecallQuestions";
+import PostExperimentalQuestions from "./pages/PostExperimentalQuestions";
 
 class App extends Component {
   constructor(props) {
@@ -119,6 +120,11 @@ class App extends Component {
                     component={Task2WordRecallQuestions}
                     exact
                     path="/task/2/word-recall-questions"
+                  />
+                  <Route
+                    component={PostExperimentalQuestions}
+                    exact
+                    path="/post-experimental-questions"
                   />
                 </Switch>
               </div>
