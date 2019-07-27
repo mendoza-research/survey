@@ -1,2 +1,13 @@
 $primary-color: #2e86c1;
 $border-color: #aed6f1;
+$light-background-color: #ebf5fb;
+
+@mixin input-style {
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 20px 25px;
+  box-sizing: border-box;
+  color: $primary-color;
+  border: 1px solid $border-color;
+  background-color: lighten($border-color, 17%);
+}

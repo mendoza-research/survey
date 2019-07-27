@@ -16,27 +16,36 @@ import Task2Quiz from "./pages/Task2Quiz";
 import Task2WordsPurpose from "./pages/Task2WordsPurpose";
 import Task2WordRecallQuestions from "./pages/Task2WordRecallQuestions";
 import PostExperimentalQuestions from "./pages/PostExperimentalQuestions";
+import GeneralQuestions from "./pages/GeneralQuestions";
+import Outro from "./pages/Outro";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: {}
+      startTime: null,
+      endTime: null,
+      duration: null,
+      pages: {}
     };
 
     this.addUserResponse = this.addUserResponse.bind(this);
     this.submitUserResponse = this.submitUserResponse.bind(this);
+    this.getUserResponse = this.getUserResponse.bind(this);
   }
 
-  // Create a new document in database for the current user
-  async componentDidMount() {}
+  componentDidMount() {
+    this.setState({
+      startTime: new Date()
+    });
+  }
 
-  addUserResponse(partName, data) {
+  addUserResponse(pageName, data) {
     this.setState(
       {
-        response: {
-          ...this.state.response,
-          [partName]: data
+        pages: {
+          ...this.state.pages,
+          [pageName]: data
         }
       },
       () => {
@@ -45,18 +54,30 @@ class App extends Component {
     );
   }
 
+  getUserResponse() {
+    return this.state;
+  }
+
   async submitUserResponse() {
-    await firebase.db
-      .collection("responses")
-      .add({
-        userId: this.state.userId
-      })
-      .then(docRef => {
-        this.setState({ docRef });
-      })
-      .catch(error =>
-        console.error("Error creating a firebase document: ", error)
-      );
+    const endTime = new Date();
+    const duration = (endTime - this.state.startTime) / 1000;
+
+    this.setState(
+      {
+        startTime: this.state.startTime.toISOString(),
+        endTime: endTime.toISOString(),
+        duration
+      },
+      async () => {
+        await firebase.db
+          .collection("responses")
+          .add(this.state)
+          .then(console.log("Submit complete"))
+          .catch(error =>
+            console.error("Error creating a firebase document: ", error)
+          );
+      }
+    );
   }
 
   render() {
@@ -67,7 +88,8 @@ class App extends Component {
             value={{
               ...this.state,
               addUserResponse: this.addUserResponse,
-              submitUserResponse: this.submitUserResponse
+              submitUserResponse: this.submitUserResponse,
+              getUserResponse: this.getUserResponse
             }}
           >
             <div id="content-wrapper">
@@ -126,6 +148,12 @@ class App extends Component {
                     exact
                     path="/post-experimental-questions"
                   />
+                  <Route
+                    component={GeneralQuestions}
+                    exact
+                    path="/general-questions"
+                  />
+                  <Route component={Outro} exact path="/outro" />
                 </Switch>
               </div>
             </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 const _ = require("lodash");
+const className = require("classnames");
 
 class RangeSlider extends Component {
   constructor(props) {
@@ -40,6 +41,10 @@ class RangeSlider extends Component {
     const defaultValue = min + (max - min) / 2;
 
     const markPoints = _.range(min, max + 0.001, markStep);
+    const labelWrapperClassStr = className({
+      "range-labels": true,
+      "has-center-label": Boolean(centerLabel)
+    });
 
     // Generate marks
     const marks = customMarks
@@ -48,7 +53,7 @@ class RangeSlider extends Component {
 
     return (
       <div className="range-slider-wrapper">
-        <p className="text">{text}</p>
+        {text && <p className="text">{text}</p>}
         <div className="range-slider">
           <Slider
             min={min}
@@ -59,10 +64,10 @@ class RangeSlider extends Component {
             defaultValue={defaultValue}
           />
         </div>
-        <div className="range-labels">
-          <div className="label-min">{minLabel ? `← ${minLabel}` : " "}</div>
+        <div className={labelWrapperClassStr}>
+          <div className="label-min">{minLabel ? minLabel : " "}</div>
           {centerLabel && <div className="label-center">{centerLabel}</div>}
-          <div className="label-max">{maxLabel ? `${maxLabel} →` : " "}</div>
+          <div className="label-max">{maxLabel ? maxLabel : " "}</div>
         </div>
       </div>
     );

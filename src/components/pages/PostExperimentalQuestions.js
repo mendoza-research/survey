@@ -12,13 +12,13 @@ class PostExperimentalQuestions extends Component {
       endTime: null,
       duration: null,
       data: {
-        "how-motivated": 0,
-        "focus-accuracy-or-speed": 0,
-        "how-accurate": 0,
-        "performance-satisfaction": 0,
-        "right-strategy": 0,
-        "enjoy-task": 0,
-        "attention-check": 0
+        "how-motivated": 50,
+        "focus-accuracy-or-speed": 50,
+        "how-accurate": 50,
+        "performance-satisfaction": 50,
+        "right-strategy": 50,
+        "enjoy-task": 50,
+        "attention-check": 50
       }
     };
 
@@ -98,9 +98,7 @@ class PostExperimentalQuestions extends Component {
           id="how-accurate"
           text="For how many of the 56 strings of p's and d's do you think you accurately counted the number of d's with two apostrophes?"
           min={0}
-          minLabel="0"
           max={56}
-          maxLabel="56"
           markStep={8}
           onChange={this.onChange}
         />
@@ -149,7 +147,7 @@ class PostExperimentalQuestions extends Component {
 
         <PageNavigation
           beforeNavigate={this.saveResults}
-          to="/task/1/questions/2"
+          to="/general-questions"
         />
       </div>
     );

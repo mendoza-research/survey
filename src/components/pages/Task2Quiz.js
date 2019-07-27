@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import SurveyContext from "../../context/SurveyContext";
 import StringBlock from "../common/StringBlock";
-import quizStrings from "../../data/task2_strings_test.json";
+import quizStrings from "../../data/task2_strings.json";
 
 const Mousetrap = require("mousetrap");
 
