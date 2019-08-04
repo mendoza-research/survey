@@ -1,0 +1,121 @@
+[debug] [2019-08-03T13:53:15.108Z] ----------------------------------------------------------------------
+[debug] [2019-08-03T13:53:15.111Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\subwa\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2019-08-03T13:53:15.111Z] CLI Version:   6.10.0
+[debug] [2019-08-03T13:53:15.111Z] Platform:      win32
+[debug] [2019-08-03T13:53:15.111Z] Node Version:  v10.15.3
+[debug] [2019-08-03T13:53:15.113Z] Time:          Sat Aug 03 2019 22:53:15 GMT+0900 (GMT+09:00)
+[debug] [2019-08-03T13:53:15.113Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-03T13:53:15.124Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-03T13:53:15.125Z] > authorizing via signed-in user
+[debug] [2019-08-03T13:53:15.127Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/kimendoz-survey  
+ 
+[debug] [2019-08-03T13:53:16.098Z] <<< HTTP RESPONSE 200
+[info] i  Starting emulators: ["functions"]
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-08-03T13:53:16.131Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/817593294657:getServerAppConfig  
+ 
+[debug] [2019-08-03T13:53:16.838Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions" for Cloud Functions...
+[debug] [2019-08-03T13:53:17.415Z] Functions runtime initialized.
+[debug] [2019-08-03T13:53:17.415Z] Disabled runtime features: undefined
+[debug] [2019-08-03T13:53:18.468Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-03T13:53:18.468Z] Outgoing network have been stubbed.
+[debug] [2019-08-03T13:53:18.630Z] Checked functions.config()
+[debug] [2019-08-03T13:53:18.948Z] firebase-admin has been stubbed.
+[info] i  functions: HTTP trigger initialized at http://localhost:5001/kimendoz-survey/us-central1/addMessage
+[debug] [2019-08-03T13:53:39.041Z] Accepted request GET /kimendoz-survey/us-central1/addMessage --> addMessage
+[debug] [2019-08-03T13:53:39.552Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "addMessage"
+[debug] [2019-08-03T13:53:39.553Z] Disabled runtime features: undefined
+[debug] [2019-08-03T13:53:40.505Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-03T13:53:40.505Z] Outgoing network have been stubbed.
+[debug] [2019-08-03T13:53:40.688Z] Checked functions.config()
+[debug] [2019-08-03T13:53:41.005Z] firebase-admin has been stubbed.
+[debug] [2019-08-03T13:53:41.010Z] Trigger "addMessage" has been found, beginning invocation!
+[debug] [2019-08-03T13:53:41.010Z] 
+[debug] [2019-08-03T13:53:41.010Z] Running addMessage in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-08-03T13:53:41.018Z] {"socketPath":"\\\\?\\pipe\\C:\\Users\\subwa\\Downloads\\react-projects\\mendoza-survey\\functions\\43744"}
+[debug] [2019-08-03T13:53:41.020Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\C:\\Users\\subwa\\Downloads\\react-projects\\mendoza-survey\\functions\\43744"}
+[debug] [2019-08-03T13:53:41.026Z] Ephemeral server used!
+[debug] [2019-08-03T13:53:41.032Z] Ephemeral server survived.
+[info] i  functions: Finished "addMessage" in ~1s
+[debug] [2019-08-04T02:28:25.721Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-04T02:28:27.390Z] Functions runtime initialized.
+[debug] [2019-08-04T02:28:27.391Z] Disabled runtime features: undefined
+[debug] [2019-08-04T02:28:27.480Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-04T02:28:28.515Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-04T02:28:28.515Z] Outgoing network have been stubbed.
+[debug] [2019-08-04T02:28:28.715Z] Checked functions.config()
+[debug] [2019-08-04T02:28:29.023Z] Functions runtime initialized.
+[debug] [2019-08-04T02:28:29.024Z] Disabled runtime features: undefined
+[debug] [2019-08-04T02:28:29.056Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-04T02:28:29.993Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-04T02:28:29.993Z] Outgoing network have been stubbed.
+[debug] [2019-08-04T02:28:30.154Z] Checked functions.config()
+[debug] [2019-08-04T02:28:30.481Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-04T02:32:31.518Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-04T02:32:33.075Z] Functions runtime initialized.
+[debug] [2019-08-04T02:32:33.076Z] Disabled runtime features: undefined
+[debug] [2019-08-04T02:32:34.049Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-04T02:32:34.049Z] Outgoing network have been stubbed.
+[debug] [2019-08-04T02:32:34.214Z] Checked functions.config()
+[debug] [2019-08-04T02:32:34.530Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-04T02:33:01.780Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-04T02:33:03.292Z] Functions runtime initialized.
+[debug] [2019-08-04T02:33:03.293Z] Disabled runtime features: undefined
+[debug] [2019-08-04T02:33:04.227Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-04T02:33:04.227Z] Outgoing network have been stubbed.
+[debug] [2019-08-04T02:33:04.390Z] Checked functions.config()
+[debug] [2019-08-04T02:33:04.702Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-04T02:33:08.328Z] Accepted request GET /kimendoz-survey/us-central1/addMessage --> addMessage
+[debug] [2019-08-04T02:33:08.862Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "addMessage"
+[debug] [2019-08-04T02:33:08.863Z] Disabled runtime features: undefined
+[debug] [2019-08-04T02:33:09.809Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-04T02:33:09.809Z] Outgoing network have been stubbed.
+[debug] [2019-08-04T02:33:09.971Z] Checked functions.config()
+[debug] [2019-08-04T02:33:10.294Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-04T02:33:10.300Z] Trigger "addMessage" has been found, beginning invocation!
+[debug] [2019-08-04T02:33:10.300Z] 
+[debug] [2019-08-04T02:33:10.300Z] Running addMessage in mode HTTPS
+[debug] [2019-08-04T02:33:10.307Z] {"socketPath":"\\\\?\\pipe\\C:\\Users\\subwa\\Downloads\\react-projects\\mendoza-survey\\functions\\43068"}
+[debug] [2019-08-04T02:33:10.309Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\C:\\Users\\subwa\\Downloads\\react-projects\\mendoza-survey\\functions\\43068"}
+[debug] [2019-08-04T02:33:10.322Z] Ephemeral server used!
+[warn] !  The Cloud Firestore emulator is not running so database operations will fail with a 'default credentials' error.
+[debug] [2019-08-04T02:33:10.568Z] Ephemeral server survived.
+[warn] !  Unknown network resource requested!
+   - URL: "http://metadata.google.internal./computeMetadata/v1/instance"
+[info] >  Error getting documents Error: Could not load the default credentials. Browse to https://cloud.google.com/docs/authentication/getting-started for more information.
+[info] >      at GoogleAuth.<anonymous> (C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-auth-library\build\src\auth\googleauth.js:168:23)
+[info] >      at Generator.next (<anonymous>)
+[info] >      at fulfilled (C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-auth-library\build\src\auth\googleauth.js:19:58)
+[info] >      at process._tickCallback (internal/process/next_tick.js:68:7)
+[warn] !  Your function timed out after ~60s. To configure this timeout, see
+      https://firebase.google.com/docs/functions/manage-functions#set_timeout_and_memory_allocation.
+[debug] [2019-08-04T02:34:19.173Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-04T02:34:20.720Z] Functions runtime initialized.
+[debug] [2019-08-04T02:34:20.721Z] Disabled runtime features: undefined
+[debug] [2019-08-04T02:34:21.731Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-04T02:34:21.731Z] Outgoing network have been stubbed.
+[debug] [2019-08-04T02:34:21.895Z] Checked functions.config()
+[debug] [2019-08-04T02:34:22.261Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-04T03:56:45.550Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\kimendoz-survey-firebase-adminsdk-3ke6d-9829c21100.json changed, reloading triggers
+[debug] [2019-08-04T03:56:47.387Z] Functions runtime initialized.
+[debug] [2019-08-04T03:56:47.387Z] Disabled runtime features: undefined
+[debug] [2019-08-04T03:56:48.707Z] Found google-gax at C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\node_modules\google-gax\build\src\index.js
+[debug] [2019-08-04T03:56:48.708Z] Outgoing network have been stubbed.
+[debug] [2019-08-04T03:56:48.930Z] Checked functions.config()
+[debug] [2019-08-04T03:56:49.366Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-04T03:57:56.441Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers

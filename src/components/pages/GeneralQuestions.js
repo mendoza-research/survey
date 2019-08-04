@@ -38,17 +38,12 @@ class GeneralQuestions extends Component {
   }
 
   onChange(key, value) {
-    this.setState(
-      {
-        data: {
-          ...this.state.data,
-          [key]: value
-        }
-      },
-      () => {
-        console.log(this.state);
+    this.setState({
+      data: {
+        ...this.state.data,
+        [key]: value
       }
-    );
+    });
   }
 
   canSubmit() {
