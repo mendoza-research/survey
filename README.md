@@ -20,6 +20,14 @@ To run the site in local environment, below programs are required.
 ### Run site
 ```yarn start```
 
+## Firebase Firestore & Cloud Functions
+This is a serverless application using Firestore and Cloud Functions. During development, it is much, much faster to use the emulators to test cloud functions. 
+
+- Generate firebase admin SDK private `.json` key file and add it to `functions` directory. Snippets and private key file can be viewed/downloaded at
+[https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk](https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk)
+
+- On project folder, run `firebase serve` to launch emulators.
+
 ## Automatic Deployment
 Any changes made to the repository will automatically be updated to the Netlify site. 
 
