@@ -32,7 +32,7 @@ class Task1Instructions extends Component {
         duration
       },
       async () => {
-        await this.context.addUserResponse("task1.instructions", this.state);
+        await this.context.addUserResponse("task1-instructions", this.state);
       }
     );
   }

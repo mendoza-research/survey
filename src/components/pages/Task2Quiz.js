@@ -60,7 +60,7 @@ class Task2Quiz extends Component {
         duration
       },
       async () => {
-        await this.context.addUserResponse("task2.quiz", {
+        await this.context.addUserResponse("task2-quiz", {
           startTime: this.state.startTime,
           endTime: this.state.endTime,
           duration: this.state.duration,

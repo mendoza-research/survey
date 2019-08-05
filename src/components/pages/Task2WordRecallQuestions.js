@@ -39,7 +39,7 @@ class Task2WordRecallQuestions extends Component {
         duration
       },
       async () => {
-        await this.context.addUserResponse("task2.word-recall-questions", {
+        await this.context.addUserResponse("task2-word-recall-questions", {
           startTime: this.state.startTime,
           endTime: this.state.endTime,
           duration: this.state.duration,
@@ -56,7 +56,6 @@ class Task2WordRecallQuestions extends Component {
           data: [
             ...state.data,
             {
-              word: words[state.currentIndex],
               seen: val,
               duration: (new Date() - this.currentWordStartTime) / 1000
             }

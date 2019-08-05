@@ -51,7 +51,7 @@ class Task1QuestionsPart1 extends Component {
         duration
       },
       async () => {
-        await this.context.addUserResponse("task1.questions1", this.state);
+        await this.context.addUserResponse("task1-questions1", this.state);
       }
     );
   }

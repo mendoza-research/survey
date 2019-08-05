@@ -44,7 +44,7 @@ class Task2WordsPurpose extends Component {
         duration
       },
       async () => {
-        await this.context.addUserResponse("task2.words-purpose", this.state);
+        await this.context.addUserResponse("task2-words-purpose", this.state);
       }
     );
   }

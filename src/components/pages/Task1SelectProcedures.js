@@ -68,7 +68,7 @@ class Task1SelectProcedures extends Component {
         duration
       },
       async () => {
-        await this.context.addUserResponse("task1.procedures", this.state);
+        await this.context.addUserResponse("task1-procedures", this.state);
       }
     );
   }

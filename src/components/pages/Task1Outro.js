@@ -32,7 +32,7 @@ class Task1Outro extends Component {
         duration
       },
       async () => {
-        await this.context.addUserResponse("task1.outro", this.state);
+        await this.context.addUserResponse("task1-outro", this.state);
       }
     );
   }
