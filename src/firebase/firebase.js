@@ -12,12 +12,14 @@ class Firebase {
   constructor() {
     app.initializeApp(firebaseConfig);
     this.db = app.firestore();
-    var functions = firebase.functions();
+    this.functions = firebase.functions();
 
-    const addMessage = functions.httpsCallable("addMessage");
+    /*
+    const addMessage = this.functions.httpsCallable("addMessage");
     addMessage().then(function(result) {
       console.log(result);
     });
+    */
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import SurveyContext from "../../context/SurveyContext";
-import words from "../../data/task2_word_recall_questions_test.json";
+import words from "../../data/task2_word_recall_questions.json";
 
 class Task2WordRecallQuestions extends Component {
   constructor(props) {

@@ -96,10 +96,11 @@ class PostExperimentalQuestions extends Component {
 
         <RangeSlider
           id="how-accurate"
-          text="For how many of the 56 strings of p's and d's do you think you accurately counted the number of d's with two apostrophes?"
+          text="What percentage of the strings of d's and p's do you think you accurately counted the number of d's with two apostrophes?"
           min={0}
-          max={56}
-          markStep={8}
+          minLabel="0% Accuracy"
+          max={100}
+          maxLabel="100% Accuracy"
           onChange={this.onChange}
         />
 
