@@ -1,0 +1,1368 @@
+[
+  { "label": "session.id", "value": "sessionId" },
+  { "label": "session.startTime", "value": "startTime" },
+  { "label": "session.endTime", "value": "endTime" },
+  { "label": "session.duration", "value": "duration" },
+  {
+    "label": "session.condition",
+    "value": "pages.task1-procedures.experimentCondition"
+  },
+  { "label": "intro.startTime", "value": "pages.intro.startTime" },
+  { "label": "intro.endTime", "value": "pages.intro.endTime" },
+  { "label": "intro.duration", "value": "pages.intro.duration" },
+  {
+    "label": "task1-instructions.startTime",
+    "value": "pages.task1-instructions.startTime"
+  },
+  {
+    "label": "task1-instructions.endTime",
+    "value": "pages.task1-instructions.endTime"
+  },
+  {
+    "label": "task1-instructions.duration",
+    "value": "pages.task1-instructions.duration"
+  },
+  {
+    "label": "task1-procedures.startTime",
+    "value": "pages.task1-procedures.startTime"
+  },
+  {
+    "label": "task1-procedures.endTime",
+    "value": "pages.task1-procedures.endTime"
+  },
+  {
+    "label": "task1-procedures.duration",
+    "value": "pages.task1-procedures.duration"
+  },
+  {
+    "label": "task1-procedures.read-textbook",
+    "value": "pages.task1-procedures.data.read-textbook"
+  },
+  {
+    "label": "task1-procedures.take-notes",
+    "value": "pages.task1-procedures.data.take-notes"
+  },
+  {
+    "label": "task1-procedures.participate-every-class",
+    "value": "pages.task1-procedures.data.participate-every-class"
+  },
+  {
+    "label": "task1-procedures.study-for-exams",
+    "value": "pages.task1-procedures.data.study-for-exams"
+  },
+  {
+    "label": "task1-procedures.do-homework",
+    "value": "pages.task1-procedures.data.do-homework"
+  },
+  {
+    "label": "task1-procedures.follow-news",
+    "value": "pages.task1-procedures.data.follow-news"
+  },
+  {
+    "label": "task1-procedures.try-textbook-problems",
+    "value": "pages.task1-procedures.data.try-textbook-problems"
+  },
+  {
+    "label": "task1-procedures.hire-tutor",
+    "value": "pages.task1-procedures.data.hire-tutor"
+  },
+  {
+    "label": "task1-procedures.print-slides-to-class",
+    "value": "pages.task1-procedures.data.print-slides-to-class"
+  },
+  {
+    "label": "task1-procedures.review-lecture-slides",
+    "value": "pages.task1-procedures.data.review-lecture-slides"
+  },
+  {
+    "label": "task1-procedures.do-practice-exams",
+    "value": "pages.task1-procedures.data.do-practice-exams"
+  },
+  {
+    "label": "task1-procedures.visit-office-hours",
+    "value": "pages.task1-procedures.data.visit-office-hours"
+  },
+  {
+    "label": "task1-procedures.attend-every-class",
+    "value": "pages.task1-procedures.data.attend-every-class"
+  },
+  {
+    "label": "task1-questions1.startTime",
+    "value": "pages.task1-questions1.startTime"
+  },
+  {
+    "label": "task1-questions1.endTime",
+    "value": "pages.task1-questions1.endTime"
+  },
+  {
+    "label": "task1-questions1.duration",
+    "value": "pages.task1-questions1.duration"
+  },
+  {
+    "label": "task1-questions1.how-well",
+    "value": "pages.task1-questions1.data.how-well"
+  },
+  {
+    "label": "task1-questions1.how-likely-to-pass",
+    "value": "pages.task1-questions1.data.how-likely-to-pass"
+  },
+  {
+    "label": "task1-questions1.what-grade",
+    "value": "pages.task1-questions1.data.what-grade"
+  },
+  {
+    "label": "task1-questions1.how-difficult-earn-b-or-higher",
+    "value": "pages.task1-questions1.data.how-difficult-earn-b-or-higher"
+  },
+  {
+    "label": "task1-questions1.how-useful-professor-advice",
+    "value": "pages.task1-questions1.data.how-useful-professor-advice"
+  },
+  {
+    "label": "task1-questions1.how-much-discretion",
+    "value": "pages.task1-questions1.data.how-much-discretion"
+  },
+  {
+    "label": "task1-questions2.startTime",
+    "value": "pages.task1-questions2.startTime"
+  },
+  {
+    "label": "task1-questions2.endTime",
+    "value": "pages.task1-questions2.endTime"
+  },
+  {
+    "label": "task1-questions2.duration",
+    "value": "pages.task1-questions2.duration"
+  },
+  {
+    "label": "task1-questions2.complete-schoolwork-promptly",
+    "value": "pages.task1-questions2.data.complete-schoolwork-promptly"
+  },
+  {
+    "label": "task1-questions2.attend-all-classes",
+    "value": "pages.task1-questions2.data.attend-all-classes"
+  },
+  {
+    "label": "task1-questions2.spend-more-time-at-the-library",
+    "value": "pages.task1-questions2.data.spend-more-time-at-the-library"
+  },
+  {
+    "label": "task1-questions2.be-prepared-for-tests",
+    "value": "pages.task1-questions2.data.be-prepared-for-tests"
+  },
+  {
+    "label": "task1-questions2.increase-motivation",
+    "value": "pages.task1-questions2.data.increase-motivation"
+  },
+  {
+    "label": "task1-questions3.startTime",
+    "value": "pages.task1-questions3.startTime"
+  },
+  {
+    "label": "task1-questions3.endTime",
+    "value": "pages.task1-questions3.endTime"
+  },
+  {
+    "label": "task1-questions3.duration",
+    "value": "pages.task1-questions3.duration"
+  },
+  {
+    "label": "task1-questions3.be-in-automobile-accident",
+    "value": "pages.task1-questions3.data.be-in-automobile-accident"
+  },
+  {
+    "label": "task1-questions3.becoming-divorced",
+    "value": "pages.task1-questions3.data.becoming-divorced"
+  },
+  {
+    "label": "task1-questions3.becoming-depressed",
+    "value": "pages.task1-questions3.data.becoming-depressed"
+  },
+  {
+    "label": "task1-questions3.develop-drinking-problem",
+    "value": "pages.task1-questions3.data.develop-drinking-problem"
+  },
+  {
+    "label": "task1-questions3.being-mugged",
+    "value": "pages.task1-questions3.data.being-mugged"
+  },
+  {
+    "label": "task1-questions4.startTime",
+    "value": "pages.task1-questions4.startTime"
+  },
+  {
+    "label": "task1-questions4.endTime",
+    "value": "pages.task1-questions4.endTime"
+  },
+  {
+    "label": "task1-questions4.duration",
+    "value": "pages.task1-questions4.duration"
+  },
+  {
+    "label": "task1-questions4.be-in-automobile-accident",
+    "value": "pages.task1-questions4.data.be-in-automobile-accident"
+  },
+  {
+    "label": "task1-questions4.becoming-divorced",
+    "value": "pages.task1-questions4.data.becoming-divorced"
+  },
+  {
+    "label": "task1-questions4.becoming-depressed",
+    "value": "pages.task1-questions4.data.becoming-depressed"
+  },
+  {
+    "label": "task1-questions4.develop-drinking-problem",
+    "value": "pages.task1-questions4.data.develop-drinking-problem"
+  },
+  {
+    "label": "task1-questions4.being-mugged",
+    "value": "pages.task1-questions4.data.being-mugged"
+  },
+  { "label": "task1-outro.startTime", "value": "pages.task1-outro.startTime" },
+  { "label": "task1-outro.endTime", "value": "pages.task1-outro.endTime" },
+  { "label": "task1-outro.duration", "value": "pages.task1-outro.duration" },
+  {
+    "label": "task2-instructions.startTime",
+    "value": "pages.task2-instructions.startTime"
+  },
+  {
+    "label": "task2-instructions.endTime",
+    "value": "pages.task2-instructions.endTime"
+  },
+  {
+    "label": "task2-instructions.duration",
+    "value": "pages.task2-instructions.duration"
+  },
+  { "label": "task2-quiz.startTime", "value": "pages.task2-quiz.startTime" },
+  { "label": "task2-quiz.endTime", "value": "pages.task2-quiz.endTime" },
+  { "label": "task2-quiz.duration", "value": "pages.task2-quiz.duration" },
+  { "label": "task2-quiz.0.answer", "value": "pages.task2-quiz.data.0.answer" },
+  {
+    "label": "task2-quiz.0.duration",
+    "value": "pages.task2-quiz.data.0.duration"
+  },
+  { "label": "task2-quiz.1.answer", "value": "pages.task2-quiz.data.1.answer" },
+  {
+    "label": "task2-quiz.1.duration",
+    "value": "pages.task2-quiz.data.1.duration"
+  },
+  { "label": "task2-quiz.2.answer", "value": "pages.task2-quiz.data.2.answer" },
+  {
+    "label": "task2-quiz.2.duration",
+    "value": "pages.task2-quiz.data.2.duration"
+  },
+  { "label": "task2-quiz.3.answer", "value": "pages.task2-quiz.data.3.answer" },
+  {
+    "label": "task2-quiz.3.duration",
+    "value": "pages.task2-quiz.data.3.duration"
+  },
+  { "label": "task2-quiz.4.answer", "value": "pages.task2-quiz.data.4.answer" },
+  {
+    "label": "task2-quiz.4.duration",
+    "value": "pages.task2-quiz.data.4.duration"
+  },
+  { "label": "task2-quiz.5.answer", "value": "pages.task2-quiz.data.5.answer" },
+  {
+    "label": "task2-quiz.5.duration",
+    "value": "pages.task2-quiz.data.5.duration"
+  },
+  { "label": "task2-quiz.6.answer", "value": "pages.task2-quiz.data.6.answer" },
+  {
+    "label": "task2-quiz.6.duration",
+    "value": "pages.task2-quiz.data.6.duration"
+  },
+  { "label": "task2-quiz.7.answer", "value": "pages.task2-quiz.data.7.answer" },
+  {
+    "label": "task2-quiz.7.duration",
+    "value": "pages.task2-quiz.data.7.duration"
+  },
+  { "label": "task2-quiz.8.answer", "value": "pages.task2-quiz.data.8.answer" },
+  {
+    "label": "task2-quiz.8.duration",
+    "value": "pages.task2-quiz.data.8.duration"
+  },
+  { "label": "task2-quiz.9.answer", "value": "pages.task2-quiz.data.9.answer" },
+  {
+    "label": "task2-quiz.9.duration",
+    "value": "pages.task2-quiz.data.9.duration"
+  },
+  {
+    "label": "task2-quiz.10.answer",
+    "value": "pages.task2-quiz.data.10.answer"
+  },
+  {
+    "label": "task2-quiz.10.duration",
+    "value": "pages.task2-quiz.data.10.duration"
+  },
+  {
+    "label": "task2-quiz.11.answer",
+    "value": "pages.task2-quiz.data.11.answer"
+  },
+  {
+    "label": "task2-quiz.11.duration",
+    "value": "pages.task2-quiz.data.11.duration"
+  },
+  {
+    "label": "task2-quiz.12.answer",
+    "value": "pages.task2-quiz.data.12.answer"
+  },
+  {
+    "label": "task2-quiz.12.duration",
+    "value": "pages.task2-quiz.data.12.duration"
+  },
+  {
+    "label": "task2-quiz.13.answer",
+    "value": "pages.task2-quiz.data.13.answer"
+  },
+  {
+    "label": "task2-quiz.13.duration",
+    "value": "pages.task2-quiz.data.13.duration"
+  },
+  {
+    "label": "task2-quiz.14.answer",
+    "value": "pages.task2-quiz.data.14.answer"
+  },
+  {
+    "label": "task2-quiz.14.duration",
+    "value": "pages.task2-quiz.data.14.duration"
+  },
+  {
+    "label": "task2-quiz.15.answer",
+    "value": "pages.task2-quiz.data.15.answer"
+  },
+  {
+    "label": "task2-quiz.15.duration",
+    "value": "pages.task2-quiz.data.15.duration"
+  },
+  {
+    "label": "task2-quiz.16.answer",
+    "value": "pages.task2-quiz.data.16.answer"
+  },
+  {
+    "label": "task2-quiz.16.duration",
+    "value": "pages.task2-quiz.data.16.duration"
+  },
+  {
+    "label": "task2-quiz.17.answer",
+    "value": "pages.task2-quiz.data.17.answer"
+  },
+  {
+    "label": "task2-quiz.17.duration",
+    "value": "pages.task2-quiz.data.17.duration"
+  },
+  {
+    "label": "task2-quiz.18.answer",
+    "value": "pages.task2-quiz.data.18.answer"
+  },
+  {
+    "label": "task2-quiz.18.duration",
+    "value": "pages.task2-quiz.data.18.duration"
+  },
+  {
+    "label": "task2-quiz.19.answer",
+    "value": "pages.task2-quiz.data.19.answer"
+  },
+  {
+    "label": "task2-quiz.19.duration",
+    "value": "pages.task2-quiz.data.19.duration"
+  },
+  {
+    "label": "task2-quiz.20.answer",
+    "value": "pages.task2-quiz.data.20.answer"
+  },
+  {
+    "label": "task2-quiz.20.duration",
+    "value": "pages.task2-quiz.data.20.duration"
+  },
+  {
+    "label": "task2-quiz.21.answer",
+    "value": "pages.task2-quiz.data.21.answer"
+  },
+  {
+    "label": "task2-quiz.21.duration",
+    "value": "pages.task2-quiz.data.21.duration"
+  },
+  {
+    "label": "task2-quiz.22.answer",
+    "value": "pages.task2-quiz.data.22.answer"
+  },
+  {
+    "label": "task2-quiz.22.duration",
+    "value": "pages.task2-quiz.data.22.duration"
+  },
+  {
+    "label": "task2-quiz.23.answer",
+    "value": "pages.task2-quiz.data.23.answer"
+  },
+  {
+    "label": "task2-quiz.23.duration",
+    "value": "pages.task2-quiz.data.23.duration"
+  },
+  {
+    "label": "task2-quiz.24.answer",
+    "value": "pages.task2-quiz.data.24.answer"
+  },
+  {
+    "label": "task2-quiz.24.duration",
+    "value": "pages.task2-quiz.data.24.duration"
+  },
+  {
+    "label": "task2-quiz.25.answer",
+    "value": "pages.task2-quiz.data.25.answer"
+  },
+  {
+    "label": "task2-quiz.25.duration",
+    "value": "pages.task2-quiz.data.25.duration"
+  },
+  {
+    "label": "task2-quiz.26.answer",
+    "value": "pages.task2-quiz.data.26.answer"
+  },
+  {
+    "label": "task2-quiz.26.duration",
+    "value": "pages.task2-quiz.data.26.duration"
+  },
+  {
+    "label": "task2-quiz.27.answer",
+    "value": "pages.task2-quiz.data.27.answer"
+  },
+  {
+    "label": "task2-quiz.27.duration",
+    "value": "pages.task2-quiz.data.27.duration"
+  },
+  {
+    "label": "task2-quiz.28.answer",
+    "value": "pages.task2-quiz.data.28.answer"
+  },
+  {
+    "label": "task2-quiz.28.duration",
+    "value": "pages.task2-quiz.data.28.duration"
+  },
+  {
+    "label": "task2-quiz.29.answer",
+    "value": "pages.task2-quiz.data.29.answer"
+  },
+  {
+    "label": "task2-quiz.29.duration",
+    "value": "pages.task2-quiz.data.29.duration"
+  },
+  {
+    "label": "task2-quiz.30.answer",
+    "value": "pages.task2-quiz.data.30.answer"
+  },
+  {
+    "label": "task2-quiz.30.duration",
+    "value": "pages.task2-quiz.data.30.duration"
+  },
+  {
+    "label": "task2-quiz.31.answer",
+    "value": "pages.task2-quiz.data.31.answer"
+  },
+  {
+    "label": "task2-quiz.31.duration",
+    "value": "pages.task2-quiz.data.31.duration"
+  },
+  {
+    "label": "task2-quiz.32.answer",
+    "value": "pages.task2-quiz.data.32.answer"
+  },
+  {
+    "label": "task2-quiz.32.duration",
+    "value": "pages.task2-quiz.data.32.duration"
+  },
+  {
+    "label": "task2-quiz.33.answer",
+    "value": "pages.task2-quiz.data.33.answer"
+  },
+  {
+    "label": "task2-quiz.33.duration",
+    "value": "pages.task2-quiz.data.33.duration"
+  },
+  {
+    "label": "task2-quiz.34.answer",
+    "value": "pages.task2-quiz.data.34.answer"
+  },
+  {
+    "label": "task2-quiz.34.duration",
+    "value": "pages.task2-quiz.data.34.duration"
+  },
+  {
+    "label": "task2-quiz.35.answer",
+    "value": "pages.task2-quiz.data.35.answer"
+  },
+  {
+    "label": "task2-quiz.35.duration",
+    "value": "pages.task2-quiz.data.35.duration"
+  },
+  {
+    "label": "task2-quiz.36.answer",
+    "value": "pages.task2-quiz.data.36.answer"
+  },
+  {
+    "label": "task2-quiz.36.duration",
+    "value": "pages.task2-quiz.data.36.duration"
+  },
+  {
+    "label": "task2-quiz.37.answer",
+    "value": "pages.task2-quiz.data.37.answer"
+  },
+  {
+    "label": "task2-quiz.37.duration",
+    "value": "pages.task2-quiz.data.37.duration"
+  },
+  {
+    "label": "task2-quiz.38.answer",
+    "value": "pages.task2-quiz.data.38.answer"
+  },
+  {
+    "label": "task2-quiz.38.duration",
+    "value": "pages.task2-quiz.data.38.duration"
+  },
+  {
+    "label": "task2-quiz.39.answer",
+    "value": "pages.task2-quiz.data.39.answer"
+  },
+  {
+    "label": "task2-quiz.39.duration",
+    "value": "pages.task2-quiz.data.39.duration"
+  },
+  {
+    "label": "task2-quiz.40.answer",
+    "value": "pages.task2-quiz.data.40.answer"
+  },
+  {
+    "label": "task2-quiz.40.duration",
+    "value": "pages.task2-quiz.data.40.duration"
+  },
+  {
+    "label": "task2-quiz.41.answer",
+    "value": "pages.task2-quiz.data.41.answer"
+  },
+  {
+    "label": "task2-quiz.41.duration",
+    "value": "pages.task2-quiz.data.41.duration"
+  },
+  {
+    "label": "task2-quiz.42.answer",
+    "value": "pages.task2-quiz.data.42.answer"
+  },
+  {
+    "label": "task2-quiz.42.duration",
+    "value": "pages.task2-quiz.data.42.duration"
+  },
+  {
+    "label": "task2-quiz.43.answer",
+    "value": "pages.task2-quiz.data.43.answer"
+  },
+  {
+    "label": "task2-quiz.43.duration",
+    "value": "pages.task2-quiz.data.43.duration"
+  },
+  {
+    "label": "task2-quiz.44.answer",
+    "value": "pages.task2-quiz.data.44.answer"
+  },
+  {
+    "label": "task2-quiz.44.duration",
+    "value": "pages.task2-quiz.data.44.duration"
+  },
+  {
+    "label": "task2-quiz.45.answer",
+    "value": "pages.task2-quiz.data.45.answer"
+  },
+  {
+    "label": "task2-quiz.45.duration",
+    "value": "pages.task2-quiz.data.45.duration"
+  },
+  {
+    "label": "task2-quiz.46.answer",
+    "value": "pages.task2-quiz.data.46.answer"
+  },
+  {
+    "label": "task2-quiz.46.duration",
+    "value": "pages.task2-quiz.data.46.duration"
+  },
+  {
+    "label": "task2-quiz.47.answer",
+    "value": "pages.task2-quiz.data.47.answer"
+  },
+  {
+    "label": "task2-quiz.47.duration",
+    "value": "pages.task2-quiz.data.47.duration"
+  },
+  {
+    "label": "task2-quiz.48.answer",
+    "value": "pages.task2-quiz.data.48.answer"
+  },
+  {
+    "label": "task2-quiz.48.duration",
+    "value": "pages.task2-quiz.data.48.duration"
+  },
+  {
+    "label": "task2-quiz.49.answer",
+    "value": "pages.task2-quiz.data.49.answer"
+  },
+  {
+    "label": "task2-quiz.49.duration",
+    "value": "pages.task2-quiz.data.49.duration"
+  },
+  {
+    "label": "task2-quiz.50.answer",
+    "value": "pages.task2-quiz.data.50.answer"
+  },
+  {
+    "label": "task2-quiz.50.duration",
+    "value": "pages.task2-quiz.data.50.duration"
+  },
+  {
+    "label": "task2-quiz.51.answer",
+    "value": "pages.task2-quiz.data.51.answer"
+  },
+  {
+    "label": "task2-quiz.51.duration",
+    "value": "pages.task2-quiz.data.51.duration"
+  },
+  {
+    "label": "task2-quiz.52.answer",
+    "value": "pages.task2-quiz.data.52.answer"
+  },
+  {
+    "label": "task2-quiz.52.duration",
+    "value": "pages.task2-quiz.data.52.duration"
+  },
+  {
+    "label": "task2-quiz.53.answer",
+    "value": "pages.task2-quiz.data.53.answer"
+  },
+  {
+    "label": "task2-quiz.53.duration",
+    "value": "pages.task2-quiz.data.53.duration"
+  },
+  {
+    "label": "task2-quiz.54.answer",
+    "value": "pages.task2-quiz.data.54.answer"
+  },
+  {
+    "label": "task2-quiz.54.duration",
+    "value": "pages.task2-quiz.data.54.duration"
+  },
+  {
+    "label": "task2-quiz.55.answer",
+    "value": "pages.task2-quiz.data.55.answer"
+  },
+  {
+    "label": "task2-quiz.55.duration",
+    "value": "pages.task2-quiz.data.55.duration"
+  },
+  {
+    "label": "task2-quiz.56.answer",
+    "value": "pages.task2-quiz.data.56.answer"
+  },
+  {
+    "label": "task2-quiz.56.duration",
+    "value": "pages.task2-quiz.data.56.duration"
+  },
+  {
+    "label": "task2-quiz.57.answer",
+    "value": "pages.task2-quiz.data.57.answer"
+  },
+  {
+    "label": "task2-quiz.57.duration",
+    "value": "pages.task2-quiz.data.57.duration"
+  },
+  {
+    "label": "task2-quiz.58.answer",
+    "value": "pages.task2-quiz.data.58.answer"
+  },
+  {
+    "label": "task2-quiz.58.duration",
+    "value": "pages.task2-quiz.data.58.duration"
+  },
+  {
+    "label": "task2-quiz.59.answer",
+    "value": "pages.task2-quiz.data.59.answer"
+  },
+  {
+    "label": "task2-quiz.59.duration",
+    "value": "pages.task2-quiz.data.59.duration"
+  },
+  {
+    "label": "task2-quiz.60.answer",
+    "value": "pages.task2-quiz.data.60.answer"
+  },
+  {
+    "label": "task2-quiz.60.duration",
+    "value": "pages.task2-quiz.data.60.duration"
+  },
+  {
+    "label": "task2-quiz.61.answer",
+    "value": "pages.task2-quiz.data.61.answer"
+  },
+  {
+    "label": "task2-quiz.61.duration",
+    "value": "pages.task2-quiz.data.61.duration"
+  },
+  {
+    "label": "task2-quiz.62.answer",
+    "value": "pages.task2-quiz.data.62.answer"
+  },
+  {
+    "label": "task2-quiz.62.duration",
+    "value": "pages.task2-quiz.data.62.duration"
+  },
+  {
+    "label": "task2-quiz.63.answer",
+    "value": "pages.task2-quiz.data.63.answer"
+  },
+  {
+    "label": "task2-quiz.63.duration",
+    "value": "pages.task2-quiz.data.63.duration"
+  },
+  {
+    "label": "task2-quiz.64.answer",
+    "value": "pages.task2-quiz.data.64.answer"
+  },
+  {
+    "label": "task2-quiz.64.duration",
+    "value": "pages.task2-quiz.data.64.duration"
+  },
+  {
+    "label": "task2-quiz.65.answer",
+    "value": "pages.task2-quiz.data.65.answer"
+  },
+  {
+    "label": "task2-quiz.65.duration",
+    "value": "pages.task2-quiz.data.65.duration"
+  },
+  {
+    "label": "task2-quiz.66.answer",
+    "value": "pages.task2-quiz.data.66.answer"
+  },
+  {
+    "label": "task2-quiz.66.duration",
+    "value": "pages.task2-quiz.data.66.duration"
+  },
+  {
+    "label": "task2-quiz.67.answer",
+    "value": "pages.task2-quiz.data.67.answer"
+  },
+  {
+    "label": "task2-quiz.67.duration",
+    "value": "pages.task2-quiz.data.67.duration"
+  },
+  {
+    "label": "task2-quiz.68.answer",
+    "value": "pages.task2-quiz.data.68.answer"
+  },
+  {
+    "label": "task2-quiz.68.duration",
+    "value": "pages.task2-quiz.data.68.duration"
+  },
+  {
+    "label": "task2-quiz.69.answer",
+    "value": "pages.task2-quiz.data.69.answer"
+  },
+  {
+    "label": "task2-quiz.69.duration",
+    "value": "pages.task2-quiz.data.69.duration"
+  },
+  {
+    "label": "task2-quiz.70.answer",
+    "value": "pages.task2-quiz.data.70.answer"
+  },
+  {
+    "label": "task2-quiz.70.duration",
+    "value": "pages.task2-quiz.data.70.duration"
+  },
+  {
+    "label": "task2-quiz.71.answer",
+    "value": "pages.task2-quiz.data.71.answer"
+  },
+  {
+    "label": "task2-quiz.71.duration",
+    "value": "pages.task2-quiz.data.71.duration"
+  },
+  {
+    "label": "task2-quiz.72.answer",
+    "value": "pages.task2-quiz.data.72.answer"
+  },
+  {
+    "label": "task2-quiz.72.duration",
+    "value": "pages.task2-quiz.data.72.duration"
+  },
+  {
+    "label": "task2-quiz.73.answer",
+    "value": "pages.task2-quiz.data.73.answer"
+  },
+  {
+    "label": "task2-quiz.73.duration",
+    "value": "pages.task2-quiz.data.73.duration"
+  },
+  {
+    "label": "task2-quiz.74.answer",
+    "value": "pages.task2-quiz.data.74.answer"
+  },
+  {
+    "label": "task2-quiz.74.duration",
+    "value": "pages.task2-quiz.data.74.duration"
+  },
+  {
+    "label": "task2-words-purpose.startTime",
+    "value": "pages.task2-words-purpose.startTime"
+  },
+  {
+    "label": "task2-words-purpose.endTime",
+    "value": "pages.task2-words-purpose.endTime"
+  },
+  {
+    "label": "task2-words-purpose.duration",
+    "value": "pages.task2-words-purpose.duration"
+  },
+  {
+    "label": "task2-words-purpose.data",
+    "value": "pages.task2-words-purpose.data"
+  },
+  {
+    "label": "task2-recall.startTime",
+    "value": "pages.task2-word-recall-questions.startTime"
+  },
+  {
+    "label": "task2-recall.endTime",
+    "value": "pages.task2-word-recall-questions.endTime"
+  },
+  {
+    "label": "task2-recall.duration",
+    "value": "pages.task2-word-recall-questions.duration"
+  },
+  {
+    "label": "task2-recall.0.seen",
+    "value": "pages.task2-word-recall-questions.data.0.seen"
+  },
+  {
+    "label": "task2-recall.0.duration",
+    "value": "pages.task2-word-recall-questions.data.0.duration"
+  },
+  {
+    "label": "task2-recall.1.seen",
+    "value": "pages.task2-word-recall-questions.data.1.seen"
+  },
+  {
+    "label": "task2-recall.1.duration",
+    "value": "pages.task2-word-recall-questions.data.1.duration"
+  },
+  {
+    "label": "task2-recall.2.seen",
+    "value": "pages.task2-word-recall-questions.data.2.seen"
+  },
+  {
+    "label": "task2-recall.2.duration",
+    "value": "pages.task2-word-recall-questions.data.2.duration"
+  },
+  {
+    "label": "task2-recall.3.seen",
+    "value": "pages.task2-word-recall-questions.data.3.seen"
+  },
+  {
+    "label": "task2-recall.3.duration",
+    "value": "pages.task2-word-recall-questions.data.3.duration"
+  },
+  {
+    "label": "task2-recall.4.seen",
+    "value": "pages.task2-word-recall-questions.data.4.seen"
+  },
+  {
+    "label": "task2-recall.4.duration",
+    "value": "pages.task2-word-recall-questions.data.4.duration"
+  },
+  {
+    "label": "task2-recall.5.seen",
+    "value": "pages.task2-word-recall-questions.data.5.seen"
+  },
+  {
+    "label": "task2-recall.5.duration",
+    "value": "pages.task2-word-recall-questions.data.5.duration"
+  },
+  {
+    "label": "task2-recall.6.seen",
+    "value": "pages.task2-word-recall-questions.data.6.seen"
+  },
+  {
+    "label": "task2-recall.6.duration",
+    "value": "pages.task2-word-recall-questions.data.6.duration"
+  },
+  {
+    "label": "task2-recall.7.seen",
+    "value": "pages.task2-word-recall-questions.data.7.seen"
+  },
+  {
+    "label": "task2-recall.7.duration",
+    "value": "pages.task2-word-recall-questions.data.7.duration"
+  },
+  {
+    "label": "task2-recall.8.seen",
+    "value": "pages.task2-word-recall-questions.data.8.seen"
+  },
+  {
+    "label": "task2-recall.8.duration",
+    "value": "pages.task2-word-recall-questions.data.8.duration"
+  },
+  {
+    "label": "task2-recall.9.seen",
+    "value": "pages.task2-word-recall-questions.data.9.seen"
+  },
+  {
+    "label": "task2-recall.9.duration",
+    "value": "pages.task2-word-recall-questions.data.9.duration"
+  },
+  {
+    "label": "task2-recall.10.seen",
+    "value": "pages.task2-word-recall-questions.data.10.seen"
+  },
+  {
+    "label": "task2-recall.10.duration",
+    "value": "pages.task2-word-recall-questions.data.10.duration"
+  },
+  {
+    "label": "task2-recall.11.seen",
+    "value": "pages.task2-word-recall-questions.data.11.seen"
+  },
+  {
+    "label": "task2-recall.11.duration",
+    "value": "pages.task2-word-recall-questions.data.11.duration"
+  },
+  {
+    "label": "task2-recall.12.seen",
+    "value": "pages.task2-word-recall-questions.data.12.seen"
+  },
+  {
+    "label": "task2-recall.12.duration",
+    "value": "pages.task2-word-recall-questions.data.12.duration"
+  },
+  {
+    "label": "task2-recall.13.seen",
+    "value": "pages.task2-word-recall-questions.data.13.seen"
+  },
+  {
+    "label": "task2-recall.13.duration",
+    "value": "pages.task2-word-recall-questions.data.13.duration"
+  },
+  {
+    "label": "task2-recall.14.seen",
+    "value": "pages.task2-word-recall-questions.data.14.seen"
+  },
+  {
+    "label": "task2-recall.14.duration",
+    "value": "pages.task2-word-recall-questions.data.14.duration"
+  },
+  {
+    "label": "task2-recall.15.seen",
+    "value": "pages.task2-word-recall-questions.data.15.seen"
+  },
+  {
+    "label": "task2-recall.15.duration",
+    "value": "pages.task2-word-recall-questions.data.15.duration"
+  },
+  {
+    "label": "task2-recall.16.seen",
+    "value": "pages.task2-word-recall-questions.data.16.seen"
+  },
+  {
+    "label": "task2-recall.16.duration",
+    "value": "pages.task2-word-recall-questions.data.16.duration"
+  },
+  {
+    "label": "task2-recall.17.seen",
+    "value": "pages.task2-word-recall-questions.data.17.seen"
+  },
+  {
+    "label": "task2-recall.17.duration",
+    "value": "pages.task2-word-recall-questions.data.17.duration"
+  },
+  {
+    "label": "task2-recall.18.seen",
+    "value": "pages.task2-word-recall-questions.data.18.seen"
+  },
+  {
+    "label": "task2-recall.18.duration",
+    "value": "pages.task2-word-recall-questions.data.18.duration"
+  },
+  {
+    "label": "task2-recall.19.seen",
+    "value": "pages.task2-word-recall-questions.data.19.seen"
+  },
+  {
+    "label": "task2-recall.19.duration",
+    "value": "pages.task2-word-recall-questions.data.19.duration"
+  },
+  {
+    "label": "task2-recall.20.seen",
+    "value": "pages.task2-word-recall-questions.data.20.seen"
+  },
+  {
+    "label": "task2-recall.20.duration",
+    "value": "pages.task2-word-recall-questions.data.20.duration"
+  },
+  {
+    "label": "task2-recall.21.seen",
+    "value": "pages.task2-word-recall-questions.data.21.seen"
+  },
+  {
+    "label": "task2-recall.21.duration",
+    "value": "pages.task2-word-recall-questions.data.21.duration"
+  },
+  {
+    "label": "task2-recall.22.seen",
+    "value": "pages.task2-word-recall-questions.data.22.seen"
+  },
+  {
+    "label": "task2-recall.22.duration",
+    "value": "pages.task2-word-recall-questions.data.22.duration"
+  },
+  {
+    "label": "task2-recall.23.seen",
+    "value": "pages.task2-word-recall-questions.data.23.seen"
+  },
+  {
+    "label": "task2-recall.23.duration",
+    "value": "pages.task2-word-recall-questions.data.23.duration"
+  },
+  {
+    "label": "task2-recall.24.seen",
+    "value": "pages.task2-word-recall-questions.data.24.seen"
+  },
+  {
+    "label": "task2-recall.24.duration",
+    "value": "pages.task2-word-recall-questions.data.24.duration"
+  },
+  {
+    "label": "task2-recall.25.seen",
+    "value": "pages.task2-word-recall-questions.data.25.seen"
+  },
+  {
+    "label": "task2-recall.25.duration",
+    "value": "pages.task2-word-recall-questions.data.25.duration"
+  },
+  {
+    "label": "task2-recall.26.seen",
+    "value": "pages.task2-word-recall-questions.data.26.seen"
+  },
+  {
+    "label": "task2-recall.26.duration",
+    "value": "pages.task2-word-recall-questions.data.26.duration"
+  },
+  {
+    "label": "task2-recall.27.seen",
+    "value": "pages.task2-word-recall-questions.data.27.seen"
+  },
+  {
+    "label": "task2-recall.27.duration",
+    "value": "pages.task2-word-recall-questions.data.27.duration"
+  },
+  {
+    "label": "task2-recall.28.seen",
+    "value": "pages.task2-word-recall-questions.data.28.seen"
+  },
+  {
+    "label": "task2-recall.28.duration",
+    "value": "pages.task2-word-recall-questions.data.28.duration"
+  },
+  {
+    "label": "task2-recall.29.seen",
+    "value": "pages.task2-word-recall-questions.data.29.seen"
+  },
+  {
+    "label": "task2-recall.29.duration",
+    "value": "pages.task2-word-recall-questions.data.29.duration"
+  },
+  {
+    "label": "task2-recall.30.seen",
+    "value": "pages.task2-word-recall-questions.data.30.seen"
+  },
+  {
+    "label": "task2-recall.30.duration",
+    "value": "pages.task2-word-recall-questions.data.30.duration"
+  },
+  {
+    "label": "task2-recall.31.seen",
+    "value": "pages.task2-word-recall-questions.data.31.seen"
+  },
+  {
+    "label": "task2-recall.31.duration",
+    "value": "pages.task2-word-recall-questions.data.31.duration"
+  },
+  {
+    "label": "task2-recall.32.seen",
+    "value": "pages.task2-word-recall-questions.data.32.seen"
+  },
+  {
+    "label": "task2-recall.32.duration",
+    "value": "pages.task2-word-recall-questions.data.32.duration"
+  },
+  {
+    "label": "task2-recall.33.seen",
+    "value": "pages.task2-word-recall-questions.data.33.seen"
+  },
+  {
+    "label": "task2-recall.33.duration",
+    "value": "pages.task2-word-recall-questions.data.33.duration"
+  },
+  {
+    "label": "task2-recall.34.seen",
+    "value": "pages.task2-word-recall-questions.data.34.seen"
+  },
+  {
+    "label": "task2-recall.34.duration",
+    "value": "pages.task2-word-recall-questions.data.34.duration"
+  },
+  {
+    "label": "task2-recall.35.seen",
+    "value": "pages.task2-word-recall-questions.data.35.seen"
+  },
+  {
+    "label": "task2-recall.35.duration",
+    "value": "pages.task2-word-recall-questions.data.35.duration"
+  },
+  {
+    "label": "task2-recall.36.seen",
+    "value": "pages.task2-word-recall-questions.data.36.seen"
+  },
+  {
+    "label": "task2-recall.36.duration",
+    "value": "pages.task2-word-recall-questions.data.36.duration"
+  },
+  {
+    "label": "task2-recall.37.seen",
+    "value": "pages.task2-word-recall-questions.data.37.seen"
+  },
+  {
+    "label": "task2-recall.37.duration",
+    "value": "pages.task2-word-recall-questions.data.37.duration"
+  },
+  {
+    "label": "task2-recall.38.seen",
+    "value": "pages.task2-word-recall-questions.data.38.seen"
+  },
+  {
+    "label": "task2-recall.38.duration",
+    "value": "pages.task2-word-recall-questions.data.38.duration"
+  },
+  {
+    "label": "task2-recall.39.seen",
+    "value": "pages.task2-word-recall-questions.data.39.seen"
+  },
+  {
+    "label": "task2-recall.39.duration",
+    "value": "pages.task2-word-recall-questions.data.39.duration"
+  },
+  {
+    "label": "task2-recall.40.seen",
+    "value": "pages.task2-word-recall-questions.data.40.seen"
+  },
+  {
+    "label": "task2-recall.40.duration",
+    "value": "pages.task2-word-recall-questions.data.40.duration"
+  },
+  {
+    "label": "task2-recall.41.seen",
+    "value": "pages.task2-word-recall-questions.data.41.seen"
+  },
+  {
+    "label": "task2-recall.41.duration",
+    "value": "pages.task2-word-recall-questions.data.41.duration"
+  },
+  {
+    "label": "task2-recall.42.seen",
+    "value": "pages.task2-word-recall-questions.data.42.seen"
+  },
+  {
+    "label": "task2-recall.42.duration",
+    "value": "pages.task2-word-recall-questions.data.42.duration"
+  },
+  {
+    "label": "task2-recall.43.seen",
+    "value": "pages.task2-word-recall-questions.data.43.seen"
+  },
+  {
+    "label": "task2-recall.43.duration",
+    "value": "pages.task2-word-recall-questions.data.43.duration"
+  },
+  {
+    "label": "task2-recall.44.seen",
+    "value": "pages.task2-word-recall-questions.data.44.seen"
+  },
+  {
+    "label": "task2-recall.44.duration",
+    "value": "pages.task2-word-recall-questions.data.44.duration"
+  },
+  {
+    "label": "task2-recall.45.seen",
+    "value": "pages.task2-word-recall-questions.data.45.seen"
+  },
+  {
+    "label": "task2-recall.45.duration",
+    "value": "pages.task2-word-recall-questions.data.45.duration"
+  },
+  {
+    "label": "task2-recall.46.seen",
+    "value": "pages.task2-word-recall-questions.data.46.seen"
+  },
+  {
+    "label": "task2-recall.46.duration",
+    "value": "pages.task2-word-recall-questions.data.46.duration"
+  },
+  {
+    "label": "task2-recall.47.seen",
+    "value": "pages.task2-word-recall-questions.data.47.seen"
+  },
+  {
+    "label": "task2-recall.47.duration",
+    "value": "pages.task2-word-recall-questions.data.47.duration"
+  },
+  {
+    "label": "task2-recall.48.seen",
+    "value": "pages.task2-word-recall-questions.data.48.seen"
+  },
+  {
+    "label": "task2-recall.48.duration",
+    "value": "pages.task2-word-recall-questions.data.48.duration"
+  },
+  {
+    "label": "task2-recall.49.seen",
+    "value": "pages.task2-word-recall-questions.data.49.seen"
+  },
+  {
+    "label": "task2-recall.49.duration",
+    "value": "pages.task2-word-recall-questions.data.49.duration"
+  },
+  {
+    "label": "task2-recall.50.seen",
+    "value": "pages.task2-word-recall-questions.data.50.seen"
+  },
+  {
+    "label": "task2-recall.50.duration",
+    "value": "pages.task2-word-recall-questions.data.50.duration"
+  },
+  {
+    "label": "task2-recall.51.seen",
+    "value": "pages.task2-word-recall-questions.data.51.seen"
+  },
+  {
+    "label": "task2-recall.51.duration",
+    "value": "pages.task2-word-recall-questions.data.51.duration"
+  },
+  {
+    "label": "task2-recall.52.seen",
+    "value": "pages.task2-word-recall-questions.data.52.seen"
+  },
+  {
+    "label": "task2-recall.52.duration",
+    "value": "pages.task2-word-recall-questions.data.52.duration"
+  },
+  {
+    "label": "task2-recall.53.seen",
+    "value": "pages.task2-word-recall-questions.data.53.seen"
+  },
+  {
+    "label": "task2-recall.53.duration",
+    "value": "pages.task2-word-recall-questions.data.53.duration"
+  },
+  {
+    "label": "task2-recall.54.seen",
+    "value": "pages.task2-word-recall-questions.data.54.seen"
+  },
+  {
+    "label": "task2-recall.54.duration",
+    "value": "pages.task2-word-recall-questions.data.54.duration"
+  },
+  {
+    "label": "task2-recall.55.seen",
+    "value": "pages.task2-word-recall-questions.data.55.seen"
+  },
+  {
+    "label": "task2-recall.55.duration",
+    "value": "pages.task2-word-recall-questions.data.55.duration"
+  },
+  {
+    "label": "post-experimental.startTime",
+    "value": "pages.post-experimental-questions.startTime"
+  },
+  {
+    "label": "post-experimental.endTime",
+    "value": "pages.post-experimental-questions.endTime"
+  },
+  {
+    "label": "post-experimental.duration",
+    "value": "pages.post-experimental-questions.duration"
+  },
+  {
+    "label": "post-experimental.how-motivated",
+    "value": "pages.post-experimental-questions.data.how-motivated"
+  },
+  {
+    "label": "post-experimental.focus-accuracy-or-speed",
+    "value": "pages.post-experimental-questions.data.focus-accuracy-or-speed"
+  },
+  {
+    "label": "post-experimental.how-accurate",
+    "value": "pages.post-experimental-questions.data.how-accurate"
+  },
+  {
+    "label": "post-experimental.performance-satisfaction",
+    "value": "pages.post-experimental-questions.data.performance-satisfaction"
+  },
+  {
+    "label": "post-experimental.right-strategy",
+    "value": "pages.post-experimental-questions.data.right-strategy"
+  },
+  {
+    "label": "post-experimental.enjoy-task",
+    "value": "pages.post-experimental-questions.data.enjoy-task"
+  },
+  {
+    "label": "post-experimental.attention-check",
+    "value": "pages.post-experimental-questions.data.attention-check"
+  },
+  {
+    "label": "general.startTime",
+    "value": "pages.general-questions.startTime"
+  },
+  { "label": "general.endTime", "value": "pages.general-questions.endTime" },
+  { "label": "general.duration", "value": "pages.general-questions.duration" },
+  {
+    "label": "general.full-time-work-experience",
+    "value": "pages.general-questions.data.full-time-work-experience"
+  },
+  {
+    "label": "general.current-age",
+    "value": "pages.general-questions.data.current-age"
+  },
+  { "label": "general.gender", "value": "pages.general-questions.data.gender" },
+  {
+    "label": "general.highest-level-of-education",
+    "value": "pages.general-questions.data.highest-level-of-education"
+  },
+  {
+    "label": "general.average-gpa",
+    "value": "pages.general-questions.data.average-gpa"
+  },
+  {
+    "label": "general.teachers-guidance",
+    "value": "pages.general-questions.data.teachers-guidance"
+  },
+  {
+    "label": "general.num-accounting-courses",
+    "value": "pages.general-questions.data.num-accounting-courses"
+  },
+  {
+    "label": "general.num-finance-courses",
+    "value": "pages.general-questions.data.num-finance-courses"
+  },
+  {
+    "label": "general.invested-before",
+    "value": "pages.general-questions.data.invested-before"
+  },
+  {
+    "label": "general.plan-to-invest",
+    "value": "pages.general-questions.data.plan-to-invest"
+  }
+]

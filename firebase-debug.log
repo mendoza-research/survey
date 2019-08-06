@@ -1,0 +1,71 @@
+[debug] [2019-08-06T13:32:36.674Z] ----------------------------------------------------------------------
+[debug] [2019-08-06T13:32:36.678Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\subwa\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-08-06T13:32:36.678Z] CLI Version:   6.10.0
+[debug] [2019-08-06T13:32:36.679Z] Platform:      win32
+[debug] [2019-08-06T13:32:36.679Z] Node Version:  v10.15.3
+[debug] [2019-08-06T13:32:36.685Z] Time:          Tue Aug 06 2019 22:32:36 GMT+0900 (GMT+09:00)
+[debug] [2019-08-06T13:32:36.685Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-06T13:32:36.708Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-06T13:32:36.709Z] > authorizing via signed-in user
+[debug] [2019-08-06T13:32:36.709Z] [iam] checking project kimendoz-survey for permissions ["firebase.projects.get"]
+[debug] [2019-08-06T13:32:36.711Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-08-06T13:32:36.712Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-08-06T13:32:37.023Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-06T13:32:37.029Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kimendoz-survey:testIamPermissions  
+
+[debug] [2019-08-06T13:32:37.949Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-06T13:32:37.951Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/kimendoz-survey  
+ 
+[debug] [2019-08-06T13:32:38.782Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\subwa\Downloads\react-projects\mendoza-survey'...
+[info] 
+[info] +  functions: Using node@10 from host.
+[debug] [2019-08-06T13:32:38.789Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/817593294657:getServerAppConfig  
+ 
+[debug] [2019-08-06T13:32:39.687Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions" for Cloud Functions...
+[debug] [2019-08-06T13:32:40.190Z] Functions runtime initialized.
+[debug] [2019-08-06T13:32:40.191Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T13:32:41.126Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  functions: HTTP trigger initialized at http://localhost:5000/kimendoz-survey/us-central1/exportAllResponses
+[debug] [2019-08-06T13:37:21.435Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\fields.json changed, reloading triggers
+[debug] [2019-08-06T13:37:22.955Z] Functions runtime initialized.
+[debug] [2019-08-06T13:37:22.956Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T13:37:23.853Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-06T15:23:04.201Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-06T15:23:05.834Z] Functions runtime initialized.
+[debug] [2019-08-06T15:23:05.835Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T15:23:06.773Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-06T15:23:19.787Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-06T15:23:21.222Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-06T15:23:21.457Z] Functions runtime initialized.
+[debug] [2019-08-06T15:23:21.458Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T15:23:22.487Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-06T15:23:22.793Z] Functions runtime initialized.
+[debug] [2019-08-06T15:23:22.794Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T15:23:23.735Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-06T15:23:24.320Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-06T15:23:25.898Z] Functions runtime initialized.
+[debug] [2019-08-06T15:23:25.899Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T15:23:26.865Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-06T15:23:52.902Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-06T15:23:54.524Z] Functions runtime initialized.
+[debug] [2019-08-06T15:23:54.525Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T15:23:55.439Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-06T15:24:06.553Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers
+[debug] [2019-08-06T15:24:08.160Z] Functions runtime initialized.
+[debug] [2019-08-06T15:24:08.161Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-08-06T15:24:09.054Z] firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[debug] [2019-08-06T15:24:15.969Z] File C:\Users\subwa\Downloads\react-projects\mendoza-survey\functions\index.js changed, reloading triggers

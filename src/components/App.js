@@ -18,6 +18,7 @@ import Task2WordRecallQuestions from "./pages/Task2WordRecallQuestions";
 import PostExperimentalQuestions from "./pages/PostExperimentalQuestions";
 import GeneralQuestions from "./pages/GeneralQuestions";
 import Outro from "./pages/Outro";
+import Admin from "./pages/Admin";
 
 class App extends Component {
   constructor(props) {
@@ -154,6 +155,7 @@ class App extends Component {
                     path="/general-questions"
                   />
                   <Route component={Outro} exact path="/outro" />
+                  <Route component={Admin} exact path="/admin" />
                 </Switch>
               </div>
             </div>

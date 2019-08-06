@@ -25,9 +25,10 @@ a {
   justify-content: flex-end;
 }
 
+.btn,
 .btn-nav {
   font-size: 1rem;
-  display: block;
+  display: inline-block;
   background-color: $light-background-color;
   color: $primary-color;
   margin-top: 20px;
