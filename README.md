@@ -26,7 +26,12 @@ This is a serverless application using Firestore and Cloud Functions. During dev
 - Generate firebase admin SDK private `.json` key file and add it to `functions` directory. Snippets and private key file can be viewed/downloaded at
 [https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk](https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk)
 
+### Running emulator on localhost
 - On project folder, run `firebase serve` to launch emulators.
+
+### Deploying functions
+To deploy cloud functions, use the command below at the project root. 
+```firebase deploy --only functions```
 
 ## Automatic Deployment
 Any changes made to the repository will automatically be updated to the Netlify site. 
