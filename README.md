@@ -14,6 +14,10 @@ To run the site in local environment, below programs are required.
 ### Add file that holds environment variables for Firebase
 `.env` file with Firebase configurations
 
+### Add Firebase Admin SDK private key
+Generate firebase admin SDK private `.json` key file and add it to `functions` directory. Snippets and private key file can be viewed/downloaded at
+[https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk](https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk)
+
 ### Install packages
 ```yarn```
 
@@ -22,9 +26,6 @@ To run the site in local environment, below programs are required.
 
 ## Firebase Firestore & Cloud Functions
 This is a serverless application using Firestore and Cloud Functions. During development, it is much, much faster to use the emulators to test cloud functions. 
-
-- Generate firebase admin SDK private `.json` key file and add it to `functions` directory. Snippets and private key file can be viewed/downloaded at
-[https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk](https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk)
 
 ### Running emulator on localhost
 - On project folder, run `firebase serve` to launch emulators.
