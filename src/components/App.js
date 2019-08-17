@@ -19,6 +19,7 @@ import PostExperimentalQuestions from "./pages/PostExperimentalQuestions";
 import GeneralQuestions from "./pages/GeneralQuestions";
 import Outro from "./pages/Outro";
 import Admin from "./pages/Admin";
+import MTurkID from "./pages/MTurkID";
 
 class App extends Component {
   constructor(props) {
@@ -96,7 +97,8 @@ class App extends Component {
             <div id="content-wrapper">
               <div id="content">
                 <Switch>
-                  <Route component={Intro} exact path="/" />
+                  <Route component={MTurkID} exact path="/" />
+                  <Route component={Intro} exact path="/intro" />
                   <Route
                     component={Task1Instructions}
                     exact

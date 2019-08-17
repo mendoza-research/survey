@@ -53,9 +53,15 @@ a {
 /* 
   Checklist
 */
+.select-procedures-checklist-instructions {
+  margin-top: 40px;
+  border-top: 1px solid #000;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 .checklist {
   padding: 30px 0 20px 0;
-  border: 1px solid #eee;
   border-left: none;
   border-right: none;
 }
@@ -209,6 +215,7 @@ textarea {
   height: 200px;
 }
 
+input[type="text"],
 input[type="number"] {
   @include input-style;
 }

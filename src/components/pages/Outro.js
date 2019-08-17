@@ -6,9 +6,13 @@ class Outro extends Component {
     return (
       <div>
         <p>
-          <strong>
-            You have completed the study. Thank you for your participation!
-          </strong>
+          You have completed the study.
+          <br />
+          Thank you for your participation.
+        </p>
+
+        <p>
+          Please use the code R124AWDZKM to show you have completed the survey.
         </p>
 
         <div className="debug-box">

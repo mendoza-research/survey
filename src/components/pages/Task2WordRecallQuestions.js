@@ -96,8 +96,8 @@ class Task2WordRecallQuestions extends Component {
         {currentIndex === 0 && (
           <p>
             In the following screens, you will be asked to indicate whether each
-            word was presented in the Task 2 that you just completed. Please
-            answer these questions as quickly as you could.
+            word was presented in Task 2 that you just completed. Please answer
+            these questions as quickly as you could.
           </p>
         )}
 

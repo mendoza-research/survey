@@ -85,8 +85,8 @@ class Task1SelectProcedures extends Component {
         </p>
 
         <p>
-          To reach the goal of obtaining a B in my course, students could
-          (should) perform the following procedures, for example:
+          To reach the goal of obtaining a B in my course, students{" "}
+          {experimentCondition} perform the following procedures, for example:
         </p>
 
         <ol>
@@ -112,16 +112,18 @@ class Task1SelectProcedures extends Component {
           </li>
         </ol>
 
-        <p>
-          You will now select the procedures, from the options listed below,
-          that you would perform while enrolled in the class.
-        </p>
+        <div className="select-procedures-checklist-instructions">
+          <p>
+            You will now select the procedures, from the options listed below,
+            that you would perform while enrolled in the class.
+          </p>
 
-        <p>
-          Remember that your time is valuable. Please aim to maximize the
-          likelihood of achieving your goal while also being efficient with your
-          valuable time. Please mark your selections with a checkmark:
-        </p>
+          <p>
+            Remember that your time is valuable. Please aim to maximize the
+            likelihood of achieving your goal while also being efficient with
+            your valuable time. Please mark your selections with a checkmark:
+          </p>
+        </div>
 
         <div className="checklist">
           <Checkbox

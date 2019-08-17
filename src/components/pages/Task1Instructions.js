@@ -43,9 +43,8 @@ class Task1Instructions extends Component {
         <h2>Instructions for Task 1:</h2>
 
         <p>
-          Please assume that you are currently taking a college-level business
-          class. Your goal is to earn a minimum grade of a B (80 percent) in the
-          class.
+          Please assume that you are currently taking a college-level class.
+          Your goal is to earn a minimum grade of a B (80 percent) in the class.
         </p>
 
         <p>

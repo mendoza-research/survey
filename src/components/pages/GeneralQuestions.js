@@ -4,6 +4,7 @@ import SurveyContext from "../../context/SurveyContext";
 import MultipleChoice from "../common/MultipleChoice";
 import RangeSlider from "./../common/RangeSlider";
 import MatrixTable from "../common/MatrixTable";
+import ReCAPTCHA from "react-google-recaptcha";
 
 class GeneralQuestions extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class GeneralQuestions extends Component {
         "num-accounting-courses": null,
         "num-finance-courses": null,
         "invested-before": null,
-        "plan-to-invest": null
+        "plan-to-invest": null,
+        "recaptcha-response": null
       }
     };
 
@@ -82,7 +84,7 @@ class GeneralQuestions extends Component {
 
           <input
             type="number"
-            value={this.state["full-time-work-experience"]}
+            value={this.state.data["full-time-work-experience"]}
             onChange={e =>
               this.onChange(
                 "full-time-work-experience",
@@ -97,7 +99,7 @@ class GeneralQuestions extends Component {
 
           <input
             type="number"
-            value={this.state.age}
+            value={this.state.data["current-age"]}
             onChange={e =>
               this.onChange("current-age", Number.parseInt(e.target.value))
             }
@@ -216,6 +218,13 @@ class GeneralQuestions extends Component {
             value={this.state.data["plan-to-invest"]}
             values={["Yes", "No"]}
             onChange={this.onChange}
+          />
+        </div>
+
+        <div className="question-item">
+          <ReCAPTCHA
+            sitekey="6Lecf7MUAAAAANgk7T8e9jI9W_qZ1WkZSu0tFgJ6"
+            onChange={value => this.onChange("recaptcha-response", value)}
           />
         </div>
 

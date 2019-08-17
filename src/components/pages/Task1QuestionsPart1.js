@@ -111,7 +111,7 @@ class Task1QuestionsPart1 extends Component {
 
         <RangeSlider
           id="how-useful-professor-advice"
-          text="How useful was the professor's advice about how to earn a B in the class?"
+          text="How useful was the professor's advice in the syllabus about how to earn a B in the class?"
           min={-50}
           minLabel="Not At All Useful"
           max={50}
