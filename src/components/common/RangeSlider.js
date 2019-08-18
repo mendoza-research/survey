@@ -38,7 +38,7 @@ class RangeSlider extends Component {
     const { min, centerLabel, max, customMarks } = props;
 
     const markStep = props.hasOwnProperty("markStep") ? props.markStep : 10;
-    const step = props.hasOwnProperty("step") ? this.props.step : 1;
+    const step = props.hasOwnProperty("step") ? props.step : 1;
     const markPoints = _.range(min, max + 0.001, markStep);
     const labelWrapperClassStr = className({
       "range-labels": true,
@@ -87,9 +87,17 @@ class RangeSlider extends Component {
           />
         </div>
         <div className={labelWrapperClassStr}>
-          <div className="label-min">{minLabel ? minLabel : " "}</div>
-          {centerLabel && <div className="label-center">{centerLabel}</div>}
-          <div className="label-max">{maxLabel ? maxLabel : " "}</div>
+          <div className="label-min">
+            <div className="label-text">{minLabel ? minLabel : " "}</div>
+          </div>
+          {centerLabel && (
+            <div className="label-center">
+              <div className="label-text">{centerLabel}</div>
+            </div>
+          )}
+          <div className="label-max">
+            <div className="label-text">{maxLabel ? maxLabel : " "}</div>
+          </div>
         </div>
       </div>
     );

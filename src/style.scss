@@ -155,24 +155,27 @@ label:hover:before {
   }
 
   .range-labels {
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     justify-content: space-between;
+    font-size: 0.9rem;
 
-    &.has-center-label {
-      font-size: 0.95rem;
+    > div {
+      position: relative;
+      width: 33%;
+      text-align: center;
 
-      > div {
-        width: 30%;
+      .label-text {
+        position: relative;
       }
+    }
 
-      .label-center {
-        text-align: center;
-      }
+    .label-min .label-text {
+      left: -50%;
+    }
 
-      .label-max {
-        text-align: right;
-      }
+    .label-max .label-text {
+      right: -50%;
     }
   }
 }
