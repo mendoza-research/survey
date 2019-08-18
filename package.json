@@ -9,6 +9,7 @@
     "mousetrap": "^1.6.3",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
+    "object-path": "^0.11.4",
     "rc-slider": "^8.6.13",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
