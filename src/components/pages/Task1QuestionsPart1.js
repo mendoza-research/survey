@@ -14,7 +14,7 @@ class Task1QuestionsPart1 extends Component {
       data: {
         "how-well": 0,
         "how-likely-to-pass": 0,
-        "what-grade": 73,
+        "what-grade": 70,
         "how-difficult-earn-b-or-higher": 0,
         "how-useful-professor-advice": 0,
         "how-much-discretion": 0
@@ -84,17 +84,19 @@ class Task1QuestionsPart1 extends Component {
         <RangeSlider
           id="what-grade"
           text="Given the steps you chose, what grade (in percentage) do you think you will earn?"
-          min={45}
+          min={40}
           max={100}
-          step={5}
           customMarks={{
-            45: "Less than 50%",
+            40: "Less than 50%",
             50: "50%",
             60: "60%",
             70: "70%",
             80: "80%",
             90: "90%",
             100: "100%"
+          }}
+          filter={value => {
+            return value < 50 ? 40 : value;
           }}
           onChange={this.onChange}
         />

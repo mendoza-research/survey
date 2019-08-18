@@ -58,15 +58,13 @@ class MTurkID extends Component {
   render() {
     return (
       <div>
-        <div className="question-item">
-          <p>Please enter your MTurk ID.</p>
+        <p>Please enter your MTurk ID.</p>
 
-          <input
-            type="text"
-            value={this.state.data["id"]}
-            onChange={e => this.onChange("id", e.target.value)}
-          />
-        </div>
+        <input
+          type="text"
+          value={this.state.data["id"]}
+          onChange={e => this.onChange("id", e.target.value)}
+        />
 
         <PageNavigation
           disabled={!this.canSubmit()}
