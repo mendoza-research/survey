@@ -1,6 +1,6 @@
 [
   { "label": "session.id", "value": "sessionId" },
-  { "label": "mturk-id", "value": "mturk-id.data.id" },
+  { "label": "mturk-id", "value": "pages.mturk-id.data.id" },
   { "label": "session.startTime", "value": "startTime" },
   { "label": "session.endTime", "value": "endTime" },
   { "label": "session.duration", "value": "duration" },

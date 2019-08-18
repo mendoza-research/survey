@@ -15,8 +15,8 @@ class GeneralQuestions extends Component {
       endTime: null,
       duration: null,
       data: {
-        "full-time-work-experience": null,
-        "current-age": null,
+        "full-time-work-experience": "",
+        "current-age": "",
         gender: null,
         "highest-level-of-education": null,
         "average-gpa": null,

@@ -4,7 +4,7 @@ const admin = require("firebase-admin");
 const { Parser } = require("json2csv");
 const fields = require("./fields.json");
 
-var serviceAccount = require("./kimendoz-survey-firebase-adminsdk-3ke6d-9829c21100.json");
+var serviceAccount = require("./firebase-admin-sdk.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

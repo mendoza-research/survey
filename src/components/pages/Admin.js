@@ -26,8 +26,7 @@ class Admin extends Component {
         <h2>Admin</h2>
 
         <a
-          href="https://us-central1-kimendoz-survey.cloudfunctions.net/exportAllResponses
-"
+          href="https://us-central1-kimendoz-survey.cloudfunctions.net/exportAllResponses"
           className="btn"
         >
           Export to CSV

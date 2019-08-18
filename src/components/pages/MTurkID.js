@@ -50,7 +50,6 @@ class MTurkID extends Component {
       },
       async () => {
         await this.context.addUserResponse("mturk-id", this.state);
-        await this.context.submitUserResponse();
       }
     );
   }
