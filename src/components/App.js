@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Intro from "./pages/Intro";
 import Task1Instructions from "./pages/Task1Instructions";
@@ -39,6 +39,7 @@ class App extends Component {
       pages: {}
     };
 
+    this.currentPathname = "/";
     this.addUserResponse = this.addUserResponse.bind(this);
     this.submitUserResponse = this.submitUserResponse.bind(this);
   }
@@ -50,9 +51,20 @@ class App extends Component {
 
     // Prevent back button
     window.onpopstate = e => {
-      e.preventDefault();
       customHistory.go(1);
     };
+
+    // If a participant has navigated to a new pathname,
+    // push the new pathname to history stack
+    // This part of the code is necessary to preserve state when a participant
+    // accidentally clicks on the back button
+    customHistory.listen((location, action) => {
+      if (location.pathname !== this.currentPathname) {
+        this.currentPathname = location.pathname;
+
+        customHistory.push(location.pathname);
+      }
+    });
   }
 
   addUserResponse(pageName, data) {
@@ -68,7 +80,7 @@ class App extends Component {
           setTimeout(() => {
             console.log(this.state);
             resolve();
-          }, 1000);
+          }, 500);
         }
       );
     });

@@ -7,29 +7,48 @@ class PageNavigation extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      isClicked: false
+    };
+
     this.onClick = this.onClick.bind(this);
   }
 
   async onClick() {
     const { history, disabled, beforeNavigate, to } = this.props;
+    const { isClicked } = this.state;
 
-    if (disabled) return;
+    if (disabled || isClicked) return;
 
-    if (beforeNavigate) {
-      const canNavigate = await beforeNavigate();
+    this.setState(
+      {
+        isClicked: true
+      },
+      async () => {
+        if (beforeNavigate) {
+          const canNavigate = await beforeNavigate();
 
-      if (canNavigate === false) return;
-    }
+          if (canNavigate === false) {
+            this.setState({
+              isClicked: false
+            });
 
-    history.push(to);
+            return;
+          }
+        }
+
+        history.push(to);
+      }
+    );
   }
 
   render() {
     const { disabled, disabledMsg } = this.props;
+    const { isClicked } = this.state;
 
     const btnClassStr = classNames({
       "btn-nav": true,
-      disabled: disabled
+      disabled: disabled || isClicked
     });
 
     return (

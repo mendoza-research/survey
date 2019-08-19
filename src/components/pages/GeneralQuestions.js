@@ -76,7 +76,7 @@ class GeneralQuestions extends Component {
             this.recaptchaRef.current.reset();
           }
 
-          resolve(response.data.success);
+          resolve(didRecaptchaSucceed);
         }
       );
     });
