@@ -85,24 +85,6 @@ class App extends Component {
           duration
         },
         async () => {
-          // await firebase.db
-          //   .collection("responses")
-          //   .add(this.state)
-          //   .then(console.log("Submit complete"))
-          //   .catch(error =>
-          //     console.error("Error creating a firebase document: ", error)
-          //   );
-
-          // return await axios.post("/submit-response", this.state);
-          // axios
-          //   .post("/submit-response", this.state)
-          //   .then(response => {
-          //     console.log(response);
-          //   })
-          //   .catch(err => {
-          //     console.error(err);
-          //   });
-
           try {
             const response = await axios.post("/submit-response", this.state);
 

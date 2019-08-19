@@ -16,7 +16,9 @@ class PageNavigation extends Component {
     if (disabled) return;
 
     if (beforeNavigate) {
-      await beforeNavigate();
+      const canNavigate = await beforeNavigate();
+
+      if (canNavigate === false) return;
     }
 
     history.push(to);

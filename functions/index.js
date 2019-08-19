@@ -3,9 +3,11 @@ const cors = require("cors")({ origin: true });
 const admin = require("firebase-admin");
 const express = require("express");
 const app = express();
+const rp = require("request-promise");
 const objectPath = require("object-path");
 const { Parser } = require("json2csv");
 const fields = require("./fields.json");
+const recaptchaSecretKey = require("./recaptcha-secret-key.json")["secretKey"];
 
 app.use(cors);
 
@@ -66,7 +68,31 @@ async function getAllResponsesAsCSV() {
 // If successful, save a participant's response
 // If unsuccessful, notify the participant
 app.post("/submit-response", async (req, res) => {
-  res.json(req.body);
+  const recaptchaResponse =
+    req.body["pages"]["general-questions"]["data"]["recaptcha-response"];
+
+  console.log(`secretKey=${recaptchaSecretKey}`);
+  console.log(`recaptchaResponse=${recaptchaResponse}`);
+
+  rp({
+    uri: "https://recaptcha.google.com/recaptcha/api/siteverify",
+    method: "POST",
+    formData: {
+      secret: recaptchaSecretKey,
+      response: recaptchaResponse
+    },
+    json: true
+  })
+    .then(result => {
+      console.log("recaptcha result", result);
+      return res.json({
+        result: result.success
+      });
+    })
+    .catch(reason => {
+      console.log("Recaptcha request failure", reason);
+      res.send("Recaptcha request failed.");
+    });
 });
 
 // Return all responses as a flattened JSON

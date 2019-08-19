@@ -30,7 +30,7 @@ class GeneralQuestions extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
-    this.saveResults = this.saveResults.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   componentDidMount() {
@@ -52,23 +52,26 @@ class GeneralQuestions extends Component {
     return Object.values(this.state.data).every(v => v !== null);
   }
 
-  async saveResults() {
+  async submit() {
     const endTime = new Date();
     const duration = (endTime - this.state.startTime) / 1000;
 
-    this.setState(
-      {
-        startTime: this.state.startTime.toISOString(),
-        endTime: endTime.toISOString(),
-        duration
-      },
-      async () => {
-        await this.context.addUserResponse("general-questions", this.state);
-        const response = await this.context.submitUserResponse();
+    return new Promise((resolve, reject) => {
+      this.setState(
+        {
+          startTime: this.state.startTime.toISOString(),
+          endTime: endTime.toISOString(),
+          duration
+        },
+        async () => {
+          await this.context.addUserResponse("general-questions", this.state);
+          const response = await this.context.submitUserResponse();
 
-        console.log(response);
-      }
-    );
+          console.log(response);
+          resolve(response);
+        }
+      );
+    });
   }
 
   render() {
@@ -235,7 +238,7 @@ class GeneralQuestions extends Component {
         <PageNavigation
           disabled={!this.canSubmit()}
           disabledMsg="Please answer all questions"
-          beforeNavigate={this.saveResults}
+          beforeNavigate={this.submit}
           to="/outro"
         />
       </div>
