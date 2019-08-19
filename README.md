@@ -12,11 +12,8 @@ To run the site in local environment, below programs are required.
 ```git clone git@github.com:mendoza-research/survey.git```
 
 ### Add file that holds environment variables for Firebase
-`.env` file with Firebase configurations
-
-### Add Firebase Admin SDK private key
-Generate firebase admin SDK private `.json` key file and add it to `functions` directory. Snippets and private key file can be viewed/downloaded at
-[https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk](https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk)
+~~`.env` file with Firebase configurations~~<br>
+The environment variables are no longer required since all interactions with the Firestore is proxied through cloud functions to handle reCAPTCHA. 
 
 ### Install packages
 ```yarn```
@@ -27,8 +24,18 @@ Generate firebase admin SDK private `.json` key file and add it to `functions` d
 ## Firebase Firestore & Cloud Functions
 This is a serverless application using Firestore and Cloud Functions. During development, it is much, much faster to use the emulators to test cloud functions. 
 
+### Add Firebase Admin SDK private key
+Generate firebase admin SDK private `.json` key file and add it to `functions` directory.<br>
+Snippets and private key file can be viewed/downloaded at
+[https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk](https://console.firebase.google.com/u/0/project/kimendoz-survey/settings/serviceaccounts/adminsdk)
+
+### Add Google reCAPTCHA Secret Key
+A secret key that is paired with the site key for Google's reCAPTCHA is required to verify that a submission origniated from a human.
+<br><br>
+Add a `recaptcha-secret-key.json` to `functions` directory. Refer to the `recaptcha-secret-key-example.json` for the example format.
+
 ### Running emulator on localhost
-- On project folder, run `firebase serve` to launch emulators.
+- On project root folder, run `firebase serve` to launch emulators.
 
 ### Deploying functions
 To deploy cloud functions, use the command below at the project root. 
