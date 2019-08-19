@@ -12,13 +12,10 @@ class Outro extends Component {
         </p>
 
         <p>
-          Please use the code R124AWDZKM to show you have completed the survey.
+          Please use the code{" "}
+          <span className="confirmation-code">R124AWDZKM</span> to show you have
+          completed the survey.
         </p>
-
-        <div className="debug-box">
-          <p>Debug Information (will be hidden in production).</p>
-          <pre>{JSON.stringify(this.context.getUserResponse(), null, 2)}</pre>
-        </div>
       </div>
     );
   }

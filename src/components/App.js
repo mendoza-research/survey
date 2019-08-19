@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import Intro from "./pages/Intro";
 import Task1Instructions from "./pages/Task1Instructions";
 import Task1SelectProcedures from "./pages/Task1SelectProcedures";
@@ -21,6 +22,8 @@ import Outro from "./pages/Outro";
 import Admin from "./pages/Admin";
 import MTurkID from "./pages/MTurkID";
 
+const customHistory = createBrowserHistory();
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,6 +43,11 @@ class App extends Component {
     this.setState({
       startTime: new Date()
     });
+
+    window.onpopstate = e => {
+      e.preventDefault();
+      customHistory.go(1);
+    };
   }
 
   addUserResponse(pageName, data) {
@@ -84,7 +92,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router history={customHistory}>
         <ScrollToTop>
           <SurveyContext.Provider
             value={{

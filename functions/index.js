@@ -1,9 +1,14 @@
 const functions = require("firebase-functions");
-const cors = require("cors")({ origin: true });
+// const cors = require("cors")({ origin: true });
+const cors = require("cors");
 const admin = require("firebase-admin");
+const express = require("express");
+const app = express();
 const { Parser } = require("json2csv");
 const fields = require("./fields.json");
 const objectPath = require("object-path");
+
+app.use(cors({ origin: true }));
 
 var serviceAccount = require("./firebase-admin-sdk.json");
 
@@ -12,6 +17,7 @@ admin.initializeApp({
   databaseURL: "https://kimendoz-survey.firebaseio.com"
 });
 
+// Return all responses as a non-flattened JSON
 async function getAllResponsesAsJSON() {
   let responsesRef = admin.firestore().collection("responses");
   let snapshot = await responsesRef.get();
@@ -43,8 +49,13 @@ async function getAllResponsesAsJSON() {
   return processedDocs;
 }
 
+// Return all responses as a CSV string
 async function getAllResponsesAsCSV() {
   const processedDocs = await getAllResponsesAsJSON();
+
+  const parseOptions = {
+    fields
+  };
 
   const parser = new Parser(parseOptions);
   const csv = parser.parse(processedDocs);
@@ -52,32 +63,43 @@ async function getAllResponsesAsCSV() {
   return csv;
 }
 
-exports.getAllResponses = functions.https.onRequest((req, res) => {
-  return cors(req, res, async () => {
-    const processedDocs = await getAllResponsesAsJSON();
-    const flattenedDocs = [];
+// Validate Captcha
+// If successful, save a participant's response
+// If unsuccessful, notify the participant
 
-    processedDocs.forEach(doc => {
-      let flattenedDoc = {};
+// Return all responses as a flattened JSON
+app.get("/get-all-responses", async (req, res) => {
+  const processedDocs = await getAllResponsesAsJSON();
+  const flattenedDocs = [];
 
-      fields.forEach(field => {
+  processedDocs.forEach(doc => {
+    let flattenedDoc = {};
+
+    fields.forEach(field => {
+      if (objectPath.has(doc, field.value)) {
         flattenedDoc[field.label] = objectPath.get(doc, field.value);
-      });
-
-      flattenedDocs.push(flattenedDoc);
+      }
     });
 
-    res.json({ data: flattenedDocs });
+    flattenedDocs.push(flattenedDoc);
   });
+
+  res.json({ data: flattenedDocs });
 });
 
-exports.exportAllResponses = functions.https.onRequest((req, res) => {
-  return cors(req, res, async () => {
-    const csv = await getAllResponsesAsCSV();
+// Return all responses as a CSV file
+// exports.exportAllResponses = functions.https.onRequest((req, res) => {
+//   return cors(req, res, async () => {
 
-    res.setHeader("Content-disposition", "attachment; filename=export.csv");
-    res.set("Content-Type", "text/csv");
+app.get("/export-all-responses", async (req, res) => {
+  const csv = await getAllResponsesAsCSV();
 
-    return res.status(200).send(csv);
-  });
+  res.setHeader("Content-disposition", "attachment; filename=export.csv");
+  res.set("Content-Type", "text/csv");
+
+  return res.status(200).send(csv);
 });
+//   });
+// });
+
+exports.functions = functions.https.onRequest(app);
