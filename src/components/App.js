@@ -105,8 +105,7 @@ class App extends Component {
             value={{
               ...this.state,
               addUserResponse: this.addUserResponse,
-              submitUserResponse: this.submitUserResponse,
-              getUserResponse: this.getUserResponse
+              submitUserResponse: this.submitUserResponse
             }}
           >
             <div id="content-wrapper">

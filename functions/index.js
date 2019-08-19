@@ -18,9 +18,10 @@ admin.initializeApp({
   databaseURL: "https://kimendoz-survey.firebaseio.com"
 });
 
+let responsesRef = admin.firestore().collection("responses");
+
 // Return all responses as a non-flattened JSON
 async function getAllResponsesAsJSON() {
-  let responsesRef = admin.firestore().collection("responses");
   let snapshot = await responsesRef.get();
 
   const allDocs = [];
@@ -71,9 +72,6 @@ app.post("/submit-response", async (req, res) => {
   const recaptchaResponse =
     req.body["pages"]["general-questions"]["data"]["recaptcha-response"];
 
-  console.log(`secretKey=${recaptchaSecretKey}`);
-  console.log(`recaptchaResponse=${recaptchaResponse}`);
-
   rp({
     uri: "https://recaptcha.google.com/recaptcha/api/siteverify",
     method: "POST",
@@ -85,13 +83,20 @@ app.post("/submit-response", async (req, res) => {
   })
     .then(result => {
       console.log("recaptcha result", result);
+
+      return result.success;
+    })
+    .then(success => {
       return res.json({
-        result: result.success
+        success
       });
     })
     .catch(reason => {
       console.log("Recaptcha request failure", reason);
-      res.send("Recaptcha request failed.");
+      res.json({
+        success: false,
+        error: reason
+      });
     });
 });
 
