@@ -35,13 +35,11 @@ class App extends Component {
       startTime: null,
       endTime: null,
       duration: null,
-      "recaptcha-response": null,
       pages: {}
     };
 
     this.addUserResponse = this.addUserResponse.bind(this);
     this.submitUserResponse = this.submitUserResponse.bind(this);
-    this.setRecaptchaResponse = this.setRecaptchaResponse.bind(this);
   }
 
   componentDidMount() {
@@ -57,24 +55,21 @@ class App extends Component {
   }
 
   addUserResponse(pageName, data) {
-    this.setState(
-      {
-        pages: {
-          ...this.state.pages,
-          [pageName]: data
-        }
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
-  }
-
-  setRecaptchaResponse(response) {
     return new Promise((resolve, reject) => {
-      this.setState({ "recaptcha-response": response }, () => {
-        resolve();
-      });
+      this.setState(
+        {
+          pages: {
+            ...this.state.pages,
+            [pageName]: data
+          }
+        },
+        () => {
+          setTimeout(() => {
+            console.log(this.state);
+            resolve();
+          }, 1000);
+        }
+      );
     });
   }
 
@@ -129,8 +124,7 @@ class App extends Component {
               ...this.state,
               addUserResponse: this.addUserResponse,
               submitUserResponse: this.submitUserResponse,
-              getUserResponse: this.getUserResponse,
-              setRecaptchaResponse: this.setRecaptchaResponse
+              getUserResponse: this.getUserResponse
             }}
           >
             <div id="content-wrapper">

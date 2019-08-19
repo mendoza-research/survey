@@ -226,8 +226,7 @@ class GeneralQuestions extends Component {
         <div className="question-item">
           <ReCAPTCHA
             sitekey="6Lecf7MUAAAAANgk7T8e9jI9W_qZ1WkZSu0tFgJ6"
-            onChange={async value => {
-              await this.context.setRecaptchaResponse(value);
+            onChange={value => {
               this.onChange("recaptcha-response", value);
             }}
           />

@@ -45,19 +45,23 @@ class PostExperimentalQuestions extends Component {
     const endTime = new Date();
     const duration = (endTime - this.state.startTime) / 1000;
 
-    this.setState(
-      {
-        startTime: this.state.startTime.toISOString(),
-        endTime: endTime.toISOString(),
-        duration
-      },
-      async () => {
-        await this.context.addUserResponse(
-          "post-experimental-questions",
-          this.state
-        );
-      }
-    );
+    return new Promise((resolve, reject) => {
+      this.setState(
+        {
+          startTime: this.state.startTime.toISOString(),
+          endTime: endTime.toISOString(),
+          duration
+        },
+        async () => {
+          await this.context.addUserResponse(
+            "post-experimental-questions",
+            this.state
+          );
+
+          resolve();
+        }
+      );
+    });
   }
 
   render() {

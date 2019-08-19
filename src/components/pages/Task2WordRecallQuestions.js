@@ -32,21 +32,25 @@ class Task2WordRecallQuestions extends Component {
     const endTime = new Date();
     const duration = (endTime - this.state.startTime) / 1000;
 
-    this.setState(
-      {
-        startTime: this.state.startTime.toISOString(),
-        endTime: endTime.toISOString(),
-        duration
-      },
-      async () => {
-        await this.context.addUserResponse("task2-word-recall-questions", {
-          startTime: this.state.startTime,
-          endTime: this.state.endTime,
-          duration: this.state.duration,
-          data: this.state.data
-        });
-      }
-    );
+    return new Promise((resolve, reject) => {
+      this.setState(
+        {
+          startTime: this.state.startTime.toISOString(),
+          endTime: endTime.toISOString(),
+          duration
+        },
+        async () => {
+          await this.context.addUserResponse("task2-word-recall-questions", {
+            startTime: this.state.startTime,
+            endTime: this.state.endTime,
+            duration: this.state.duration,
+            data: this.state.data
+          });
+
+          resolve();
+        }
+      );
+    });
   }
 
   async saveAnswer(val) {
