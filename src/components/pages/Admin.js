@@ -1,23 +1,22 @@
 import React, { Component } from "react";
-import firebase from "../../firebase";
+const axios = require("axios");
 
 class Admin extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      csv: ""
-    };
+    this.state = {};
   }
 
   componentDidMount() {
-    const getAllResponses = firebase.functions.httpsCallable("getAllResponses");
-    getAllResponses().then(result => {
-      console.log(result);
-      this.setState({
-        csv: result.data
+    axios
+      .get("/get-all-responses")
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.error(err);
       });
-    });
   }
 
   render() {
@@ -26,7 +25,7 @@ class Admin extends Component {
         <h2>Admin</h2>
 
         <a
-          href="https://us-central1-kimendoz-survey.cloudfunctions.net/exportAllResponses"
+          href="https://us-central1-kimendoz-survey.cloudfunctions.net/app/export-all-responses"
           className="btn"
         >
           Export to CSV

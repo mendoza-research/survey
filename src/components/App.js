@@ -5,7 +5,6 @@ import Intro from "./pages/Intro";
 import Task1Instructions from "./pages/Task1Instructions";
 import Task1SelectProcedures from "./pages/Task1SelectProcedures";
 import SurveyContext from "./../context/SurveyContext";
-import firebase from "./../firebase/firebase";
 import Task1QuestionsPart1 from "./pages/Task1QuestionsPart1";
 import Task1QuestionsPart2 from "./pages/Task1QuestionsPart2";
 import Task1QuestionsPart3 from "./pages/Task1QuestionsPart3";
@@ -22,6 +21,11 @@ import Outro from "./pages/Outro";
 import Admin from "./pages/Admin";
 import MTurkID from "./pages/MTurkID";
 
+const axios = require("axios");
+// axios.defaults.baseURL = 'https://us-central1-kimendoz-survey.cloudfunctions.net/app';
+axios.defaults.baseURL =
+  "http://localhost:5000/kimendoz-survey/us-central1/app";
+
 const customHistory = createBrowserHistory();
 
 class App extends Component {
@@ -31,12 +35,13 @@ class App extends Component {
       startTime: null,
       endTime: null,
       duration: null,
+      "recaptcha-response": null,
       pages: {}
     };
 
     this.addUserResponse = this.addUserResponse.bind(this);
     this.submitUserResponse = this.submitUserResponse.bind(this);
-    this.getUserResponse = this.getUserResponse.bind(this);
+    this.setRecaptchaResponse = this.setRecaptchaResponse.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +49,7 @@ class App extends Component {
       startTime: new Date()
     });
 
+    // Prevent back button
     window.onpopstate = e => {
       e.preventDefault();
       customHistory.go(1);
@@ -64,30 +70,54 @@ class App extends Component {
     );
   }
 
-  getUserResponse() {
-    return this.state;
+  setRecaptchaResponse(response) {
+    return new Promise((resolve, reject) => {
+      this.setState({ "recaptcha-response": response }, () => {
+        resolve();
+      });
+    });
   }
 
   async submitUserResponse() {
     const endTime = new Date();
     const duration = (endTime - this.state.startTime) / 1000;
 
-    this.setState(
-      {
-        startTime: this.state.startTime.toISOString(),
-        endTime: endTime.toISOString(),
-        duration
-      },
-      async () => {
-        await firebase.db
-          .collection("responses")
-          .add(this.state)
-          .then(console.log("Submit complete"))
-          .catch(error =>
-            console.error("Error creating a firebase document: ", error)
-          );
-      }
-    );
+    return new Promise((resolve, reject) => {
+      this.setState(
+        {
+          startTime: this.state.startTime.toISOString(),
+          endTime: endTime.toISOString(),
+          duration
+        },
+        async () => {
+          // await firebase.db
+          //   .collection("responses")
+          //   .add(this.state)
+          //   .then(console.log("Submit complete"))
+          //   .catch(error =>
+          //     console.error("Error creating a firebase document: ", error)
+          //   );
+
+          // return await axios.post("/submit-response", this.state);
+          // axios
+          //   .post("/submit-response", this.state)
+          //   .then(response => {
+          //     console.log(response);
+          //   })
+          //   .catch(err => {
+          //     console.error(err);
+          //   });
+
+          try {
+            const response = await axios.post("/submit-response", this.state);
+
+            resolve(response);
+          } catch (e) {
+            reject(e);
+          }
+        }
+      );
+    });
   }
 
   render() {
@@ -99,7 +129,8 @@ class App extends Component {
               ...this.state,
               addUserResponse: this.addUserResponse,
               submitUserResponse: this.submitUserResponse,
-              getUserResponse: this.getUserResponse
+              getUserResponse: this.getUserResponse,
+              setRecaptchaResponse: this.setRecaptchaResponse
             }}
           >
             <div id="content-wrapper">

@@ -64,7 +64,9 @@ class GeneralQuestions extends Component {
       },
       async () => {
         await this.context.addUserResponse("general-questions", this.state);
-        await this.context.submitUserResponse();
+        const response = await this.context.submitUserResponse();
+
+        console.log(response);
       }
     );
   }
@@ -224,7 +226,10 @@ class GeneralQuestions extends Component {
         <div className="question-item">
           <ReCAPTCHA
             sitekey="6Lecf7MUAAAAANgk7T8e9jI9W_qZ1WkZSu0tFgJ6"
-            onChange={value => this.onChange("recaptcha-response", value)}
+            onChange={async value => {
+              await this.context.setRecaptchaResponse(value);
+              this.onChange("recaptcha-response", value);
+            }}
           />
         </div>
 

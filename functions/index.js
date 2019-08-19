@@ -1,14 +1,13 @@
 const functions = require("firebase-functions");
-// const cors = require("cors")({ origin: true });
-const cors = require("cors");
+const cors = require("cors")({ origin: true });
 const admin = require("firebase-admin");
 const express = require("express");
 const app = express();
+const objectPath = require("object-path");
 const { Parser } = require("json2csv");
 const fields = require("./fields.json");
-const objectPath = require("object-path");
 
-app.use(cors({ origin: true }));
+app.use(cors);
 
 var serviceAccount = require("./firebase-admin-sdk.json");
 
@@ -66,6 +65,9 @@ async function getAllResponsesAsCSV() {
 // Validate Captcha
 // If successful, save a participant's response
 // If unsuccessful, notify the participant
+app.post("/submit-response", async (req, res) => {
+  res.json(req.body);
+});
 
 // Return all responses as a flattened JSON
 app.get("/get-all-responses", async (req, res) => {
@@ -84,13 +86,13 @@ app.get("/get-all-responses", async (req, res) => {
     flattenedDocs.push(flattenedDoc);
   });
 
-  res.json({ data: flattenedDocs });
+  res.json({
+    count: flattenedDocs.length,
+    responses: flattenedDocs
+  });
 });
 
 // Return all responses as a CSV file
-// exports.exportAllResponses = functions.https.onRequest((req, res) => {
-//   return cors(req, res, async () => {
-
 app.get("/export-all-responses", async (req, res) => {
   const csv = await getAllResponsesAsCSV();
 
@@ -99,7 +101,5 @@ app.get("/export-all-responses", async (req, res) => {
 
   return res.status(200).send(csv);
 });
-//   });
-// });
 
-exports.functions = functions.https.onRequest(app);
+exports.app = functions.https.onRequest(app);
