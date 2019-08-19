@@ -87,15 +87,28 @@ app.post("/submit-response", async (req, res) => {
       return result.success;
     })
     .then(success => {
+      if (!success) {
+        return null;
+      }
+
+      // Remove reCAPTCHA response from data since verification is complete
+      delete req.body["pages"]["general-questions"]["data"][
+        "recaptcha-response"
+      ];
+
+      return responsesRef.add(req.body);
+    })
+    .then(refId => {
       return res.json({
-        success
+        success: refId !== null,
+        error: refId !== null ? null : "reCAPTCHA verification failed",
+        refId: refId
       });
     })
-    .catch(reason => {
-      console.log("Recaptcha request failure", reason);
+    .catch(err => {
       res.json({
         success: false,
-        error: reason
+        error: "Recaptcha request failure - " + err
       });
     });
 });

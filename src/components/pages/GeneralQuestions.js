@@ -29,6 +29,8 @@ class GeneralQuestions extends Component {
       }
     };
 
+    this.recaptchaRef = React.createRef();
+
     this.onChange = this.onChange.bind(this);
     this.submit = this.submit.bind(this);
   }
@@ -68,7 +70,13 @@ class GeneralQuestions extends Component {
           const response = await this.context.submitUserResponse();
 
           console.log(response);
-          resolve(response);
+          const didRecaptchaSucceed = response.data.success;
+
+          if (!didRecaptchaSucceed) {
+            this.recaptchaRef.current.reset();
+          }
+
+          resolve(response.data.success);
         }
       );
     });
@@ -228,9 +236,16 @@ class GeneralQuestions extends Component {
 
         <div className="question-item">
           <ReCAPTCHA
+            ref={this.recaptchaRef}
             sitekey="6Lecf7MUAAAAANgk7T8e9jI9W_qZ1WkZSu0tFgJ6"
             onChange={value => {
               this.onChange("recaptcha-response", value);
+            }}
+            onExpired={() => {
+              this.onChange("recaptcha-response", null);
+            }}
+            onErrored={() => {
+              this.onChange("recaptcha-response", null);
             }}
           />
         </div>

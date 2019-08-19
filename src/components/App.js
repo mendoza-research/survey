@@ -22,9 +22,10 @@ import Admin from "./pages/Admin";
 import MTurkID from "./pages/MTurkID";
 
 const axios = require("axios");
-// axios.defaults.baseURL = 'https://us-central1-kimendoz-survey.cloudfunctions.net/app';
 axios.defaults.baseURL =
-  "http://localhost:5000/kimendoz-survey/us-central1/app";
+  "https://us-central1-kimendoz-survey.cloudfunctions.net/app";
+// axios.defaults.baseURL =
+//   "http://localhost:5000/kimendoz-survey/us-central1/app";
 
 const customHistory = createBrowserHistory();
 
