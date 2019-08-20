@@ -98,11 +98,11 @@ app.post("/submit-response", async (req, res) => {
 
       return responsesRef.add(req.body);
     })
-    .then(refId => {
+    .then(ref => {
       return res.json({
-        success: refId !== null,
-        error: refId !== null ? null : "reCAPTCHA verification failed",
-        refId: refId
+        success: ref !== null,
+        error: ref !== null ? null : "reCAPTCHA verification failed",
+        refId: ref.id
       });
     })
     .catch(err => {
@@ -124,6 +124,8 @@ app.get("/get-all-responses", async (req, res) => {
     fields.forEach(field => {
       if (objectPath.has(doc, field.value)) {
         flattenedDoc[field.label] = objectPath.get(doc, field.value);
+      } else {
+        flattenedDoc[field.label] = null;
       }
     });
 
@@ -132,6 +134,9 @@ app.get("/get-all-responses", async (req, res) => {
 
   res.json({
     count: flattenedDocs.length,
+    columns: fields.map(field => {
+      return field.label;
+    }),
     responses: flattenedDocs
   });
 });

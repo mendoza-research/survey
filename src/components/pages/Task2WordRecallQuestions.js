@@ -84,8 +84,6 @@ class Task2WordRecallQuestions extends Component {
           await this.saveResults();
           this.props.history.push("/post-experimental-questions");
         }
-
-        console.log(this.state.data);
       }
     );
   }

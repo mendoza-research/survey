@@ -142,8 +142,6 @@ class Task2Quiz extends Component {
           await this.saveResults();
           this.props.history.push("/task/2/words-purpose");
         }
-
-        console.log(this.state.data);
       }
     );
   }
