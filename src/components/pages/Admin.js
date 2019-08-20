@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { DominoSpinner } from "react-spinners-kit";
 const axios = require("axios");
 
 class AdminBody extends Component {
@@ -7,9 +8,9 @@ class AdminBody extends Component {
     super(props);
 
     this.state = {
+      isLoading: true,
       columns: [],
-      data: [],
-      count: 0
+      data: []
     };
   }
 
@@ -20,9 +21,9 @@ class AdminBody extends Component {
         console.log(res);
 
         this.setState({
+          isLoading: false,
           columns: res.data.columns,
-          data: res.data.responses,
-          count: res.data.responses.length
+          data: res.data.responses
         });
       })
       .catch(err => {
@@ -31,12 +32,12 @@ class AdminBody extends Component {
   }
 
   render() {
-    const { columns, data, count } = this.state;
+    const { isLoading, columns, data } = this.state;
 
     return (
       <div id="admin">
         <div className="admin-header">
-          <div className="table-title">{count} response(s)</div>
+          <div className="table-title">{data.length} response(s)</div>
 
           <div className="table-controls">
             <a
@@ -48,34 +49,53 @@ class AdminBody extends Component {
           </div>
         </div>
 
-        <div className="data-table-wrapper">
-          <table className="data-table">
-            <thead>
-              <tr>
-                {columns.map(column => (
-                  <th scope="col" key={"col-" + column}>
-                    {column}
-                  </th>
-                ))}
-              </tr>
-            </thead>
+        {isLoading && (
+          <div className="loading-box">
+            <div className="spinner-container">
+              <DominoSpinner size={300} color="#aed6f1" loading={isLoading} />
+              <span className="loading-text">Loading responses...</span>
+            </div>
+          </div>
+        )}
 
-            <tbody>
-              {data.map((row, rowIdx) => {
-                return (
-                  <tr
-                    className={rowIdx % 2 === 0 ? "even" : "odd"}
-                    key={"row-" + rowIdx}
-                  >
-                    {columns.map((column, columnIdx) => (
-                      <td key={rowIdx + "-" + columnIdx}>{row[column]}</td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+        {!isLoading && <DataTable columns={columns} data={data} />}
+      </div>
+    );
+  }
+}
+
+class DataTable extends Component {
+  render() {
+    const { columns, data } = this.props;
+
+    return (
+      <div className="data-table-wrapper">
+        <table className="data-table">
+          <thead>
+            <tr>
+              {columns.map(column => (
+                <th scope="col" key={"col-" + column}>
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+
+          <tbody>
+            {data.map((row, rowIdx) => {
+              return (
+                <tr
+                  className={rowIdx % 2 === 0 ? "even" : "odd"}
+                  key={"row-" + rowIdx}
+                >
+                  {columns.map((column, columnIdx) => (
+                    <td key={rowIdx + "-" + columnIdx}>{row[column]}</td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
