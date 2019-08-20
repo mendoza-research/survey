@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import posed, { PoseGroup } from "react-pose";
 import Intro from "./pages/Intro";
 import Task1Instructions from "./pages/Task1Instructions";
 import Task1SelectProcedures from "./pages/Task1SelectProcedures";
@@ -28,6 +29,11 @@ axios.defaults.baseURL =
   "http://localhost:5000/kimendoz-survey/us-central1/app";
 
 const customHistory = createBrowserHistory();
+
+const RouteContainer = posed.div({
+  enter: { opacity: 1, delay: 300, beforeChildren: true },
+  exit: { opacity: 0 }
+});
 
 class App extends Component {
   constructor(props) {
@@ -120,69 +126,118 @@ class App extends Component {
           >
             <div id="content-wrapper">
               <div id="content">
-                <Switch>
-                  <Route component={MTurkID} exact path="/" />
-                  <Route component={Intro} exact path="/intro" />
-                  <Route
-                    component={Task1Instructions}
-                    exact
-                    path="/task/1/instructions"
-                  />
-                  <Route
-                    component={Task1SelectProcedures}
-                    exact
-                    path="/task/1/select-procedures"
-                  />
-                  <Route
-                    component={Task1QuestionsPart1}
-                    exact
-                    path="/task/1/questions/1"
-                  />
-                  <Route
-                    component={Task1QuestionsPart2}
-                    exact
-                    path="/task/1/questions/2"
-                  />
-                  <Route
-                    component={Task1QuestionsPart3}
-                    exact
-                    path="/task/1/questions/3"
-                  />
-                  <Route
-                    component={Task1QuestionsPart4}
-                    exact
-                    path="/task/1/questions/4"
-                  />
-                  <Route component={Task1Outro} exact path="/task/1/outro" />
-                  <Route
-                    component={Task2Instructions}
-                    exact
-                    path="/task/2/instructions"
-                  />
-                  <Route component={Task2Quiz} exact path="/task/2/quiz" />
-                  <Route
-                    component={Task2WordsPurpose}
-                    exact
-                    path="/task/2/words-purpose"
-                  />
-                  <Route
-                    component={Task2WordRecallQuestions}
-                    exact
-                    path="/task/2/word-recall-questions"
-                  />
-                  <Route
-                    component={PostExperimentalQuestions}
-                    exact
-                    path="/post-experimental-questions"
-                  />
-                  <Route
-                    component={GeneralQuestions}
-                    exact
-                    path="/general-questions"
-                  />
-                  <Route component={Outro} exact path="/outro" />
-                  <Route component={Admin} exact path="/admin" />
-                </Switch>
+                <Route
+                  render={({ location }) => (
+                    <PoseGroup>
+                      <RouteContainer key={location.pathname}>
+                        <Switch location={location}>
+                          <Route
+                            component={MTurkID}
+                            exact
+                            path="/"
+                            key="home"
+                          />
+                          <Route
+                            component={Intro}
+                            exact
+                            path="/intro"
+                            key="intro"
+                          />
+                          <Route
+                            component={Task1Instructions}
+                            exact
+                            path="/task/1/instructions"
+                            key="task1-instructions"
+                          />
+                          <Route
+                            component={Task1SelectProcedures}
+                            exact
+                            path="/task/1/select-procedures"
+                            key="task1-select-procedures"
+                          />
+                          <Route
+                            component={Task1QuestionsPart1}
+                            exact
+                            path="/task/1/questions/1"
+                            key="task1-questions1"
+                          />
+                          <Route
+                            component={Task1QuestionsPart2}
+                            exact
+                            path="/task/1/questions/2"
+                            key="task1-questions2"
+                          />
+                          <Route
+                            component={Task1QuestionsPart3}
+                            exact
+                            path="/task/1/questions/3"
+                            key="task1-questions3"
+                          />
+                          <Route
+                            component={Task1QuestionsPart4}
+                            exact
+                            path="/task/1/questions/4"
+                            key="task1-questions4"
+                          />
+                          <Route
+                            component={Task1Outro}
+                            exact
+                            path="/task/1/outro"
+                            key="task1-outro"
+                          />
+                          <Route
+                            component={Task2Instructions}
+                            exact
+                            path="/task/2/instructions"
+                            key="task2-instructions"
+                          />
+                          <Route
+                            component={Task2Quiz}
+                            exact
+                            path="/task/2/quiz"
+                            key="task2-quiz"
+                          />
+                          <Route
+                            component={Task2WordsPurpose}
+                            exact
+                            path="/task/2/words-purpose"
+                            key="task2-words-purpose"
+                          />
+                          <Route
+                            component={Task2WordRecallQuestions}
+                            exact
+                            path="/task/2/word-recall-questions"
+                            key="task2-word-recall-questions"
+                          />
+                          <Route
+                            component={PostExperimentalQuestions}
+                            exact
+                            path="/post-experimental-questions"
+                            key="post-experimental-questions"
+                          />
+                          <Route
+                            component={GeneralQuestions}
+                            exact
+                            path="/general-questions"
+                            key="general-questions"
+                          />
+                          <Route
+                            component={Outro}
+                            exact
+                            path="/outro"
+                            key="outro"
+                          />
+                          <Route
+                            component={Admin}
+                            exact
+                            path="/admin"
+                            key="admin"
+                          />
+                        </Switch>
+                      </RouteContainer>
+                    </PoseGroup>
+                  )}
+                />
               </div>
             </div>
           </SurveyContext.Provider>

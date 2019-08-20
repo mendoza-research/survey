@@ -18,6 +18,15 @@ a {
   width: 900px;
   padding: 50px 0 80px 0;
   margin: 0 auto;
+
+  .fade-enter {
+    opacity: 0;
+    z-index: 1;
+  }
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
 }
 
 .page-navigation {
