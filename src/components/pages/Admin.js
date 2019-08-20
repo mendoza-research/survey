@@ -89,7 +89,11 @@ class DataTable extends Component {
                   key={"row-" + rowIdx}
                 >
                   {columns.map((column, columnIdx) => (
-                    <td key={rowIdx + "-" + columnIdx}>{row[column]}</td>
+                    <td key={rowIdx + "-" + columnIdx}>
+                      {typeof row[column] === "boolean"
+                        ? row[column].toString().toUpperCase()
+                        : row[column]}
+                    </td>
                   ))}
                 </tr>
               );
