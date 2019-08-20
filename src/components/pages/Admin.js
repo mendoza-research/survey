@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import { useTable } from "react-table";
+import ReactDOM from "react-dom";
 const axios = require("axios");
 
-class Admin extends Component {
+class AdminBody extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      columns: [],
+      data: [],
+      count: 0
+    };
   }
 
   componentDidMount() {
@@ -14,6 +18,12 @@ class Admin extends Component {
       .get("/get-all-responses")
       .then(res => {
         console.log(res);
+
+        this.setState({
+          columns: res.data.columns,
+          data: res.data.responses,
+          count: res.data.responses.length
+        });
       })
       .catch(err => {
         console.error(err);
@@ -21,61 +31,68 @@ class Admin extends Component {
   }
 
   render() {
+    const { columns, data, count } = this.state;
+
     return (
       <div id="admin">
-        <h2>Admin</h2>
+        <div className="admin-header">
+          <div className="table-title">{count} response(s)</div>
 
-        <a
-          href="https://us-central1-kimendoz-survey.cloudfunctions.net/app/export-all-responses"
-          className="btn"
-        >
-          Export to CSV
-        </a>
+          <div className="table-controls">
+            <a
+              href="https://us-central1-kimendoz-survey.cloudfunctions.net/app/export-all-responses"
+              className="btn"
+            >
+              Export to CSV
+            </a>
+          </div>
+        </div>
 
-        <div className="table-wrapper" />
+        <div className="data-table-wrapper">
+          <table className="data-table">
+            <thead>
+              <tr>
+                {columns.map(column => (
+                  <th scope="col" key={"col-" + column}>
+                    {column}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+
+            <tbody>
+              {data.map((row, rowIdx) => {
+                return (
+                  <tr
+                    className={rowIdx % 2 === 0 ? "even" : "odd"}
+                    key={"row-" + rowIdx}
+                  >
+                    {columns.map((column, columnIdx) => (
+                      <td key={rowIdx + "-" + columnIdx}>{row[column]}</td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
 }
 
-function Table({ columns, data }) {
-  console.log(columns);
-  console.log(data);
-
-  // Use the state and functions returned from useTable to build your UI
-  const { getTableProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data
-  });
-
-  // Render the UI for your table
-  return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody>
-        {rows.map(
-          (row, i) =>
-            prepareRow(row) || (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                  );
-                })}
-              </tr>
-            )
-        )}
-      </tbody>
-    </table>
-  );
+class Admin extends Component {
+  render() {
+    return (
+      <FullWidthContainer>
+        <AdminBody />
+      </FullWidthContainer>
+    );
+  }
 }
+
+const FullWidthContainer = ({ children }) => {
+  return ReactDOM.createPortal(children, document.getElementById("root"));
+};
 
 export default Admin;

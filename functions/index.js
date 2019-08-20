@@ -22,7 +22,7 @@ let responsesRef = admin.firestore().collection("responses");
 
 // Return all responses as a non-flattened JSON
 async function getAllResponsesAsJSON() {
-  let snapshot = await responsesRef.get();
+  let snapshot = await responsesRef.orderBy("endTime", "desc").get();
 
   const allDocs = [];
 
@@ -133,7 +133,6 @@ app.get("/get-all-responses", async (req, res) => {
   });
 
   res.json({
-    count: flattenedDocs.length,
     columns: fields.map(field => {
       return field.label;
     }),
