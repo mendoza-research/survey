@@ -24,12 +24,12 @@ import MTurkID from "./pages/MTurkID";
 
 const axios = require("axios");
 // Production firebase URL
-// axios.defaults.baseURL =
-//   "https://us-central1-kimendoz-survey.cloudfunctions.net/app";
+axios.defaults.baseURL =
+  "https://us-central1-kimendoz-survey.cloudfunctions.net/app";
 
 // Local Firebase emulator (for development only)
-axios.defaults.baseURL =
-  "http://localhost:5000/kimendoz-survey/us-central1/app";
+// axios.defaults.baseURL =
+//   "http://localhost:5000/kimendoz-survey/us-central1/app";
 
 const customHistory = createBrowserHistory();
 
@@ -104,7 +104,6 @@ class App extends Component {
           }
         },
         () => {
-          console.log(this.state.pages);
           resolve();
         }
       );
