@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PageNavigation from "./../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
+import ReCAPTCHA from "react-google-recaptcha";
+import { DominoSpinner } from "react-spinners-kit";
 
 class MTurkID extends Component {
   constructor(props) {
@@ -10,19 +12,23 @@ class MTurkID extends Component {
       startTime: null,
       endTime: null,
       duration: null,
+      isValidatingRecaptcha: false,
       data: {
-        id: ""
+        id: "",
+        isRecaptchaValid: false
       }
     };
 
+    this.recaptchaRef = React.createRef();
+    this.originalStartTime = null;
+
     this.onChange = this.onChange.bind(this);
+    this.onRecaptchaResponse = this.onRecaptchaResponse.bind(this);
     this.saveResults = this.saveResults.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      startTime: new Date()
-    });
+    this.originalStartTime = new Date();
   }
 
   onChange(key, value) {
@@ -34,23 +40,51 @@ class MTurkID extends Component {
     });
   }
 
+  async onRecaptchaResponse(recaptchaResponse) {
+    new Promise((resolve, reject) => {
+      this.setState(
+        {
+          isValidatingRecaptcha: true
+        },
+        async () => {
+          const recaptchaResult = await this.context.validateRecaptcha(
+            recaptchaResponse
+          );
+
+          resolve(recaptchaResult);
+        }
+      );
+    }).then(recaptchaResult => {
+      this.setState({
+        isValidatingRecaptcha: false
+      });
+
+      this.onChange("isRecaptchaValid", recaptchaResult);
+    });
+  }
+
   canSubmit() {
     return Object.values(this.state.data).every(v => !!v);
   }
 
   async saveResults() {
     const endTime = new Date();
-    const duration = (endTime - this.state.startTime) / 1000;
+    const duration = (endTime - this.originalStartTime) / 1000;
 
     await new Promise((resolve, reject) => {
       this.setState(
         {
-          startTime: this.state.startTime.toISOString(),
+          startTime: this.originalStartTime.toISOString(),
           endTime: endTime.toISOString(),
           duration
         },
         async () => {
-          await this.context.addUserResponse("mturk-id", this.state);
+          const stateCopy = Object.assign({}, this.state);
+
+          // Remove property that shouldn't be saved into the database
+          delete stateCopy.isValidatingRecaptcha;
+
+          await this.context.addUserResponse("mturk-id", stateCopy);
           resolve();
         }
       );
@@ -58,6 +92,8 @@ class MTurkID extends Component {
   }
 
   render() {
+    const { isValidatingRecaptcha } = this.state;
+
     return (
       <div>
         <p>Please enter your MTurk ID.</p>
@@ -67,6 +103,33 @@ class MTurkID extends Component {
           value={this.state.data["id"]}
           onChange={e => this.onChange("id", e.target.value)}
         />
+
+        <div className="recaptcha-box">
+          <ReCAPTCHA
+            ref={this.recaptchaRef}
+            sitekey="6Lecf7MUAAAAANgk7T8e9jI9W_qZ1WkZSu0tFgJ6"
+            onChange={this.onRecaptchaResponse}
+            onExpired={() => {
+              this.onChange("isRecaptchaValid", false);
+            }}
+            onErrored={() => {
+              this.onChange("isRecaptchaValid", false);
+            }}
+          />
+        </div>
+
+        {isValidatingRecaptcha && (
+          <div className="loading-box">
+            <div className="spinner-container">
+              <DominoSpinner
+                size={100}
+                color="#aed6f1"
+                loading={isValidatingRecaptcha}
+              />
+              <span className="loading-text">Validating reCAPTCHA...</span>
+            </div>
+          </div>
+        )}
 
         <PageNavigation
           disabled={!this.canSubmit()}

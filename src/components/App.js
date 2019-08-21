@@ -23,10 +23,13 @@ import Admin from "./pages/Admin";
 import MTurkID from "./pages/MTurkID";
 
 const axios = require("axios");
-axios.defaults.baseURL =
-  "https://us-central1-kimendoz-survey.cloudfunctions.net/app";
+// Production firebase URL
 // axios.defaults.baseURL =
-//   "http://localhost:5000/kimendoz-survey/us-central1/app";
+//   "https://us-central1-kimendoz-survey.cloudfunctions.net/app";
+
+// Local Firebase emulator (for development only)
+axios.defaults.baseURL =
+  "http://localhost:5000/kimendoz-survey/us-central1/app";
 
 const customHistory = createBrowserHistory();
 
@@ -45,15 +48,16 @@ class App extends Component {
       pages: {}
     };
 
+    this.originalStartTime = null;
+
     this.currentPathname = "/";
+    this.validateRecaptcha = this.validateRecaptcha.bind(this);
     this.addUserResponse = this.addUserResponse.bind(this);
     this.submitUserResponse = this.submitUserResponse.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      startTime: new Date()
-    });
+    this.originalStartTime = new Date();
 
     // Prevent back button
     window.onpopstate = e => {
@@ -73,6 +77,23 @@ class App extends Component {
     });
   }
 
+  async validateRecaptcha(recaptchaResponse) {
+    return new Promise(async (resolve, reject) => {
+      await axios
+        .post("/validate-recaptcha", {
+          recaptchaResponse: recaptchaResponse
+        })
+        .then(response => {
+          console.log("validateRecaptcha");
+          console.log(response);
+          resolve(response.data.isValid);
+        })
+        .catch(e => {
+          reject(e);
+        });
+    });
+  }
+
   addUserResponse(pageName, data) {
     return new Promise((resolve, reject) => {
       this.setState(
@@ -83,6 +104,7 @@ class App extends Component {
           }
         },
         () => {
+          console.log(this.state.pages);
           resolve();
         }
       );
@@ -91,12 +113,12 @@ class App extends Component {
 
   async submitUserResponse() {
     const endTime = new Date();
-    const duration = (endTime - this.state.startTime) / 1000;
+    const duration = (endTime - this.originalStartTime) / 1000;
 
     return new Promise((resolve, reject) => {
       this.setState(
         {
-          startTime: this.state.startTime.toISOString(),
+          startTime: this.originalStartTime.toISOString(),
           endTime: endTime.toISOString(),
           duration
         },
@@ -120,6 +142,7 @@ class App extends Component {
           <SurveyContext.Provider
             value={{
               ...this.state,
+              validateRecaptcha: this.validateRecaptcha,
               addUserResponse: this.addUserResponse,
               submitUserResponse: this.submitUserResponse
             }}

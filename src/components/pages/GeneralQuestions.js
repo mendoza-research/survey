@@ -4,7 +4,6 @@ import SurveyContext from "../../context/SurveyContext";
 import MultipleChoice from "../common/MultipleChoice";
 import RangeSlider from "./../common/RangeSlider";
 import MatrixTable from "../common/MatrixTable";
-import ReCAPTCHA from "react-google-recaptcha";
 
 class GeneralQuestions extends Component {
   constructor(props) {
@@ -14,6 +13,7 @@ class GeneralQuestions extends Component {
       startTime: null,
       endTime: null,
       duration: null,
+      errorMessage: null,
       data: {
         "full-time-work-experience": "",
         "current-age": "",
@@ -24,21 +24,18 @@ class GeneralQuestions extends Component {
         "num-accounting-courses": null,
         "num-finance-courses": null,
         "invested-before": null,
-        "plan-to-invest": null,
-        "recaptcha-response": null
+        "plan-to-invest": null
       }
     };
 
-    this.recaptchaRef = React.createRef();
+    this.originalStartTime = null;
 
     this.onChange = this.onChange.bind(this);
     this.submit = this.submit.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      startTime: new Date()
-    });
+    this.originalStartTime = new Date();
   }
 
   onChange(key, value) {
@@ -56,33 +53,42 @@ class GeneralQuestions extends Component {
 
   async submit() {
     const endTime = new Date();
-    const duration = (endTime - this.state.startTime) / 1000;
+    const duration = (endTime - this.originalStartTime) / 1000;
 
     return new Promise((resolve, reject) => {
       this.setState(
         {
-          startTime: this.state.startTime.toISOString(),
+          startTime: this.originalStartTime.toISOString(),
           endTime: endTime.toISOString(),
           duration
         },
         async () => {
-          await this.context.addUserResponse("general-questions", this.state);
+          const stateCopy = Object.assign({}, this.state);
+
+          // No need to save error message into the database
+          delete stateCopy.errorMessage;
+
+          await this.context.addUserResponse("general-questions", stateCopy);
           const response = await this.context.submitUserResponse();
 
           console.log(response);
-          const didRecaptchaSucceed = response.data.success;
 
-          if (!didRecaptchaSucceed) {
-            this.recaptchaRef.current.reset();
-          }
-
-          resolve(didRecaptchaSucceed);
+          this.setState(
+            {
+              errorMessage: response.data.error
+            },
+            () => {
+              resolve(response.data.success);
+            }
+          );
         }
       );
     });
   }
 
   render() {
+    const { errorMessage } = this.state;
+
     return (
       <div>
         <h2>General Information and Demographic Questions</h2>
@@ -234,21 +240,7 @@ class GeneralQuestions extends Component {
           />
         </div>
 
-        <div className="question-item">
-          <ReCAPTCHA
-            ref={this.recaptchaRef}
-            sitekey="6Lecf7MUAAAAANgk7T8e9jI9W_qZ1WkZSu0tFgJ6"
-            onChange={value => {
-              this.onChange("recaptcha-response", value);
-            }}
-            onExpired={() => {
-              this.onChange("recaptcha-response", null);
-            }}
-            onErrored={() => {
-              this.onChange("recaptcha-response", null);
-            }}
-          />
-        </div>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
 
         <PageNavigation
           disabled={!this.canSubmit()}

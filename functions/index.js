@@ -68,9 +68,8 @@ async function getAllResponsesAsCSV() {
 // Validate Captcha
 // If successful, save a participant's response
 // If unsuccessful, notify the participant
-app.post("/submit-response", async (req, res) => {
-  const recaptchaResponse =
-    req.body["pages"]["general-questions"]["data"]["recaptcha-response"];
+app.post("/validate-recaptcha", async (req, res) => {
+  const recaptchaResponse = req.body["recaptchaResponse"];
 
   rp({
     uri: "https://recaptcha.google.com/recaptcha/api/siteverify",
@@ -82,35 +81,45 @@ app.post("/submit-response", async (req, res) => {
     json: true
   })
     .then(result => {
-      console.log("recaptcha result", result);
-
-      return result.success;
-    })
-    .then(success => {
-      if (!success) {
-        return null;
-      }
-
-      // Remove reCAPTCHA response from data since verification is complete
-      delete req.body["pages"]["general-questions"]["data"][
-        "recaptcha-response"
-      ];
-
-      return responsesRef.add(req.body);
-    })
-    .then(ref => {
       return res.json({
-        success: ref !== null,
-        error: ref !== null ? null : "reCAPTCHA verification failed",
-        refId: ref.id
+        isValid: result.success
       });
     })
     .catch(err => {
-      res.json({
-        success: false,
-        error: "Recaptcha request failure - " + err
+      console.error(err);
+      return res.json({
+        result: false
       });
     });
+});
+
+app.post("/submit-response", async (req, res) => {
+  const isRecaptchaValid =
+    req.body["pages"].hasOwnProperty("mturk-id") &&
+    req.body["pages"]["mturk-id"]["data"]["isRecaptchaValid"];
+
+  if (isRecaptchaValid) {
+    responsesRef
+      .add(req.body)
+      .then(ref => {
+        return res.json({
+          success: true,
+          error: null,
+          refId: ref.id
+        });
+      })
+      .catch(err => {
+        res.json({
+          success: false,
+          error: "Failed to save data - " + err
+        });
+      });
+  } else {
+    res.json({
+      success: false,
+      error: "Missing valid reCAPTCHA response, please try again"
+    });
+  }
 });
 
 // Return all responses as a flattened JSON
