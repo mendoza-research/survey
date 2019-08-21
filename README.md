@@ -20,6 +20,8 @@ The environment variables are no longer required since all interactions with the
 
 ### Run site
 ```yarn start```
+<br><br>
+Although the app will be loaded into `localhost:3000` by default, be sure to use `127.0.0.1:3000` as the URL. reCAPTCHA only supports `127.0.0.1` for local testing. 
 
 ## Firebase Firestore & Cloud Functions
 This is a serverless application using Firestore and Cloud Functions. During development, it is much, much faster to use the emulators to test cloud functions. 
