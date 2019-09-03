@@ -19,7 +19,7 @@ class GeneralQuestions extends Component {
         "who-is-so-tall": null,
         "what-is-too-large": null,
         "who-received-help": null,
-        "who-is-so-heavy": null,
+        "who-was-so-heavy": null,
         "full-time-work-experience": "",
         "current-age": "",
         gender: null,
@@ -313,8 +313,8 @@ class GeneralQuestions extends Component {
           </p>
 
           <MultipleChoice
-            id="who-is-so-heavy"
-            value={this.state.data["who-is-so-heavy"]}
+            id="who-was-so-heavy"
+            value={this.state.data["who-was-so-heavy"]}
             values={["The man", "The son"]}
             onChange={this.onChange}
           />
