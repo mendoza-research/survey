@@ -1,6 +1,7 @@
 [
   { "label": "session.id", "value": "sessionId" },
   { "label": "mturk-id", "value": "pages.mturk-id.data.id" },
+  { "label": "ip", "value": "ip" },
   { "label": "session.startTime", "value": "startTime" },
   { "label": "session.endTime", "value": "endTime" },
   { "label": "session.duration", "value": "duration" },
@@ -1037,5 +1038,25 @@
   {
     "label": "general.plan-to-invest",
     "value": "pages.general-questions.data.plan-to-invest"
+  },
+  {
+    "label": "general.what-was-too-fast",
+    "value": "pages.general-questions.data.what-was-too-fast"
+  },
+  {
+    "label": "general.who-is-so-tall",
+    "value": "pages.general-questions.data.who-is-so-tall"
+  },
+  {
+    "label": "general.what-is-too-large",
+    "value": "pages.general-questions.data.what-is-too-large"
+  },
+  {
+    "label": "general.who-received-help",
+    "value": "pages.general-questions.data.who-received-help"
+  },
+  {
+    "label": "general.who-is-so-heavy",
+    "value": "pages.general-questions.data.who-is-so-heavy"
   }
 ]

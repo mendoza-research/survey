@@ -15,6 +15,11 @@ class GeneralQuestions extends Component {
       duration: null,
       errorMessage: null,
       data: {
+        "what-was-too-fast": null,
+        "who-is-so-tall": null,
+        "what-is-too-large": null,
+        "who-received-help": null,
+        "who-is-so-heavy": null,
         "full-time-work-experience": "",
         "current-age": "",
         gender: null,
@@ -39,12 +44,17 @@ class GeneralQuestions extends Component {
   }
 
   onChange(key, value) {
-    this.setState({
-      data: {
-        ...this.state.data,
-        [key]: value
+    this.setState(
+      {
+        data: {
+          ...this.state.data,
+          [key]: value
+        }
+      },
+      () => {
+        console.log(this.state.data);
       }
-    });
+    );
   }
 
   canSubmit() {
@@ -236,6 +246,76 @@ class GeneralQuestions extends Component {
             id="plan-to-invest"
             value={this.state.data["plan-to-invest"]}
             values={["Yes", "No"]}
+            onChange={this.onChange}
+          />
+        </div>
+
+        <div className="question-item">
+          <p>
+            10. The delivery truck zoomed by the school bus because it was going
+            so fast. What was going so fast?
+          </p>
+
+          <MultipleChoice
+            id="what-was-too-fast"
+            value={this.state.data["what-was-too-fast"]}
+            values={["The truck", "The bus"]}
+            onChange={this.onChange}
+          />
+        </div>
+
+        <div className="question-item">
+          <p>
+            11. John couldn't see the stage with Billy in front of him because
+            he is so tall. Who is so tall?
+          </p>
+
+          <MultipleChoice
+            id="who-is-so-tall"
+            value={this.state.data["who-is-so-tall"]}
+            values={["John", "Billy"]}
+            onChange={this.onChange}
+          />
+        </div>
+
+        <div className="question-item">
+          <p>
+            12. The trophy doesn't fit into the brown suitcase because it is too
+            large. What is too large?
+          </p>
+
+          <MultipleChoice
+            id="what-is-too-large"
+            value={this.state.data["what-is-too-large"]}
+            values={["The suitcase", "The trophy"]}
+            onChange={this.onChange}
+          />
+        </div>
+
+        <div className="question-item">
+          <p>
+            13. Joan made sure to thank Susan for all the help she had received.
+            Who hade received help?
+          </p>
+
+          <MultipleChoice
+            id="who-received-help"
+            value={this.state.data["who-received-help"]}
+            values={["Joan", "Susan"]}
+            onChange={this.onChange}
+          />
+        </div>
+
+        <div className="question-item">
+          <p>
+            14. The man couldn't lift his son because he was so heavy? Who was
+            so heavy?
+          </p>
+
+          <MultipleChoice
+            id="who-is-so-heavy"
+            value={this.state.data["who-is-so-heavy"]}
+            values={["The man", "The son"]}
             onChange={this.onChange}
           />
         </div>

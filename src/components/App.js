@@ -45,6 +45,7 @@ class App extends Component {
       startTime: null,
       endTime: null,
       duration: null,
+      ip: null,
       pages: {}
     };
 
@@ -75,6 +76,17 @@ class App extends Component {
         customHistory.push(location.pathname);
       }
     });
+
+    axios
+      .get("https://api.ipify.org?format=json")
+      .then(response => {
+        this.setState({
+          ip: response.data.ip
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   async validateRecaptcha(recaptchaResponse) {
@@ -84,12 +96,10 @@ class App extends Component {
           recaptchaResponse: recaptchaResponse
         })
         .then(response => {
-          console.log("validateRecaptcha");
-          console.log(response);
           resolve(response.data.isValid);
         })
-        .catch(e => {
-          reject(e);
+        .catch(err => {
+          reject(err);
         });
     });
   }
