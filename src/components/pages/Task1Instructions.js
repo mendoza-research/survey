@@ -53,7 +53,7 @@ class Task1Instructions extends Component {
         <p>
           Earning a grade of B or higher takes a lot of hard work, and there are
           many procedures that are typically performed in order to achieve this
-          goal. Your taks is to read an excerpt from the professor's syllabus
+          goal. Your task is to read an excerpt from the professor's syllabus
           and then to select which procedures to perform from among all the
           possible options.
         </p>

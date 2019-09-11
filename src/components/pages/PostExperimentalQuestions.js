@@ -17,8 +17,7 @@ class PostExperimentalQuestions extends Component {
         "how-accurate": 50,
         "performance-satisfaction": 50,
         "right-strategy": 50,
-        "enjoy-task": 50,
-        "attention-check": 50
+        "enjoy-task": 50
       }
     };
 
@@ -138,15 +137,6 @@ class PostExperimentalQuestions extends Component {
           centerLabel="Somewhat Enjoyed"
           max={100}
           maxLabel="Very Much Enjoyed"
-          onChange={this.onChange}
-        />
-
-        <RangeSlider
-          id="attention-check"
-          text='This is an attention check question. Please select "10" on the scale below to indicate that you read this question carefully.'
-          min={0}
-          step={10}
-          max={100}
           onChange={this.onChange}
         />
 

@@ -290,7 +290,7 @@ class GeneralQuestions extends Component {
         <div className="question-item">
           <p>
             13. Joan made sure to thank Susan for all the help she had received.
-            Who hade received help?
+            Who had received help?
           </p>
 
           <MultipleChoice
@@ -303,7 +303,7 @@ class GeneralQuestions extends Component {
 
         <div className="question-item">
           <p>
-            14. The man couldn't lift his son because he was so heavy? Who was
+            14. The man couldn't lift his son because he was so heavy. Who was
             so heavy?
           </p>
 

@@ -60,8 +60,8 @@ class Task2Instructions extends Component {
         <h2>Instructions for Task 2:</h2>
 
         <p>
-          In this task, you will be presented with strings of p's and d's with
-          apostrophes written above and below each letter. For example:
+          In this task, you will be presented with 50 strings of d's and p's
+          with apostrophes written above and below each letter. For example:
         </p>
 
         <StringBlock

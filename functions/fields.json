@@ -993,10 +993,6 @@
     "value": "pages.post-experimental-questions.data.enjoy-task"
   },
   {
-    "label": "post-experimental.attention-check",
-    "value": "pages.post-experimental-questions.data.attention-check"
-  },
-  {
     "label": "general.startTime",
     "value": "pages.general-questions.startTime"
   },
