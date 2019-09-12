@@ -114,7 +114,7 @@ class App extends Component {
           }
         },
         () => {
-          console.log(this.state.pages);
+          // console.log(this.state.pages);
           resolve();
         }
       );

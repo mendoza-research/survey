@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PageNavigation from "../common/PageNavigation";
 import SurveyContext from "../../context/SurveyContext";
+import Checkmark from "../common/Checkmark";
 
 class Task2WordsPurpose extends Component {
   constructor(props) {
@@ -55,7 +56,8 @@ class Task2WordsPurpose extends Component {
   render() {
     return (
       <div>
-        <p>
+        <p className="question-text">
+          <Checkmark show={this.state.data !== ""} />
           You have completed Task 2. During Task 2, you may have noticed some
           words appearing on your screen. What purpose do you think these words
           serve in the task?

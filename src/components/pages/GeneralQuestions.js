@@ -4,6 +4,7 @@ import SurveyContext from "../../context/SurveyContext";
 import MultipleChoice from "../common/MultipleChoice";
 import RangeSlider from "./../common/RangeSlider";
 import MatrixTable from "../common/MatrixTable";
+import Checkmark from "../common/Checkmark";
 
 class GeneralQuestions extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class GeneralQuestions extends Component {
         gender: null,
         "highest-level-of-education": null,
         "average-gpa": null,
-        "teachers-guidance": null,
+        "teachers-guidance": undefined,
         "num-accounting-courses": null,
         "num-finance-courses": null,
         "invested-before": null,
@@ -53,7 +54,7 @@ class GeneralQuestions extends Component {
   }
 
   canSubmit() {
-    return Object.values(this.state.data).every(v => !!v);
+    return Object.values(this.state.data).every(v => v === 0 || !!v);
   }
 
   async submit() {
@@ -104,7 +105,12 @@ class GeneralQuestions extends Component {
         </p>
 
         <div className="question-item">
-          <p>1. How many years of full-time work experience do you have?</p>
+          <p className="question-text">
+            <Checkmark
+              show={this.state.data["full-time-work-experience"] !== ""}
+            />
+            1. How many years of full-time work experience do you have?
+          </p>
 
           <input
             type="number"
@@ -119,7 +125,10 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>2. Please input your current age (in years).</p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["current-age"] !== ""} />
+            2. Please input your current age (in years).
+          </p>
 
           <input
             type="number"
@@ -131,7 +140,10 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>3. What gender do you identify with?</p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["gender"] !== null} />
+            3. What gender do you identify with?
+          </p>
 
           <MultipleChoice
             id="gender"
@@ -142,7 +154,12 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>4. What is the highest level of education you have completed?</p>
+          <p className="question-text">
+            <Checkmark
+              show={this.state.data["highest-level-of-education"] !== null}
+            />
+            4. What is the highest level of education you have completed?
+          </p>
 
           <MultipleChoice
             id="highest-level-of-education"
@@ -159,7 +176,10 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>5. What was your average GPA in the past?</p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["average-gpa"] !== null} />
+            5. What was your average GPA in the past?
+          </p>
 
           <MultipleChoice
             id="average-gpa"
@@ -176,7 +196,10 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark
+              show={this.state.data["teachers-guidance"] !== undefined}
+            />
             6. In the past, how often have you followed your teachers' guidance
             when preparing for a class?
           </p>
@@ -193,7 +216,13 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark
+              show={
+                this.state.data["num-accounting-courses"] !== null &&
+                this.state.data["num-finance-courses"] !== null
+              }
+            />
             7. How many undergraduate and/or graduate accounting and finance
             courses have you taken, including any in which you are currently
             enrolled?
@@ -219,7 +248,8 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["invested-before"] !== null} />
             8. Have you ever invested money in the stock market? (e.g., stock,
             mutual fund, exchange traded fund, etc.)
           </p>
@@ -233,7 +263,8 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["plan-to-invest"] !== null} />
             9. Do you plan to invest money in the stock market in the future
             (e.g., stock, mutual fund, exchange traded fund, etc.)
           </p>
@@ -247,7 +278,8 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["what-was-too-fast"] !== null} />
             10. The delivery truck zoomed by the school bus because it was going
             so fast. What was going so fast?
           </p>
@@ -261,7 +293,8 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["who-is-so-tall"] !== null} />
             11. John couldn't see the stage with Billy in front of him because
             he is so tall. Who is so tall?
           </p>
@@ -275,7 +308,8 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["what-is-too-large"] !== null} />
             12. The trophy doesn't fit into the brown suitcase because it is too
             large. What is too large?
           </p>
@@ -289,7 +323,8 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["who-received-help"] !== null} />
             13. Joan made sure to thank Susan for all the help she had received.
             Who had received help?
           </p>
@@ -303,7 +338,8 @@ class GeneralQuestions extends Component {
         </div>
 
         <div className="question-item">
-          <p>
+          <p className="question-text">
+            <Checkmark show={this.state.data["who-was-so-heavy"] !== null} />
             14. The man couldn't lift his son because he was so heavy. Who was
             so heavy?
           </p>

@@ -85,10 +85,7 @@ class RangeSlider extends Component {
           <SliderWithTooltip
             min={min}
             max={max}
-            tipFormatter={v => {
-              console.log(v);
-              return v;
-            }}
+            tipFormatter={v => v}
             step={step}
             marks={marks}
             value={value}

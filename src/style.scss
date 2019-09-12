@@ -310,6 +310,16 @@ input[type="number"] {
   padding-top: 20px;
 }
 
+.question-text {
+  position: relative;
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: -30px;
+  }
+}
+
 .radio-group {
   .radio-option {
     padding: 3px 6px;
