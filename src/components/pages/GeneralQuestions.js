@@ -118,7 +118,9 @@ class GeneralQuestions extends Component {
             onChange={e =>
               this.onChange(
                 "full-time-work-experience",
-                Number.parseInt(e.target.value)
+                Number.isNaN(Number.parseInt(e.target.value))
+                  ? ""
+                  : Number.parseInt(e.target.value)
               )
             }
           />
@@ -134,7 +136,12 @@ class GeneralQuestions extends Component {
             type="number"
             value={this.state.data["current-age"]}
             onChange={e =>
-              this.onChange("current-age", Number.parseInt(e.target.value))
+              this.onChange(
+                "current-age",
+                Number.isNaN(Number.parseInt(e.target.value))
+                  ? ""
+                  : Number.parseInt(e.target.value)
+              )
             }
           />
         </div>
