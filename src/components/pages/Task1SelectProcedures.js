@@ -3,8 +3,67 @@ import PageNavigation from "./../common/PageNavigation";
 import Checkbox from "../common/Checkbox";
 import SurveyContext from "../../context/SurveyContext";
 
+const _ = require("lodash");
+
 const CONDITION_COULD = "could";
 const CONDITION_SHOULD = "should";
+
+const procedures = [
+  {
+    id: "read-textbook",
+    text: "Read the textbook chapters before they are covered in class"
+  },
+  {
+    id: "take-notes",
+    text: "Take notes during class"
+  },
+  {
+    id: "participate-every-class",
+    text: "Participate in every class"
+  },
+  {
+    id: "study-for-exams",
+    text: "Study for the midterm and final exam"
+  },
+  {
+    id: "do-homework",
+    text: "Do the homework for all chapters"
+  },
+  {
+    id: "follow-news",
+    text:
+      "Follow news articles online regarding current topics covered in class"
+  },
+  {
+    id: "try-textbook-problems",
+    text: "Try all the problems at the back of the textbook"
+  },
+  {
+    id: "hire-tutor",
+    text: "Hire a tutor"
+  },
+  {
+    id: "print-slides-to-class",
+    text: "Print the instructor’s slides and bring to class"
+  },
+  {
+    id: "review-lecture-slides",
+    text: "Review lecture slides after class"
+  },
+  {
+    id: "do-practice-exams",
+    text: "Do the practice exams without referencing the answer key"
+  },
+  {
+    id: "visit-office-hours",
+    text:
+      "Visit the instructor’s office hours each week to work through questions"
+  },
+  {
+    id: "attend-every-class",
+    text: "Attend every class"
+  }
+];
 
 class Task1SelectProcedures extends Component {
   constructor(props) {
@@ -69,7 +128,23 @@ class Task1SelectProcedures extends Component {
           duration
         },
         async () => {
-          await this.context.addUserResponse("task1-procedures", this.state);
+          const processedState = _.cloneDeep(this.state);
+
+          const selectedProceduresIndices = [];
+          procedures.forEach((procedure, idx) => {
+            if (this.state.data[procedure.id] === true) {
+              selectedProceduresIndices.push(idx + 1);
+            }
+          });
+
+          processedState.data = {
+            procedures: selectedProceduresIndices.join(",")
+          };
+
+          await this.context.addUserResponse(
+            "task1-procedures",
+            processedState
+          );
           resolve();
         }
       );
@@ -129,71 +204,14 @@ class Task1SelectProcedures extends Component {
         </div>
 
         <div className="checklist">
-          <Checkbox
-            id="read-textbook"
-            text="Read the textbook chapters before they are covered in class"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="take-notes"
-            text="Take notes during class"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="participate-every-class"
-            text="Participate in every class"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="study-for-exams"
-            text="Study for the midterm and final exam"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="do-homework"
-            text="Do the homework for all chapters"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="follow-news"
-            text="Follow news articles online regarding current topics covered in class"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="try-textbook-problems"
-            text="Try all the problems at the back of the textbook"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="hire-tutor"
-            text="Hire a tutor"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="print-slides-to-class"
-            text="Print the instructor’s slides and bring to class"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="review-lecture-slides"
-            text="Review lecture slides after class"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="do-practice-exams"
-            text="Do the practice exams without referencing the answer key"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="visit-office-hours"
-            text="Visit the instructor’s office hours each week to work through questions"
-            onChange={this.onCheckboxChange}
-          />
-          <Checkbox
-            id="attend-every-class"
-            text="Attend every class"
-            onChange={this.onCheckboxChange}
-          />
+          {procedures.map(procedure => (
+            <Checkbox
+              key={procedure.id}
+              id={procedure.id}
+              text={procedure.text}
+              onChange={this.onCheckboxChange}
+            />
+          ))}
         </div>
 
         <PageNavigation

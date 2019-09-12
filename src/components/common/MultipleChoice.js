@@ -15,10 +15,10 @@ class MultipleChoice extends Component {
             <div
               className={className({
                 "radio-option": true,
-                selected: value === idx + 1
+                selected: v === value
               })}
               key={v}
-              onClick={() => onChange(id, idx + 1)}
+              onClick={() => onChange(id, v)}
             >
               {MultipleChoice.numberToRoman(idx)}. {v}
             </div>
