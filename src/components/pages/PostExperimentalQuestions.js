@@ -12,12 +12,12 @@ class PostExperimentalQuestions extends Component {
       endTime: null,
       duration: null,
       data: {
-        "how-motivated": 50,
-        "focus-accuracy-or-speed": 50,
-        "how-accurate": 50,
-        "performance-satisfaction": 50,
-        "right-strategy": 50,
-        "enjoy-task": 50
+        "how-motivated": null,
+        "focus-accuracy-or-speed": null,
+        "how-accurate": null,
+        "performance-satisfaction": null,
+        "right-strategy": null,
+        "enjoy-task": null
       }
     };
 
@@ -38,6 +38,10 @@ class PostExperimentalQuestions extends Component {
         [id]: value
       }
     });
+  }
+
+  canSubmit() {
+    return Object.values(this.state.data).every(v => !!v);
   }
 
   async saveResults() {
@@ -83,6 +87,7 @@ class PostExperimentalQuestions extends Component {
           centerLabel="Somewhat Motivated"
           max={100}
           maxLabel="Somewhat Motivated"
+          value={this.state.data["how-motivated"]}
           onChange={this.onChange}
         />
 
@@ -94,6 +99,7 @@ class PostExperimentalQuestions extends Component {
           centerLabel="Equally motivated by accuracy and speed"
           max={100}
           maxLabel="Much more motivated by speed"
+          value={this.state.data["focus-accuracy-or-speed"]}
           onChange={this.onChange}
         />
 
@@ -104,6 +110,7 @@ class PostExperimentalQuestions extends Component {
           minLabel="0% Accuracy"
           max={100}
           maxLabel="100% Accuracy"
+          value={this.state.data["how-accurate"]}
           onChange={this.onChange}
         />
 
@@ -115,6 +122,7 @@ class PostExperimentalQuestions extends Component {
           centerLabel="Somewhat Satisfied"
           max={100}
           maxLabel="Very Satisfied"
+          value={this.state.data["performance-satisfaction"]}
           onChange={this.onChange}
         />
 
@@ -126,6 +134,7 @@ class PostExperimentalQuestions extends Component {
           centerLabel="Somewhat Right"
           max={100}
           maxLabel="Very Right"
+          value={this.state.data["right-strategy"]}
           onChange={this.onChange}
         />
 
@@ -137,10 +146,13 @@ class PostExperimentalQuestions extends Component {
           centerLabel="Somewhat Enjoyed"
           max={100}
           maxLabel="Very Much Enjoyed"
+          value={this.state.data["enjoy-task"]}
           onChange={this.onChange}
         />
 
         <PageNavigation
+          disabled={!this.canSubmit()}
+          disabledMsg="Please answer all questions"
           beforeNavigate={this.saveResults}
           to="/general-questions"
         />

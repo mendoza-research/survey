@@ -12,11 +12,11 @@ class Task1QuestionsPart2 extends Component {
       endTime: null,
       duration: null,
       data: {
-        "complete-schoolwork-promptly": 0,
-        "attend-all-classes": 0,
-        "spend-more-time-at-the-library": 0,
-        "be-prepared-for-tests": 0,
-        "increase-motivation": 0
+        "complete-schoolwork-promptly": null,
+        "attend-all-classes": null,
+        "spend-more-time-at-the-library": null,
+        "be-prepared-for-tests": null,
+        "increase-motivation": null
       }
     };
 
@@ -37,6 +37,10 @@ class Task1QuestionsPart2 extends Component {
         [id]: value
       }
     });
+  }
+
+  canSubmit() {
+    return Object.values(this.state.data).every(v => !!v);
   }
 
   async saveResults() {
@@ -75,6 +79,7 @@ class Task1QuestionsPart2 extends Component {
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
+          value={this.state.data["complete-schoolwork-promptly"]}
           onChange={this.onChange}
         />
 
@@ -85,6 +90,7 @@ class Task1QuestionsPart2 extends Component {
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
+          value={this.state.data["attend-all-classes"]}
           onChange={this.onChange}
         />
 
@@ -95,6 +101,7 @@ class Task1QuestionsPart2 extends Component {
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
+          value={this.state.data["spend-more-time-at-the-library"]}
           onChange={this.onChange}
         />
 
@@ -105,6 +112,7 @@ class Task1QuestionsPart2 extends Component {
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
+          value={this.state.data["be-prepared-for-tests"]}
           onChange={this.onChange}
         />
 
@@ -115,10 +123,13 @@ class Task1QuestionsPart2 extends Component {
           minLabel="Not at All Enjoyable"
           max={50}
           maxLabel="Extremely Enjoyable"
+          value={this.state.data["increase-motivation"]}
           onChange={this.onChange}
         />
 
         <PageNavigation
+          disabled={!this.canSubmit()}
+          disabledMsg="Please answer all questions"
           beforeNavigate={this.saveResults}
           to="/task/1/questions/3"
         />

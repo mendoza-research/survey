@@ -12,11 +12,11 @@ class Task1QuestionsPart4 extends Component {
       endTime: null,
       duration: null,
       data: {
-        "be-in-automobile-accident": 0,
-        "becoming-divorced": 0,
-        "becoming-depressed": 0,
-        "develop-drinking-problem": 0,
-        "being-mugged": 0
+        "be-in-automobile-accident": null,
+        "becoming-divorced": null,
+        "becoming-depressed": null,
+        "develop-drinking-problem": null,
+        "being-mugged": null
       }
     };
 
@@ -28,6 +28,10 @@ class Task1QuestionsPart4 extends Component {
     this.setState({
       startTime: new Date()
     });
+  }
+
+  canSubmit() {
+    return Object.values(this.state.data).every(v => !!v);
   }
 
   onChange(id, value) {
@@ -74,6 +78,7 @@ class Task1QuestionsPart4 extends Component {
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
+          value={this.state.data["be-in-automobile-accident"]}
           onChange={this.onChange}
         />
 
@@ -84,6 +89,7 @@ class Task1QuestionsPart4 extends Component {
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
+          value={this.state.data["becoming-divorced"]}
           onChange={this.onChange}
         />
 
@@ -94,6 +100,7 @@ class Task1QuestionsPart4 extends Component {
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
+          value={this.state.data["becoming-depressed"]}
           onChange={this.onChange}
         />
 
@@ -104,6 +111,7 @@ class Task1QuestionsPart4 extends Component {
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
+          value={this.state.data["develop-drinking-problem"]}
           onChange={this.onChange}
         />
 
@@ -114,10 +122,16 @@ class Task1QuestionsPart4 extends Component {
           minLabel="Not at All Likely"
           max={50}
           maxLabel="Extremely Likely"
+          value={this.state.data["being-mugged"]}
           onChange={this.onChange}
         />
 
-        <PageNavigation beforeNavigate={this.saveResults} to="/task/1/outro" />
+        <PageNavigation
+          disabled={!this.canSubmit()}
+          disabledMsg="Please answer all questions"
+          beforeNavigate={this.saveResults}
+          to="/task/1/outro"
+        />
       </div>
     );
   }

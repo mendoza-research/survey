@@ -9,7 +9,6 @@ class RangeSlider extends Component {
     super(props);
 
     this.state = {
-      value: null,
       step: null,
       markStep: null,
       markPoints: null,
@@ -18,14 +17,6 @@ class RangeSlider extends Component {
     };
 
     this.setValue = this.setValue.bind(this);
-  }
-
-  componentDidMount() {
-    const { min, max } = this.props;
-
-    this.setState({
-      value: min + (max - min) / 2
-    });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -64,14 +55,22 @@ class RangeSlider extends Component {
 
     value = filter ? filter(value) : value;
 
-    this.setState({ value }, () => {
-      onChange(id, value);
-    });
+    onChange(id, value);
   }
 
   render() {
-    const { min, minLabel, centerLabel, max, maxLabel, text } = this.props;
-    const { step, marks, value, labelWrapperClassStr } = this.state;
+    const {
+      value,
+      min,
+      minLabel,
+      centerLabel,
+      max,
+      maxLabel,
+      text
+    } = this.props;
+    const { step, marks, labelWrapperClassStr } = this.state;
+
+    console.log(`slider value=${value}`);
 
     return (
       <div className="range-slider-wrapper">

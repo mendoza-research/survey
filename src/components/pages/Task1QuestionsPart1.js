@@ -12,12 +12,12 @@ class Task1QuestionsPart1 extends Component {
       endTime: null,
       duration: null,
       data: {
-        "how-well": 0,
-        "how-likely-to-pass": 0,
-        "what-grade": 70,
-        "how-difficult-earn-b-or-higher": 0,
-        "how-useful-professor-advice": 0,
-        "how-much-discretion": 0
+        "how-well": null,
+        "how-likely-to-pass": null,
+        "what-grade": null,
+        "how-difficult-earn-b-or-higher": null,
+        "how-useful-professor-advice": null,
+        "how-much-discretion": null
       }
     };
 
@@ -38,6 +38,10 @@ class Task1QuestionsPart1 extends Component {
         [id]: value
       }
     });
+  }
+
+  canSubmit() {
+    return Object.values(this.state.data).every(v => !!v);
   }
 
   async saveResults() {
@@ -71,6 +75,7 @@ class Task1QuestionsPart1 extends Component {
           minLabel="Not At All Well"
           max={50}
           maxLabel="Very Well"
+          value={this.state.data["how-well"]}
           onChange={this.onChange}
         />
 
@@ -81,6 +86,7 @@ class Task1QuestionsPart1 extends Component {
           minLabel="Not At All Likely"
           max={50}
           maxLabel="Very Likely"
+          value={this.state.data["how-likely-to-pass"]}
           onChange={this.onChange}
         />
 
@@ -89,6 +95,7 @@ class Task1QuestionsPart1 extends Component {
           text="Given the steps you chose, what grade (in percentage) do you think you will earn?"
           min={40}
           max={100}
+          value={this.state.data["what-grade"]}
           customMarks={{
             40: "Less than 50%",
             50: "50%",
@@ -111,6 +118,7 @@ class Task1QuestionsPart1 extends Component {
           minLabel="Not At All Difficult"
           max={50}
           maxLabel="Very Difficult"
+          value={this.state.data["how-difficult-earn-b-or-higher"]}
           onChange={this.onChange}
         />
 
@@ -121,6 +129,7 @@ class Task1QuestionsPart1 extends Component {
           minLabel="Not At All Useful"
           max={50}
           maxLabel="Very Useful"
+          value={this.state.data["how-useful-professor-advice"]}
           onChange={this.onChange}
         />
 
@@ -131,10 +140,13 @@ class Task1QuestionsPart1 extends Component {
           minLabel="Very little discretion"
           max={50}
           maxLabel="A lot of discretion"
+          value={this.state.data["how-much-discretion"]}
           onChange={this.onChange}
         />
 
         <PageNavigation
+          disabled={!this.canSubmit()}
+          disabledMsg="Please answer all questions"
           beforeNavigate={this.saveResults}
           to="/task/1/questions/2"
         />
