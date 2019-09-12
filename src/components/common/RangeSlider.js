@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import Slider from "rc-slider";
+import Slider, { createSliderWithTooltip } from "rc-slider";
+import Checkmark from "./Checkmark";
 import "rc-slider/assets/index.css";
 const _ = require("lodash");
 const className = require("classnames");
+
+const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 class RangeSlider extends Component {
   constructor(props) {
@@ -72,11 +75,20 @@ class RangeSlider extends Component {
 
     return (
       <div className="range-slider-wrapper">
-        {text && <p className="text">{text}</p>}
+        {text && (
+          <p className="text">
+            <Checkmark show={value !== undefined && value !== null} />
+            {text}
+          </p>
+        )}
         <div className="range-slider">
-          <Slider
+          <SliderWithTooltip
             min={min}
             max={max}
+            tipFormatter={v => {
+              console.log(v);
+              return v;
+            }}
             step={step}
             marks={marks}
             value={value}

@@ -165,6 +165,13 @@ label:hover:before {
 
   .text {
     margin-bottom: 20px;
+    position: relative;
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: -30px;
+    }
   }
 
   .range-slider {

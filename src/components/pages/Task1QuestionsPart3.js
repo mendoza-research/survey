@@ -40,7 +40,7 @@ class Task1QuestionsPart3 extends Component {
   }
 
   canSubmit() {
-    return Object.values(this.state.data).every(v => !!v);
+    return Object.values(this.state.data).every(v => v !== undefined);
   }
 
   async saveResults() {

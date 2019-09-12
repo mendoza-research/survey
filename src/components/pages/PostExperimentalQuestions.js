@@ -12,12 +12,12 @@ class PostExperimentalQuestions extends Component {
       endTime: null,
       duration: null,
       data: {
-        "how-motivated": null,
-        "focus-accuracy-or-speed": null,
-        "how-accurate": null,
-        "performance-satisfaction": null,
-        "right-strategy": null,
-        "enjoy-task": null
+        "how-motivated": undefined,
+        "focus-accuracy-or-speed": undefined,
+        "how-accurate": undefined,
+        "performance-satisfaction": undefined,
+        "right-strategy": undefined,
+        "enjoy-task": undefined
       }
     };
 
@@ -41,7 +41,7 @@ class PostExperimentalQuestions extends Component {
   }
 
   canSubmit() {
-    return Object.values(this.state.data).every(v => !!v);
+    return Object.values(this.state.data).every(v => v !== undefined);
   }
 
   async saveResults() {
