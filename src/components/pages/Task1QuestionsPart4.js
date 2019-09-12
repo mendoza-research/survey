@@ -12,11 +12,11 @@ class Task1QuestionsPart4 extends Component {
       endTime: null,
       duration: null,
       data: {
-        "be-in-automobile-accident": null,
-        "becoming-divorced": null,
-        "becoming-depressed": null,
-        "develop-drinking-problem": null,
-        "being-mugged": null
+        "be-in-automobile-accident": undefined,
+        "becoming-divorced": undefined,
+        "becoming-depressed": undefined,
+        "develop-drinking-problem": undefined,
+        "being-mugged": undefined
       }
     };
 

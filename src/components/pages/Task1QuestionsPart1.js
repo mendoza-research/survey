@@ -12,12 +12,12 @@ class Task1QuestionsPart1 extends Component {
       endTime: null,
       duration: null,
       data: {
-        "how-well": null,
-        "how-likely-to-pass": null,
-        "what-grade": null,
-        "how-difficult-earn-b-or-higher": null,
-        "how-useful-professor-advice": null,
-        "how-much-discretion": null
+        "how-well": undefined,
+        "how-likely-to-pass": undefined,
+        "what-grade": undefined,
+        "how-difficult-earn-b-or-higher": undefined,
+        "how-useful-professor-advice": undefined,
+        "how-much-discretion": undefined
       }
     };
 

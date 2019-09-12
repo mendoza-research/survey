@@ -70,8 +70,6 @@ class RangeSlider extends Component {
     } = this.props;
     const { step, marks, labelWrapperClassStr } = this.state;
 
-    console.log(`slider value=${value}`);
-
     return (
       <div className="range-slider-wrapper">
         {text && <p className="text">{text}</p>}

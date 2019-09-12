@@ -12,11 +12,11 @@ class Task1QuestionsPart2 extends Component {
       endTime: null,
       duration: null,
       data: {
-        "complete-schoolwork-promptly": null,
-        "attend-all-classes": null,
-        "spend-more-time-at-the-library": null,
-        "be-prepared-for-tests": null,
-        "increase-motivation": null
+        "complete-schoolwork-promptly": undefined,
+        "attend-all-classes": undefined,
+        "spend-more-time-at-the-library": undefined,
+        "be-prepared-for-tests": undefined,
+        "increase-motivation": undefined
       }
     };
 

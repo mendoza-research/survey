@@ -25,7 +25,7 @@ class GeneralQuestions extends Component {
         gender: null,
         "highest-level-of-education": null,
         "average-gpa": null,
-        "teachers-guidance": 50,
+        "teachers-guidance": null,
         "num-accounting-courses": null,
         "num-finance-courses": null,
         "invested-before": null,
@@ -53,7 +53,7 @@ class GeneralQuestions extends Component {
   }
 
   canSubmit() {
-    return Object.values(this.state.data).every(v => v !== null);
+    return Object.values(this.state.data).every(v => !!v);
   }
 
   async submit() {
@@ -187,6 +187,7 @@ class GeneralQuestions extends Component {
             minLabel="Not often at all"
             max={100}
             maxLabel="Very often"
+            value={this.state.data["teachers-guidance"]}
             onChange={this.onChange}
           />
         </div>
