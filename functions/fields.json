@@ -37,8 +37,56 @@
     "value": "pages.task1-procedures.duration"
   },
   {
-    "label": "task1-procedures.procedures",
-    "value": "pages.task1-procedures.data.procedures"
+    "label": "task1-procedures.read-textbook",
+    "value": "pages.task1-procedures.data.read-textbook"
+  },
+  {
+    "label": "task1-procedures.take-notes",
+    "value": "pages.task1-procedures.data.take-notes"
+  },
+  {
+    "label": "task1-procedures.participate-every-class",
+    "value": "pages.task1-procedures.data.participate-every-class"
+  },
+  {
+    "label": "task1-procedures.study-for-exams",
+    "value": "pages.task1-procedures.data.study-for-exams"
+  },
+  {
+    "label": "task1-procedures.do-homework",
+    "value": "pages.task1-procedures.data.do-homework"
+  },
+  {
+    "label": "task1-procedures.follow-news",
+    "value": "pages.task1-procedures.data.follow-news"
+  },
+  {
+    "label": "task1-procedures.try-textbook-problems",
+    "value": "pages.task1-procedures.data.try-textbook-problems"
+  },
+  {
+    "label": "task1-procedures.hire-tutor",
+    "value": "pages.task1-procedures.data.hire-tutor"
+  },
+  {
+    "label": "task1-procedures.print-slides-to-class",
+    "value": "pages.task1-procedures.data.print-slides-to-class"
+  },
+  {
+    "label": "task1-procedures.review-lecture-slides",
+    "value": "pages.task1-procedures.data.review-lecture-slides"
+  },
+  {
+    "label": "task1-procedures.do-practice-exams",
+    "value": "pages.task1-procedures.data.do-practice-exams"
+  },
+  {
+    "label": "task1-procedures.visit-office-hours",
+    "value": "pages.task1-procedures.data.visit-office-hours"
+  },
+  {
+    "label": "task1-procedures.attend-every-class",
+    "value": "pages.task1-procedures.data.attend-every-class"
   },
   {
     "label": "task1-questions1.startTime",
@@ -190,6 +238,7 @@
   { "label": "task2-quiz.startTime", "value": "pages.task2-quiz.startTime" },
   { "label": "task2-quiz.endTime", "value": "pages.task2-quiz.endTime" },
   { "label": "task2-quiz.duration", "value": "pages.task2-quiz.duration" },
+  { "label": "task2-quiz.numCorrect", "value": "pages.task2-quiz.numCorrect" },
   { "label": "task2-quiz.0.answer", "value": "pages.task2-quiz.data.0.answer" },
   {
     "label": "task2-quiz.0.duration",
@@ -587,6 +636,10 @@
   {
     "label": "task2-recall.duration",
     "value": "pages.task2-word-recall-questions.duration"
+  },
+  {
+    "label": "task2-recall.numCorrect",
+    "value": "pages.task2-word-recall-questions.numCorrect"
   },
   {
     "label": "task2-recall.0.seen",

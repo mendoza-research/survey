@@ -60,8 +60,8 @@ class Task2Instructions extends Component {
         <h2>Instructions for Task 2:</h2>
 
         <p>
-          In this task, you will be presented with 50 strings of d's and p's
-          with apostrophes written above and below each letter. For example:
+          In this task, you will be presented with strings of d's and p's with
+          apostrophes written above and below each letter. For example:
         </p>
 
         <StringBlock
@@ -83,8 +83,10 @@ class Task2Instructions extends Component {
         />
 
         <p>
-          Work as quickly and as accurately as you can. Type in your response
-          using the keys labeled 4 through 7 on the keyboard.
+          Work as quickly and as accurately as you can. You will see 50
+          different strings of d's and p's, each one presented on its own page.
+          For each page, type in your response using the keys labeled 4 through
+          7 on the keyboard.
         </p>
 
         <p>If you are ready to begin, click next.</p>

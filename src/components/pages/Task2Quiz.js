@@ -25,6 +25,7 @@ class Task2Quiz extends Component {
       duration: null,
       currentIndex: 0,
       displayMode: SHOW_STRING,
+      numCorrect: 0,
       data: []
     };
 
@@ -54,10 +55,31 @@ class Task2Quiz extends Component {
     const duration = (endTime - this.state.startTime) / 1000;
 
     return new Promise((resolve, reject) => {
+      const numCorrect = this.state.data.reduce(
+        (accNumCorrect, answerObj, idx) => {
+          const answer = answerObj.answer;
+          const block = quizStrings[idx];
+          const correctAnswer = [...block.string].reduce(
+            (acc, char, charIdx) => {
+              return (
+                acc +
+                (char === "d" &&
+                  block.top[charIdx] + block.bottom[charIdx] === 2)
+              );
+            },
+            0
+          );
+
+          return accNumCorrect + (answer === correctAnswer);
+        },
+        0
+      );
+
       this.setState(
         {
           startTime: this.state.startTime.toISOString(),
           endTime: endTime.toISOString(),
+          numCorrect,
           duration
         },
         async () => {
@@ -65,6 +87,7 @@ class Task2Quiz extends Component {
             startTime: this.state.startTime,
             endTime: this.state.endTime,
             duration: this.state.duration,
+            numCorrect: this.state.numCorrect,
             data: this.state.data
           });
 

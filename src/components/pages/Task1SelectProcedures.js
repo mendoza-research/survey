@@ -3,8 +3,6 @@ import PageNavigation from "./../common/PageNavigation";
 import Checkbox from "../common/Checkbox";
 import SurveyContext from "../../context/SurveyContext";
 
-const _ = require("lodash");
-
 const CONDITION_COULD = "could";
 const CONDITION_SHOULD = "should";
 
@@ -75,19 +73,19 @@ class Task1SelectProcedures extends Component {
       duration: null,
       experimentCondition: null,
       data: {
-        "read-textbook": false,
-        "take-notes": false,
-        "participate-every-class": false,
-        "study-for-exams": false,
-        "do-homework": false,
-        "follow-news": false,
-        "try-textbook-problems": false,
-        "hire-tutor": false,
-        "print-slides-to-class": false,
-        "review-lecture-slides": false,
-        "do-practice-exams": false,
-        "visit-office-hours": false,
-        "attend-every-class": false
+        "read-textbook": 0,
+        "take-notes": 0,
+        "participate-every-class": 0,
+        "study-for-exams": 0,
+        "do-homework": 0,
+        "follow-news": 0,
+        "try-textbook-problems": 0,
+        "hire-tutor": 0,
+        "print-slides-to-class": 0,
+        "review-lecture-slides": 0,
+        "do-practice-exams": 0,
+        "visit-office-hours": 0,
+        "attend-every-class": 0
       }
     };
 
@@ -107,13 +105,13 @@ class Task1SelectProcedures extends Component {
     this.setState({
       data: {
         ...this.state.data,
-        [event.target.id]: !this.state[event.target.id]
+        [event.target.id]: this.state.data[event.target.id] === 0 ? 1 : 0
       }
     });
   }
 
   canSubmit() {
-    return Object.values(this.state.data).some(v => v === true);
+    return Object.values(this.state.data).some(v => v === 1);
   }
 
   async saveResults() {
@@ -128,23 +126,7 @@ class Task1SelectProcedures extends Component {
           duration
         },
         async () => {
-          const processedState = _.cloneDeep(this.state);
-
-          const selectedProceduresIndices = [];
-          procedures.forEach((procedure, idx) => {
-            if (this.state.data[procedure.id] === true) {
-              selectedProceduresIndices.push(idx + 1);
-            }
-          });
-
-          processedState.data = {
-            procedures: selectedProceduresIndices.join(",")
-          };
-
-          await this.context.addUserResponse(
-            "task1-procedures",
-            processedState
-          );
+          await this.context.addUserResponse("task1-procedures", this.state);
           resolve();
         }
       );

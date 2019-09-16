@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import SurveyContext from "../../context/SurveyContext";
+import quizStrings from "../../data/task2_strings.json";
 import words from "../../data/task2_word_recall_questions.json";
 
 class Task2WordRecallQuestions extends Component {
@@ -12,6 +13,7 @@ class Task2WordRecallQuestions extends Component {
       endTime: null,
       duration: null,
       currentIndex: 0,
+      numCorrect: 0,
       data: []
     };
 
@@ -33,10 +35,28 @@ class Task2WordRecallQuestions extends Component {
     const duration = (endTime - this.state.startTime) / 1000;
 
     return new Promise((resolve, reject) => {
+      const flashedWords = quizStrings.reduce((wordsAcc, block) => {
+        return block.hasOwnProperty("word")
+          ? [...wordsAcc, block.word]
+          : wordsAcc;
+      }, []);
+
+      const numCorrect = this.state.data.reduce(
+        (accNumCorrect, answerObj, idx) => {
+          return (
+            accNumCorrect +
+            ((answerObj.seen && flashedWords.includes(words[idx])) ||
+              (!answerObj.seen && !flashedWords.includes(words[idx])))
+          );
+        },
+        0
+      );
+
       this.setState(
         {
           startTime: this.state.startTime.toISOString(),
           endTime: endTime.toISOString(),
+          numCorrect,
           duration
         },
         async () => {
@@ -44,6 +64,7 @@ class Task2WordRecallQuestions extends Component {
             startTime: this.state.startTime,
             endTime: this.state.endTime,
             duration: this.state.duration,
+            numCorrect: this.state.numCorrect,
             data: this.state.data
           });
 
