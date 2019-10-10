@@ -21,6 +21,7 @@ import GeneralQuestions from "./pages/GeneralQuestions";
 import Outro from "./pages/Outro";
 import Admin from "./pages/Admin";
 import MTurkID from "./pages/MTurkID";
+import ConsentForm from "./pages/ConsentForm";
 
 const axios = require("axios");
 // Production firebase URL
@@ -165,10 +166,16 @@ class App extends Component {
                       <RouteContainer key={location.pathname}>
                         <Switch location={location}>
                           <Route
-                            component={MTurkID}
+                            component={ConsentForm}
                             exact
                             path="/"
-                            key="home"
+                            key="consent-form"
+                          />
+                          <Route
+                            component={MTurkID}
+                            exact
+                            path="/mturk-id"
+                            key="mturk-id"
                           />
                           <Route
                             component={Intro}
