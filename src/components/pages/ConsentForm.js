@@ -89,7 +89,7 @@ class ConsentForm extends Component {
 
                 <PageNavigation
                     beforeNavigate={this.saveResults}
-                    to="/task/1/instructions"
+                    to="/mturk-id"
                 />
             </div>
         );
