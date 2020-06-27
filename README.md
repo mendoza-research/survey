@@ -1,7 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ac68c6cf-6aef-49d1-a79b-5abb0ef36ce3/deploy-status)](https://app.netlify.com/sites/kimendoz-survey/deploys)
 
 ## Site preview
-[https://kimendoz-survey.netlify.com/](https://kimendoz-survey.netlify.com/). 
+[https://kimendoz-survey.netlify.app/](https://kimendoz-survey.netlify.app/). 
 
 ## Running a local server
 To run the site in local environment, below programs are required. 
